@@ -1,9 +1,9 @@
 # Dataprocessing project: Global Terrorism
-A webpage that visualizes trends of terrorist attacks from the last 50 years. Information can be specified per country and/or per year.
+A webpage that visualizes trends of terrorist attacks from the last 20 years. Information can be specified per country and/or per year.
 
 											By Kimberley Boersma
 #### Problem statement:
-There is a big database available that contains information about worldwide terrorist attacks from the period 1970-2017. This database is currently still being maintained for the Study of Terrorism and Responses to Terrorism (START), headquartered at the University of Maryland.
+There is a big database available that contains information about worldwide terrorist attacks from the period 2000-2017. This database is currently still being maintained for the Study of Terrorism and Responses to Terrorism (START), headquartered at the University of Maryland.
 
 Since terrorism has been in the news a lot the past couple of years, there is a lot more interest around this topic. People might feel like the amount of terrorist attacks has increased over time because of the media awareness. It would be interesting to visualize the trend in terrorist attacks of the last decades and see if the attack rates have indeed increased. Furthermore, there might also be trends in *attack types*, *target types*, *location*, *terrorist group* that could lead to informative visualizations.
 
