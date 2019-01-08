@@ -27,7 +27,7 @@ Interesting variables to visualize in this dataset could be:
 - amount of terrorist attacks every day per country per year in a bar chart (so 365 bars)
 - amount of terrorist attacks between 2000 and 2017 of several countries (select in check box) in multiple line chart
 
-![Global Terrorism Diagram](https://github.com/kim66003/project/blob/master/doc/worldmap.png)
+![Global Terrorism Diagram](https://github.com/kim66003/project/blob/master/doc/diagram.png)
     
 #### D3 plugins:
 I will most likely use these plugins:
