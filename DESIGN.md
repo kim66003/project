@@ -7,7 +7,7 @@ This is a database with records of terrorist attacks within the period 1970 - 20
 Furthermore I analyzed all the variables in the database and decided which were most useful to visualize. There were initially 135 columns and after filtering this was reduced to 61 columns.
 I converted the filtered dataset from csv to a json file. This json file is indexed on the unique event ID's. 
 
-An example of the format of my json file:
+An example of the format of my json file:<br>
 {"eventid": {<br>
 		*information about event like:*<br>
 		year: 2003<br>
