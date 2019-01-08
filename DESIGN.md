@@ -8,13 +8,13 @@ Furthermore I analyzed all the variables in the database and decided which were 
 I converted the filtered dataset from csv to a json file. This json file is indexed on the unique event ID's. 
 
 An example of the format of my json file:
-{"eventid": {
-		*information about event like:*\s\s
-		year: 2003\s\s
-		country: iraq\s\s
-		kills: 100\s\s
-		motive: political\s\s
-		etc...\s\s
+{"eventid": {<br>
+		*information about event like:*<br>
+		year: 2003<br>
+		country: iraq<br>
+		kills: 100<br>
+		motive: political<br>
+		etc...<br>
 	}}
 
 Interesting variables to visualize in this dataset could be: 
