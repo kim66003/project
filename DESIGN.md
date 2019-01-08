@@ -9,12 +9,12 @@ I converted the filtered dataset from csv to a json file. This json file is inde
 
 An example of the format of my json file:
 {"eventid": {
-		*information about event like:*
-		year: 2003
-		country: iraq
-		kills: 100
-		motive: political
-		etc...
+		*information about event like:*\s\s
+		year: 2003\s\s
+		country: iraq\s\s
+		kills: 100\s\s
+		motive: political\s\s
+		etc...\s\s
 	}}
 
 Interesting variables to visualize in this dataset could be: 
