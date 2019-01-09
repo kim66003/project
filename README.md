@@ -15,20 +15,22 @@ Definition of terrorism
 <br/>
 
 #### Solution:
-The project will consist of a website with an interactive worldmap on the frontpage with small and big circles to indicate where most terrorist attacks take place. When the user hovers over a circle, some information is provided like the date, location, type of attack, target type and terrorist group. The website will also include some plots like a linear graph, bar charts, histograms and scatter plots to provide statistical information on terrorist attacks.
+The project will consist of a website with an interactive heat map of the world on the frontpage. Countries with higher attack rates per year will have a darker colour. The website will also include two other interactive plots like a line graph and a donut chart to provide statistical information on terrorist attacks.
 
 **Main features**
 Minimum viable product:
 * Interactive worldmap
-* Linear graph(s)
-* Bar graph
-* Histogram and/or scatterplot
-* Two dropdown menus (country and year)
+* Multiple line graph
+* Donut chart
+* Dropdown menu (countries)
+* Slider (years)
+* Dropdown check menu (choose categorial variable)
 
 Optional:
 * Redirect to page with a *list* of terrorist attacks when user chooses specific country or year
 * Show short *description* of terrorist attack when user clicks on attack name in this list
 * Provide link to original newsreport under these *descriptions*
+* Bar chart/histogram
 
 #### Prerequisites:
 Data source(s):

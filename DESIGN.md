@@ -38,6 +38,7 @@ In this diagram you can see that I will start with a csv file, which will be fil
 I will most likely use these plugins:
 - Bootstrap
 - jQuery
+- TopoJSON
 - d3 - tip
 - d3 - legend
 - and more to come...
