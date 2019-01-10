@@ -6,9 +6,9 @@ window.onload = function() {
   Promise.all(requests).then(function(response) {
       globterr = response[0]
       keys = Object.keys(globterr)
-      // console.log(keys)
+      console.log(keys)
       values = Object.values(globterr)
-      // console.log(values)
+      console.log(values)
       // keys.forEach(function(d){
       //   console.log("hoi")
       //   // console.log(globterr[d]["iyear"])
@@ -16,11 +16,9 @@ window.onload = function() {
       for (key in globterr) {
         columns = []
         events = globterr[key]
-        for (column in events) {
-          columns.push(column)
-        }
+        columns = Object.keys(events)
       }
-      console.log(columns)
+      console.log(globterr[keys[0]][columns[0]])
   }).catch(function(e){
       throw(e);
   });

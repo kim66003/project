@@ -6,6 +6,11 @@ HTML file to show project webpage -->
 <html lang="en">
     <head>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
       <link rel="stylesheet" href="style.css">
       <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
       <script type="text/javascript" src="globalterrorism.js"></script>
@@ -13,11 +18,80 @@ HTML file to show project webpage -->
       <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
       <script src="http://d3js.org/topojson.v1.min.js"></script>
       <!-- <script src="../d3/d3-tip.js"></script> -->
-      <link rel="shortcut icon" type="image/png" href="../img/chesire.png">
+      <link rel="shortcut icon" type="image/png" href="img/chesire.png">
       <title>Global terrorism</title>
     </head>
     <body>
-      <h2>Global terrorism</h2>
-      <p>By Kimberley Boersma <br> 11003464 <br></p>
+
+      <!-- <img src="img/terrorism__shahrokh_heidari.jpeg" alt="Cartoon terrorism"> -->
+      <div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/terrorism__shahrokh_heidari.jpeg" alt="Cartoon terrorism">
+      <div class="carousel-caption">
+    <h3>Cartoon by Shahrokh Heidari</h3>
+    <p>Terrorism not only reminds us of the fragility of human life, but also the fragility of our humanity.</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/toureiffel.jpg" alt="Eiffel tower">
+      <div class="carousel-caption">
+    <h3>Eiffel tower lit with French flag</h3>
+    <p>The Eiffel tower was lit with the three colours of the French flags to memorialize the people who were killed during the Paris attacks.</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/ancientaleppo.jpg" alt="Umayya Mosque">
+      <div class="carousel-caption">
+    <h3>Remains of the Umayya Mosque in Aleppo</h3>
+    <p>This is what remains of the Umayya Mosque after the war in Syria.</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/citadelaleppo.jpg" alt="Citadel of Aleppo">
+      <div class="carousel-caption">
+    <h3>Citadel of Aleppo</h3>
+    <p>60 percent of the old city of Aleppo has been severely damaged, with 30 percent totally destroyed by the war.</p>
+  </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: #500572;">
+<a class="navbar-brand" href="/index.html">Global Terrorism</a>
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/story.html">Story</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/visualisations.html">Visualisations</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/info.html">Info</a>
+</li>
+</ul>
+</nav>
+
+
+
     </body>
 </html>

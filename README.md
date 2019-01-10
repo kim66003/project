@@ -47,6 +47,3 @@ Hardest parts:
 * Interactive world map
 * Redirecting to new page when clicking on visualization
 * Show the correct data when user chooses country and/or year
-
-
- https://kim66003.github.io/project/
