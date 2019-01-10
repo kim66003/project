@@ -1,6 +1,6 @@
 window.onload = function() {
 
-  input = "../data/globalterrorism.json"
+  input = "../data/globalterrorismcopy.json"
   var requests = [d3.json(input)];
 
   Promise.all(requests).then(function(response) {
