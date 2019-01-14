@@ -1,0 +1,1531 @@
+,iyear,country_txt,count
+0,2000,Afghanistan,14
+1,2000,Albania,2
+2,2000,Algeria,138
+3,2000,Angola,22
+4,2000,Armenia,2
+5,2000,Australia,1
+6,2000,Azerbaijan,1
+7,2000,Bangladesh,23
+8,2000,Belize,1
+9,2000,Bosnia-Herzegovina,6
+10,2000,Brazil,2
+11,2000,Bulgaria,2
+12,2000,Burundi,17
+13,2000,Cambodia,4
+14,2000,Canada,5
+15,2000,Central African Republic,1
+16,2000,Chile,2
+17,2000,China,4
+18,2000,Colombia,137
+19,2000,Croatia,2
+20,2000,Cyprus,2
+21,2000,Democratic Republic of the Congo,3
+22,2000,East Timor,4
+23,2000,Ecuador,4
+24,2000,Ethiopia,1
+25,2000,Fiji,4
+26,2000,France,28
+27,2000,Gambia,1
+28,2000,Georgia,7
+29,2000,Germany,8
+30,2000,Greece,28
+31,2000,Guatemala,1
+32,2000,Guinea,12
+33,2000,Haiti,9
+34,2000,Hong Kong,2
+35,2000,India,180
+36,2000,Indonesia,101
+37,2000,Iran,15
+38,2000,Iraq,10
+39,2000,Israel,15
+40,2000,Italy,8
+41,2000,Ivory Coast,2
+42,2000,Japan,13
+43,2000,Jordan,2
+44,2000,Kazakhstan,1
+45,2000,Kenya,4
+46,2000,Kosovo,60
+47,2000,Kyrgyzstan,4
+48,2000,Laos,8
+49,2000,Latvia,3
+50,2000,Lebanon,12
+51,2000,Liberia,1
+52,2000,Macedonia,3
+53,2000,Malaysia,3
+54,2000,Mexico,4
+55,2000,Moldova,1
+56,2000,Mozambique,3
+57,2000,Namibia,21
+58,2000,Nepal,23
+59,2000,Netherlands,1
+60,2000,Nicaragua,1
+61,2000,Nigeria,6
+62,2000,Pakistan,49
+63,2000,Panama,1
+64,2000,Paraguay,2
+65,2000,Peru,3
+66,2000,Philippines,132
+67,2000,Qatar,1
+68,2000,Russia,138
+69,2000,Rwanda,1
+70,2000,Saudi Arabia,5
+71,2000,Senegal,4
+72,2000,Sierra Leone,24
+73,2000,Slovak Republic,1
+74,2000,Slovenia,1
+75,2000,Solomon Islands,1
+76,2000,Somalia,9
+77,2000,South Africa,21
+78,2000,Spain,112
+79,2000,Sri Lanka,68
+80,2000,St. Lucia,1
+81,2000,Sudan,7
+82,2000,Sweden,1
+83,2000,Switzerland,4
+84,2000,Tajikistan,6
+85,2000,Tanzania,2
+86,2000,Thailand,4
+87,2000,Tunisia,1
+88,2000,Turkey,35
+89,2000,Uganda,20
+90,2000,Ukraine,1
+91,2000,United Kingdom,61
+92,2000,United States,32
+93,2000,West Bank and Gaza Strip,28
+94,2000,Yemen,10
+95,2000,Yugoslavia,14
+96,2000,Zambia,8
+97,2000,Zimbabwe,1
+98,2001,Afghanistan,14
+99,2001,Albania,1
+100,2001,Algeria,113
+101,2001,Angola,40
+102,2001,Argentina,2
+103,2001,Armenia,2
+104,2001,Australia,2
+105,2001,Azerbaijan,4
+106,2001,Bangladesh,15
+107,2001,Belarus,1
+108,2001,Bosnia-Herzegovina,2
+109,2001,Brazil,3
+110,2001,Bulgaria,1
+111,2001,Burundi,37
+112,2001,Cambodia,7
+113,2001,Central African Republic,1
+114,2001,Chile,3
+115,2001,China,12
+116,2001,Colombia,207
+117,2001,Costa Rica,1
+118,2001,Croatia,3
+119,2001,Cyprus,1
+120,2001,Czech Republic,1
+121,2001,Democratic Republic of the Congo,5
+122,2001,Ecuador,5
+123,2001,Estonia,1
+124,2001,Fiji,1
+125,2001,France,21
+126,2001,Georgia,4
+127,2001,Germany,8
+128,2001,Greece,14
+129,2001,Guatemala,2
+130,2001,Guinea-Bissau,1
+131,2001,Guyana,1
+132,2001,Haiti,5
+133,2001,Hong Kong,1
+134,2001,Hungary,1
+135,2001,India,234
+136,2001,Indonesia,105
+137,2001,Iran,4
+138,2001,Iraq,3
+139,2001,Ireland,2
+140,2001,Israel,79
+141,2001,Italy,11
+142,2001,Ivory Coast,1
+143,2001,Japan,3
+144,2001,Jordan,2
+145,2001,Kazakhstan,1
+146,2001,Kenya,7
+147,2001,Kosovo,17
+148,2001,Kuwait,2
+149,2001,Kyrgyzstan,1
+150,2001,Laos,1
+151,2001,Lebanon,5
+152,2001,Liberia,3
+153,2001,Macedonia,67
+154,2001,Malaysia,1
+155,2001,Mexico,7
+156,2001,Montenegro,1
+157,2001,Myanmar,3
+158,2001,Namibia,6
+159,2001,Nepal,33
+160,2001,Netherlands,1
+161,2001,New Zealand,1
+162,2001,Nigeria,5
+163,2001,Norway,1
+164,2001,Pakistan,53
+165,2001,Peru,3
+166,2001,Philippines,50
+167,2001,Poland,1
+168,2001,Qatar,1
+169,2001,Republic of the Congo,1
+170,2001,Russia,135
+171,2001,Rwanda,2
+172,2001,Saudi Arabia,3
+173,2001,Senegal,8
+174,2001,Somalia,5
+175,2001,South Korea,1
+176,2001,Spain,79
+177,2001,Sri Lanka,36
+178,2001,Sudan,9
+179,2001,Switzerland,2
+180,2001,Taiwan,2
+181,2001,Tajikistan,6
+182,2001,Tanzania,4
+183,2001,Thailand,14
+184,2001,Tunisia,1
+185,2001,Turkey,19
+186,2001,Uganda,24
+187,2001,United Kingdom,94
+188,2001,United States,41
+189,2001,Venezuela,5
+190,2001,Vietnam,4
+191,2001,West Bank and Gaza Strip,123
+192,2001,Yemen,7
+193,2001,Yugoslavia,20
+194,2001,Zimbabwe,3
+195,2002,Afghanistan,38
+196,2002,Algeria,132
+197,2002,Angola,6
+198,2002,Azerbaijan,1
+199,2002,Bangladesh,5
+200,2002,Belgium,3
+201,2002,Bosnia-Herzegovina,3
+202,2002,Brazil,1
+203,2002,Bulgaria,1
+204,2002,Burundi,18
+205,2002,Cambodia,3
+206,2002,Chad,4
+207,2002,Chile,1
+208,2002,China,2
+209,2002,Colombia,150
+210,2002,Democratic Republic of the Congo,7
+211,2002,Ecuador,2
+212,2002,Ethiopia,3
+213,2002,France,32
+214,2002,Georgia,2
+215,2002,Germany,3
+216,2002,Greece,11
+217,2002,Guyana,1
+218,2002,Haiti,2
+219,2002,Honduras,1
+220,2002,India,184
+221,2002,Indonesia,43
+222,2002,International,1
+223,2002,Iraq,6
+224,2002,Israel,75
+225,2002,Italy,7
+226,2002,Ivory Coast,1
+227,2002,Japan,2
+228,2002,Jordan,2
+229,2002,Kenya,2
+230,2002,Kosovo,5
+231,2002,Kuwait,1
+232,2002,Kyrgyzstan,2
+233,2002,Lebanon,8
+234,2002,Liberia,3
+235,2002,Macedonia,8
+236,2002,Madagascar,5
+237,2002,Malawi,1
+238,2002,Myanmar,4
+239,2002,Nepal,58
+240,2002,Netherlands,2
+241,2002,Nigeria,6
+242,2002,Pakistan,46
+243,2002,Papua New Guinea,1
+244,2002,Peru,2
+245,2002,Philippines,48
+246,2002,Republic of the Congo,3
+247,2002,Russia,89
+248,2002,Saudi Arabia,2
+249,2002,Senegal,3
+250,2002,Solomon Islands,1
+251,2002,Somalia,3
+252,2002,South Africa,8
+253,2002,Spain,41
+254,2002,Sri Lanka,3
+255,2002,Sudan,13
+256,2002,Tanzania,2
+257,2002,Thailand,12
+258,2002,Tunisia,1
+259,2002,Turkey,5
+260,2002,Turkmenistan,1
+261,2002,Uganda,24
+262,2002,Ukraine,3
+263,2002,United Kingdom,21
+264,2002,United States,33
+265,2002,Venezuela,5
+266,2002,West Bank and Gaza Strip,86
+267,2002,Yemen,7
+268,2002,Yugoslavia,3
+269,2002,Zambia,1
+270,2002,Zimbabwe,8
+271,2003,Afghanistan,100
+272,2003,Albania,1
+273,2003,Algeria,75
+274,2003,Argentina,1
+275,2003,Bahrain,1
+276,2003,Bangladesh,4
+277,2003,Belgium,8
+278,2003,Bolivia,1
+279,2003,Bosnia-Herzegovina,1
+280,2003,Brazil,1
+281,2003,Burundi,18
+282,2003,Cambodia,1
+283,2003,Chile,2
+284,2003,China,3
+285,2003,Colombia,98
+286,2003,Czech Republic,1
+287,2003,Democratic Republic of the Congo,6
+288,2003,East Timor,2
+289,2003,Ecuador,4
+290,2003,Ethiopia,1
+291,2003,France,34
+292,2003,Georgia,6
+293,2003,Germany,2
+294,2003,Greece,12
+295,2003,Guatemala,3
+296,2003,Guinea-Bissau,1
+297,2003,Guyana,1
+298,2003,Haiti,5
+299,2003,India,196
+300,2003,Indonesia,18
+301,2003,Iran,2
+302,2003,Iraq,102
+303,2003,Ireland,1
+304,2003,Israel,38
+305,2003,Italy,15
+306,2003,Japan,2
+307,2003,Kenya,2
+308,2003,Kosovo,9
+309,2003,Kuwait,3
+310,2003,Kyrgyzstan,1
+311,2003,Laos,2
+312,2003,Lebanon,5
+313,2003,Liberia,2
+314,2003,Macedonia,5
+315,2003,Mexico,1
+316,2003,Morocco,5
+317,2003,Myanmar,9
+318,2003,Nepal,15
+319,2003,Netherlands,3
+320,2003,New Zealand,3
+321,2003,Nigeria,9
+322,2003,Norway,1
+323,2003,Pakistan,29
+324,2003,Peru,1
+325,2003,Philippines,107
+326,2003,Republic of the Congo,1
+327,2003,Russia,76
+328,2003,Saudi Arabia,8
+329,2003,Serbia-Montenegro,6
+330,2003,Solomon Islands,1
+331,2003,Somalia,1
+332,2003,South Korea,1
+333,2003,Spain,21
+334,2003,Sri Lanka,9
+335,2003,Swaziland,1
+336,2003,Switzerland,1
+337,2003,Thailand,6
+338,2003,Turkey,19
+339,2003,Uganda,30
+340,2003,Ukraine,1
+341,2003,United Kingdom,23
+342,2003,United States,33
+343,2003,Venezuela,8
+344,2003,West Bank and Gaza Strip,45
+345,2003,Yemen,7
+346,2003,Zimbabwe,1
+347,2004,Afghanistan,88
+348,2004,Algeria,67
+349,2004,Bangladesh,11
+350,2004,Burundi,1
+351,2004,Canada,2
+352,2004,China,2
+353,2004,Colombia,37
+354,2004,Cyprus,1
+355,2004,Democratic Republic of the Congo,5
+356,2004,Djibouti,1
+357,2004,Ecuador,2
+358,2004,Egypt,3
+359,2004,Ethiopia,2
+360,2004,France,11
+361,2004,Georgia,3
+362,2004,Germany,3
+363,2004,Greece,4
+364,2004,Guatemala,2
+365,2004,Haiti,2
+366,2004,Honduras,1
+367,2004,India,108
+368,2004,Indonesia,17
+369,2004,Iraq,323
+370,2004,Israel,19
+371,2004,Italy,3
+372,2004,Ivory Coast,1
+373,2004,Kosovo,1
+374,2004,Lebanon,1
+375,2004,Mauritania,1
+376,2004,Mexico,1
+377,2004,Myanmar,2
+378,2004,Nepal,62
+379,2004,Netherlands,1
+380,2004,Nigeria,6
+381,2004,Pakistan,67
+382,2004,Peru,3
+383,2004,Philippines,32
+384,2004,Russia,44
+385,2004,Saudi Arabia,17
+386,2004,Serbia-Montenegro,1
+387,2004,Somalia,1
+388,2004,Spain,31
+389,2004,Sri Lanka,33
+390,2004,Sudan,5
+391,2004,Syria,1
+392,2004,Taiwan,2
+393,2004,Tanzania,1
+394,2004,Thailand,44
+395,2004,Turkey,27
+396,2004,Uganda,10
+397,2004,United Kingdom,5
+398,2004,United States,9
+399,2004,Uzbekistan,5
+400,2004,West Bank and Gaza Strip,34
+401,2005,Afghanistan,155
+402,2005,Algeria,104
+403,2005,Argentina,3
+404,2005,Bangladesh,23
+405,2005,Bolivia,1
+406,2005,Bosnia-Herzegovina,1
+407,2005,Burundi,5
+408,2005,China,1
+409,2005,Colombia,42
+410,2005,Croatia,1
+411,2005,Democratic Republic of the Congo,5
+412,2005,East Timor,1
+413,2005,Egypt,2
+414,2005,Ethiopia,5
+415,2005,France,33
+416,2005,Georgia,6
+417,2005,Germany,3
+418,2005,Greece,6
+419,2005,Guinea,1
+420,2005,Guinea-Bissau,4
+421,2005,Haiti,1
+422,2005,Hong Kong,1
+423,2005,India,146
+424,2005,Indonesia,15
+425,2005,Iran,5
+426,2005,Iraq,617
+427,2005,Israel,43
+428,2005,Italy,6
+429,2005,Ivory Coast,1
+430,2005,Jordan,4
+431,2005,Kenya,2
+432,2005,Kosovo,8
+433,2005,Kuwait,2
+434,2005,Kyrgyzstan,2
+435,2005,Lebanon,17
+436,2005,Mali,1
+437,2005,Mauritania,1
+438,2005,Mexico,1
+439,2005,Myanmar,8
+440,2005,Nepal,70
+441,2005,Nigeria,9
+442,2005,Pakistan,77
+443,2005,Peru,2
+444,2005,Philippines,25
+445,2005,Qatar,1
+446,2005,Russia,64
+447,2005,Rwanda,1
+448,2005,Saudi Arabia,1
+449,2005,Senegal,1
+450,2005,Serbia-Montenegro,2
+451,2005,Somalia,6
+452,2005,Spain,24
+453,2005,Sri Lanka,133
+454,2005,Sudan,6
+455,2005,Sweden,3
+456,2005,Tajikistan,1
+457,2005,Thailand,155
+458,2005,Togo,1
+459,2005,Trinidad and Tobago,2
+460,2005,Turkey,41
+461,2005,Uganda,11
+462,2005,United Kingdom,29
+463,2005,United States,21
+464,2005,Uruguay,1
+465,2005,Uzbekistan,2
+466,2005,West Bank and Gaza Strip,38
+467,2005,Yemen,7
+468,2006,Afghanistan,282
+469,2006,Algeria,152
+470,2006,Australia,2
+471,2006,Austria,1
+472,2006,Bahrain,1
+473,2006,Bangladesh,23
+474,2006,Belarus,1
+475,2006,Bhutan,1
+476,2006,Bosnia-Herzegovina,1
+477,2006,Brazil,3
+478,2006,Burundi,5
+479,2006,Canada,2
+480,2006,Central African Republic,1
+481,2006,Chad,11
+482,2006,Chile,1
+483,2006,Colombia,43
+484,2006,Democratic Republic of the Congo,5
+485,2006,Egypt,5
+486,2006,Ethiopia,11
+487,2006,France,34
+488,2006,Georgia,3
+489,2006,Germany,4
+490,2006,Greece,23
+491,2006,Guatemala,4
+492,2006,Guinea-Bissau,1
+493,2006,Guyana,2
+494,2006,Haiti,1
+495,2006,India,167
+496,2006,Indonesia,10
+497,2006,Iran,14
+498,2006,Iraq,838
+499,2006,Ireland,1
+500,2006,Israel,81
+501,2006,Italy,4
+502,2006,Ivory Coast,3
+503,2006,Jordan,1
+504,2006,Kenya,2
+505,2006,Kosovo,6
+506,2006,Kyrgyzstan,3
+507,2006,Lebanon,8
+508,2006,Lesotho,1
+509,2006,Macedonia,3
+510,2006,Madagascar,1
+511,2006,Maldives,1
+512,2006,Mexico,7
+513,2006,Moldova,1
+514,2006,Myanmar,2
+515,2006,Nepal,83
+516,2006,Nigeria,37
+517,2006,Norway,1
+518,2006,Pakistan,164
+519,2006,Peru,1
+520,2006,Philippines,58
+521,2006,Russia,56
+522,2006,Saudi Arabia,3
+523,2006,Serbia-Montenegro,2
+524,2006,Somalia,10
+525,2006,South Korea,1
+526,2006,Spain,23
+527,2006,Sri Lanka,217
+528,2006,Sudan,24
+529,2006,Swaziland,1
+530,2006,Sweden,1
+531,2006,Syria,1
+532,2006,Thailand,202
+533,2006,Turkey,43
+534,2006,United Kingdom,6
+535,2006,United States,6
+536,2006,West Bank and Gaza Strip,35
+537,2006,Yemen,5
+538,2006,Zimbabwe,1
+539,2007,Afghanistan,341
+540,2007,Algeria,124
+541,2007,Armenia,1
+542,2007,Austria,1
+543,2007,Azerbaijan,1
+544,2007,Bangladesh,9
+545,2007,Belgium,1
+546,2007,Benin,1
+547,2007,Bolivia,3
+548,2007,Bosnia-Herzegovina,2
+549,2007,Burundi,3
+550,2007,Cameroon,1
+551,2007,Central African Republic,1
+552,2007,Chad,7
+553,2007,Chile,8
+554,2007,Colombia,30
+555,2007,Cuba,1
+556,2007,Cyprus,1
+557,2007,Democratic Republic of the Congo,11
+558,2007,East Timor,2
+559,2007,Eritrea,2
+560,2007,Ethiopia,5
+561,2007,Finland,1
+562,2007,France,16
+563,2007,Germany,3
+564,2007,Greece,15
+565,2007,Haiti,2
+566,2007,India,149
+567,2007,Indonesia,2
+568,2007,Iran,9
+569,2007,Iraq,1047
+570,2007,Ireland,1
+571,2007,Israel,53
+572,2007,Ivory Coast,1
+573,2007,Jamaica,1
+574,2007,Kenya,12
+575,2007,Kosovo,5
+576,2007,Kyrgyzstan,1
+577,2007,Latvia,1
+578,2007,Lebanon,18
+579,2007,Libya,1
+580,2007,Macedonia,1
+581,2007,Maldives,1
+582,2007,Mali,5
+583,2007,Mexico,10
+584,2007,Montenegro,1
+585,2007,Morocco,6
+586,2007,Mozambique,1
+587,2007,Myanmar,3
+588,2007,Nepal,90
+589,2007,Niger,7
+590,2007,Nigeria,61
+591,2007,Pakistan,260
+592,2007,Papua New Guinea,1
+593,2007,Peru,4
+594,2007,Philippines,65
+595,2007,Russia,51
+596,2007,Saudi Arabia,1
+597,2007,Senegal,1
+598,2007,Somalia,156
+599,2007,South Africa,2
+600,2007,Spain,11
+601,2007,Sri Lanka,132
+602,2007,Sudan,23
+603,2007,Switzerland,2
+604,2007,Tajikistan,1
+605,2007,Thailand,293
+606,2007,Tunisia,1
+607,2007,Turkey,29
+608,2007,Uganda,1
+609,2007,Ukraine,1
+610,2007,United Kingdom,20
+611,2007,United States,8
+612,2007,Venezuela,2
+613,2007,West Bank and Gaza Strip,88
+614,2007,Western Sahara,1
+615,2007,Yemen,7
+616,2007,Zimbabwe,1
+617,2008,Afghanistan,414
+618,2008,Algeria,107
+619,2008,Australia,3
+620,2008,Austria,7
+621,2008,Azerbaijan,2
+622,2008,Bahrain,1
+623,2008,Bangladesh,19
+624,2008,Belarus,1
+625,2008,Bhutan,3
+626,2008,Bosnia-Herzegovina,4
+627,2008,Bulgaria,2
+628,2008,Burundi,7
+629,2008,Cambodia,2
+630,2008,Cameroon,1
+631,2008,Canada,5
+632,2008,Central African Republic,2
+633,2008,Chad,8
+634,2008,Chile,4
+635,2008,China,20
+636,2008,Colombia,133
+637,2008,Croatia,2
+638,2008,Czech Republic,2
+639,2008,Democratic Republic of the Congo,20
+640,2008,Denmark,1
+641,2008,East Timor,1
+642,2008,Ecuador,2
+643,2008,Egypt,1
+644,2008,Eritrea,2
+645,2008,Ethiopia,8
+646,2008,Finland,1
+647,2008,France,13
+648,2008,Georgia,33
+649,2008,Germany,3
+650,2008,Greece,53
+651,2008,Guyana,3
+652,2008,Hong Kong,1
+653,2008,Hungary,2
+654,2008,India,534
+655,2008,Indonesia,13
+656,2008,Iran,8
+657,2008,Iraq,1106
+658,2008,Ireland,5
+659,2008,Israel,134
+660,2008,Italy,2
+661,2008,Japan,3
+662,2008,Kazakhstan,1
+663,2008,Kenya,11
+664,2008,Kosovo,11
+665,2008,Lebanon,58
+666,2008,Liberia,1
+667,2008,Libya,1
+668,2008,Macedonia,9
+669,2008,Malaysia,2
+670,2008,Maldives,1
+671,2008,Mali,9
+672,2008,Mauritania,2
+673,2008,Mexico,8
+674,2008,Myanmar,20
+675,2008,Nepal,120
+676,2008,Netherlands,1
+677,2008,New Zealand,5
+678,2008,Niger,9
+679,2008,Nigeria,76
+680,2008,Pakistan,568
+681,2008,Peru,1
+682,2008,Philippines,276
+683,2008,Romania,1
+684,2008,Russia,170
+685,2008,Rwanda,1
+686,2008,Senegal,2
+687,2008,Serbia,4
+688,2008,Somalia,172
+689,2008,South Africa,1
+690,2008,Spain,37
+691,2008,Sri Lanka,100
+692,2008,Sudan,32
+693,2008,Swaziland,3
+694,2008,Sweden,1
+695,2008,Syria,1
+696,2008,Taiwan,1
+697,2008,Tanzania,1
+698,2008,Thailand,200
+699,2008,Tunisia,2
+700,2008,Turkey,32
+701,2008,Uganda,7
+702,2008,Ukraine,1
+703,2008,United Kingdom,39
+704,2008,United States,18
+705,2008,Venezuela,1
+706,2008,West Bank and Gaza Strip,63
+707,2008,Yemen,22
+708,2008,Zimbabwe,5
+709,2009,Afghanistan,503
+710,2009,Albania,1
+711,2009,Algeria,108
+712,2009,Angola,1
+713,2009,Argentina,1
+714,2009,Armenia,1
+715,2009,Australia,1
+716,2009,Austria,3
+717,2009,Azerbaijan,2
+718,2009,Bangladesh,27
+719,2009,Belgium,1
+720,2009,Bolivia,3
+721,2009,Bosnia-Herzegovina,1
+722,2009,Cameroon,1
+723,2009,Canada,4
+724,2009,Central African Republic,5
+725,2009,Chad,3
+726,2009,Chile,8
+727,2009,China,7
+728,2009,Colombia,139
+729,2009,Croatia,1
+730,2009,Czech Republic,1
+731,2009,Democratic Republic of the Congo,54
+732,2009,Ecuador,1
+733,2009,Egypt,2
+734,2009,Equatorial Guinea,1
+735,2009,Eritrea,1
+736,2009,Ethiopia,2
+737,2009,France,9
+738,2009,Georgia,25
+739,2009,Germany,4
+740,2009,Greece,115
+741,2009,Guinea-Bissau,1
+742,2009,Honduras,8
+743,2009,Hungary,1
+744,2009,India,672
+745,2009,Indonesia,19
+746,2009,Iran,15
+747,2009,Iraq,1137
+748,2009,Israel,36
+749,2009,Italy,4
+750,2009,Japan,1
+751,2009,Kenya,1
+752,2009,Kosovo,1
+753,2009,Lebanon,14
+754,2009,Lesotho,1
+755,2009,Macedonia,1
+756,2009,Madagascar,1
+757,2009,Malaysia,1
+758,2009,Mali,6
+759,2009,Mauritania,5
+760,2009,Mexico,1
+761,2009,Moldova,1
+762,2009,Myanmar,14
+763,2009,Nepal,39
+764,2009,Netherlands,1
+765,2009,Niger,4
+766,2009,Nigeria,42
+767,2009,Pakistan,667
+768,2009,Panama,1
+769,2009,Peru,4
+770,2009,Philippines,229
+771,2009,Russia,152
+772,2009,Rwanda,1
+773,2009,Saudi Arabia,3
+774,2009,Senegal,3
+775,2009,Serbia,3
+776,2009,Somalia,122
+777,2009,Spain,21
+778,2009,Sri Lanka,37
+779,2009,Sudan,26
+780,2009,Sweden,1
+781,2009,Tajikistan,1
+782,2009,Thailand,298
+783,2009,Turkey,13
+784,2009,Uganda,2
+785,2009,Ukraine,2
+786,2009,United Kingdom,23
+787,2009,United States,11
+788,2009,Uzbekistan,2
+789,2009,Venezuela,3
+790,2009,West Bank and Gaza Strip,10
+791,2009,Yemen,23
+792,2010,Afghanistan,542
+793,2010,Algeria,100
+794,2010,Angola,2
+795,2010,Argentina,5
+796,2010,Australia,1
+797,2010,Bahrain,2
+798,2010,Bangladesh,22
+799,2010,Belarus,2
+800,2010,Bosnia-Herzegovina,1
+801,2010,Burundi,29
+802,2010,Cameroon,3
+803,2010,Canada,2
+804,2010,Central African Republic,13
+805,2010,Chad,1
+806,2010,Chile,5
+807,2010,China,1
+808,2010,Colombia,136
+809,2010,Democratic Republic of the Congo,18
+810,2010,Denmark,1
+811,2010,Egypt,2
+812,2010,Eritrea,1
+813,2010,Ethiopia,2
+814,2010,France,3
+815,2010,Georgia,7
+816,2010,Germany,1
+817,2010,Greece,49
+818,2010,India,663
+819,2010,Indonesia,4
+820,2010,Iran,14
+821,2010,Iraq,1179
+822,2010,Ireland,4
+823,2010,Israel,14
+824,2010,Italy,10
+825,2010,Ivory Coast,7
+826,2010,Jordan,2
+827,2010,Kenya,12
+828,2010,Kosovo,1
+829,2010,Kyrgyzstan,1
+830,2010,Lebanon,5
+831,2010,Mali,1
+832,2010,Mauritania,1
+833,2010,Mexico,5
+834,2010,Myanmar,11
+835,2010,Nepal,38
+836,2010,Netherlands,1
+837,2010,Niger,3
+838,2010,Nigeria,63
+839,2010,Norway,1
+840,2010,Pakistan,713
+841,2010,Paraguay,2
+842,2010,Philippines,205
+843,2010,Poland,1
+844,2010,Russia,251
+845,2010,Rwanda,8
+846,2010,Senegal,1
+847,2010,Serbia,1
+848,2010,Somalia,130
+849,2010,Spain,3
+850,2010,Sri Lanka,3
+851,2010,Sudan,28
+852,2010,Sweden,3
+853,2010,Tajikistan,1
+854,2010,Tanzania,1
+855,2010,Thailand,253
+856,2010,Trinidad and Tobago,1
+857,2010,Turkey,20
+858,2010,Uganda,6
+859,2010,Ukraine,4
+860,2010,United Arab Emirates,2
+861,2010,United Kingdom,57
+862,2010,United States,17
+863,2010,West Bank and Gaza Strip,11
+864,2010,Yemen,112
+865,2010,Zimbabwe,1
+866,2011,Afghanistan,421
+867,2011,Algeria,15
+868,2011,Argentina,1
+869,2011,Austria,1
+870,2011,Bahrain,1
+871,2011,Bangladesh,13
+872,2011,Belarus,1
+873,2011,Bhutan,1
+874,2011,Bosnia-Herzegovina,1
+875,2011,Bulgaria,2
+876,2011,Burundi,8
+877,2011,Cameroon,3
+878,2011,Central African Republic,3
+879,2011,Chile,6
+880,2011,China,4
+881,2011,Colombia,94
+882,2011,Czech Republic,1
+883,2011,Democratic Republic of the Congo,16
+884,2011,Ecuador,1
+885,2011,Egypt,18
+886,2011,Eritrea,1
+887,2011,Estonia,1
+888,2011,Ethiopia,3
+889,2011,France,8
+890,2011,Georgia,3
+891,2011,Germany,8
+892,2011,Greece,11
+893,2011,Honduras,1
+894,2011,India,645
+895,2011,Indonesia,21
+896,2011,Iran,13
+897,2011,Iraq,1308
+898,2011,Ireland,4
+899,2011,Israel,51
+900,2011,Italy,5
+901,2011,Ivory Coast,3
+902,2011,Kazakhstan,5
+903,2011,Kenya,42
+904,2011,Kosovo,1
+905,2011,Kuwait,1
+906,2011,Kyrgyzstan,1
+907,2011,Lebanon,10
+908,2011,Libya,2
+909,2011,Madagascar,1
+910,2011,Mali,4
+911,2011,Mauritania,3
+912,2011,Mexico,2
+913,2011,Morocco,1
+914,2011,Myanmar,2
+915,2011,Nepal,46
+916,2011,Netherlands,2
+917,2011,Niger,2
+918,2011,Nigeria,175
+919,2011,Norway,3
+920,2011,Pakistan,1012
+921,2011,Paraguay,4
+922,2011,Philippines,151
+923,2011,Portugal,2
+924,2011,Russia,188
+925,2011,Rwanda,2
+926,2011,Saudi Arabia,2
+927,2011,Senegal,4
+928,2011,Somalia,185
+929,2011,Sudan,38
+930,2011,Sweden,1
+931,2011,Switzerland,3
+932,2011,Syria,49
+933,2011,Thailand,182
+934,2011,Tunisia,3
+935,2011,Turkey,51
+936,2011,Ukraine,3
+937,2011,United Kingdom,47
+938,2011,United States,10
+939,2011,West Bank and Gaza Strip,20
+940,2011,Yemen,118
+941,2011,Zimbabwe,1
+942,2012,Afghanistan,1469
+943,2012,Algeria,41
+944,2012,Argentina,2
+945,2012,Bahrain,26
+946,2012,Bangladesh,18
+947,2012,Belarus,3
+948,2012,Belgium,1
+949,2012,Bolivia,1
+950,2012,Brazil,1
+951,2012,Bulgaria,2
+952,2012,Burundi,4
+953,2012,Canada,3
+954,2012,Central African Republic,4
+955,2012,Chile,2
+956,2012,China,4
+957,2012,Colombia,115
+958,2012,Cyprus,1
+959,2012,Democratic Republic of the Congo,25
+960,2012,Ecuador,1
+961,2012,Egypt,49
+962,2012,Ethiopia,3
+963,2012,France,66
+964,2012,Georgia,3
+965,2012,Germany,5
+966,2012,Greece,22
+967,2012,Guatemala,1
+968,2012,Guinea-Bissau,1
+969,2012,Iceland,1
+970,2012,India,611
+971,2012,Indonesia,39
+972,2012,Iran,5
+973,2012,Iraq,1437
+974,2012,Ireland,29
+975,2012,Israel,65
+976,2012,Italy,10
+977,2012,Ivory Coast,16
+978,2012,Jordan,2
+979,2012,Kazakhstan,4
+980,2012,Kenya,80
+981,2012,Kosovo,4
+982,2012,Laos,1
+983,2012,Lebanon,15
+984,2012,Liberia,1
+985,2012,Libya,57
+986,2012,Macedonia,1
+987,2012,Madagascar,1
+988,2012,Malaysia,2
+989,2012,Maldives,1
+990,2012,Mali,19
+991,2012,Mexico,16
+992,2012,Moldova,1
+993,2012,Mozambique,1
+994,2012,Myanmar,17
+995,2012,Nepal,46
+996,2012,Niger,1
+997,2012,Nigeria,616
+998,2012,Pakistan,1654
+999,2012,Paraguay,4
+1000,2012,Peru,6
+1001,2012,Philippines,249
+1002,2012,Russia,151
+1003,2012,Rwanda,6
+1004,2012,Saudi Arabia,6
+1005,2012,Senegal,12
+1006,2012,Serbia,3
+1007,2012,Somalia,325
+1008,2012,South Africa,4
+1009,2012,South Sudan,5
+1010,2012,Spain,1
+1011,2012,Sri Lanka,4
+1012,2012,Sudan,40
+1013,2012,Sweden,2
+1014,2012,Syria,180
+1015,2012,Tajikistan,5
+1016,2012,Thailand,279
+1017,2012,Tunisia,3
+1018,2012,Turkey,188
+1019,2012,Uganda,4
+1020,2012,Ukraine,8
+1021,2012,United Kingdom,55
+1022,2012,United States,20
+1023,2012,Venezuela,1
+1024,2012,West Bank and Gaza Strip,23
+1025,2012,Yemen,312
+1026,2013,Afghanistan,1443
+1027,2013,Albania,1
+1028,2013,Algeria,22
+1029,2013,Argentina,2
+1030,2013,Armenia,1
+1031,2013,Australia,1
+1032,2013,Austria,1
+1033,2013,Bahamas,1
+1034,2013,Bahrain,52
+1035,2013,Bangladesh,139
+1036,2013,Belize,1
+1037,2013,Bosnia-Herzegovina,1
+1038,2013,Brazil,3
+1039,2013,Bulgaria,3
+1040,2013,Burkina Faso,1
+1041,2013,Burundi,2
+1042,2013,Cambodia,2
+1043,2013,Cameroon,3
+1044,2013,Canada,4
+1045,2013,Central African Republic,20
+1046,2013,Chile,5
+1047,2013,China,12
+1048,2013,Colombia,149
+1049,2013,Croatia,2
+1050,2013,Cyprus,9
+1051,2013,Czech Republic,1
+1052,2013,Democratic Republic of the Congo,22
+1053,2013,Denmark,1
+1054,2013,Dominican Republic,1
+1055,2013,Ecuador,2
+1056,2013,Egypt,321
+1057,2013,Ethiopia,5
+1058,2013,France,18
+1059,2013,Georgia,2
+1060,2013,Greece,54
+1061,2013,Guatemala,6
+1062,2013,Guinea,2
+1063,2013,Honduras,2
+1064,2013,India,694
+1065,2013,Indonesia,32
+1066,2013,Iran,11
+1067,2013,Iraq,2852
+1068,2013,Ireland,27
+1069,2013,Israel,37
+1070,2013,Italy,7
+1071,2013,Ivory Coast,4
+1072,2013,Japan,1
+1073,2013,Jordan,1
+1074,2013,Kazakhstan,4
+1075,2013,Kenya,80
+1076,2013,Kosovo,6
+1077,2013,Lebanon,121
+1078,2013,Libya,291
+1079,2013,Madagascar,2
+1080,2013,Malaysia,13
+1081,2013,Maldives,3
+1082,2013,Mali,58
+1083,2013,Mexico,8
+1084,2013,Montenegro,2
+1085,2013,Mozambique,18
+1086,2013,Myanmar,18
+1087,2013,Nepal,104
+1088,2013,Niger,4
+1089,2013,Nigeria,346
+1090,2013,Pakistan,2215
+1091,2013,Paraguay,10
+1092,2013,Peru,10
+1093,2013,Philippines,651
+1094,2013,Republic of the Congo,1
+1095,2013,Russia,144
+1096,2013,Rwanda,4
+1097,2013,Saudi Arabia,6
+1098,2013,Senegal,3
+1099,2013,Somalia,342
+1100,2013,South Africa,13
+1101,2013,South Sudan,13
+1102,2013,Spain,5
+1103,2013,Sri Lanka,14
+1104,2013,Sudan,46
+1105,2013,Switzerland,2
+1106,2013,Syria,285
+1107,2013,Taiwan,2
+1108,2013,Tanzania,7
+1109,2013,Thailand,472
+1110,2013,Trinidad and Tobago,3
+1111,2013,Tunisia,29
+1112,2013,Turkey,42
+1113,2013,Ukraine,5
+1114,2013,United Arab Emirates,1
+1115,2013,United Kingdom,137
+1116,2013,United States,20
+1117,2013,Venezuela,1
+1118,2013,West Bank and Gaza Strip,64
+1119,2013,Yemen,425
+1120,2013,Zimbabwe,3
+1121,2014,Afghanistan,1824
+1122,2014,Albania,2
+1123,2014,Algeria,13
+1124,2014,Argentina,1
+1125,2014,Australia,8
+1126,2014,Azerbaijan,3
+1127,2014,Bahrain,42
+1128,2014,Bangladesh,130
+1129,2014,Belgium,2
+1130,2014,Bhutan,1
+1131,2014,Bosnia-Herzegovina,3
+1132,2014,Brazil,3
+1133,2014,Bulgaria,1
+1134,2014,Burundi,5
+1135,2014,Cameroon,68
+1136,2014,Canada,3
+1137,2014,Central African Republic,94
+1138,2014,Chad,1
+1139,2014,Chile,17
+1140,2014,China,37
+1141,2014,Colombia,231
+1142,2014,Cyprus,5
+1143,2014,Czech Republic,5
+1144,2014,Democratic Republic of the Congo,110
+1145,2014,Djibouti,1
+1146,2014,Dominican Republic,1
+1147,2014,Egypt,354
+1148,2014,Ethiopia,2
+1149,2014,France,14
+1150,2014,Georgia,2
+1151,2014,Germany,13
+1152,2014,Ghana,1
+1153,2014,Greece,26
+1154,2014,Honduras,1
+1155,2014,Hungary,1
+1156,2014,Iceland,1
+1157,2014,India,860
+1158,2014,Indonesia,35
+1159,2014,Iran,9
+1160,2014,Iraq,3933
+1161,2014,Ireland,33
+1162,2014,Israel,293
+1163,2014,Italy,7
+1164,2014,Ivory Coast,1
+1165,2014,Jamaica,1
+1166,2014,Japan,5
+1167,2014,Jordan,3
+1168,2014,Kenya,115
+1169,2014,Kosovo,4
+1170,2014,Kyrgyzstan,2
+1171,2014,Lebanon,204
+1172,2014,Liberia,1
+1173,2014,Libya,728
+1174,2014,Macedonia,3
+1175,2014,Madagascar,1
+1176,2014,Malaysia,12
+1177,2014,Maldives,9
+1178,2014,Mali,69
+1179,2014,Malta,1
+1180,2014,Mexico,5
+1181,2014,Mozambique,22
+1182,2014,Myanmar,15
+1183,2014,Nepal,7
+1184,2014,Netherlands,1
+1185,2014,New Zealand,1
+1186,2014,Nicaragua,2
+1187,2014,Niger,5
+1188,2014,Nigeria,714
+1189,2014,Pakistan,2151
+1190,2014,Paraguay,15
+1191,2014,Peru,12
+1192,2014,Philippines,597
+1193,2014,Russia,48
+1194,2014,Rwanda,2
+1195,2014,Saudi Arabia,14
+1196,2014,Senegal,2
+1197,2014,Somalia,872
+1198,2014,South Africa,20
+1199,2014,South Sudan,40
+1200,2014,Spain,4
+1201,2014,Sri Lanka,16
+1202,2014,Sudan,157
+1203,2014,Sweden,5
+1204,2014,Syria,331
+1205,2014,Taiwan,1
+1206,2014,Tajikistan,1
+1207,2014,Tanzania,11
+1208,2014,Thailand,423
+1209,2014,Tunisia,23
+1210,2014,Turkey,94
+1211,2014,Turkmenistan,1
+1212,2014,Uganda,6
+1213,2014,Ukraine,895
+1214,2014,United Arab Emirates,2
+1215,2014,United Kingdom,103
+1216,2014,United States,29
+1217,2014,Venezuela,4
+1218,2014,West Bank and Gaza Strip,133
+1219,2014,Yemen,763
+1220,2014,Zimbabwe,1
+1221,2015,Afghanistan,1928
+1222,2015,Albania,4
+1223,2015,Algeria,16
+1224,2015,Argentina,1
+1225,2015,Armenia,2
+1226,2015,Australia,14
+1227,2015,Bahrain,18
+1228,2015,Bangladesh,469
+1229,2015,Bosnia-Herzegovina,6
+1230,2015,Brazil,5
+1231,2015,Bulgaria,2
+1232,2015,Burkina Faso,6
+1233,2015,Burundi,102
+1234,2015,Cameroon,83
+1235,2015,Canada,5
+1236,2015,Central African Republic,48
+1237,2015,Chad,27
+1238,2015,Chile,1
+1239,2015,China,17
+1240,2015,Colombia,136
+1241,2015,Cyprus,3
+1242,2015,Czech Republic,4
+1243,2015,Democratic Republic of the Congo,143
+1244,2015,Denmark,4
+1245,2015,Djibouti,1
+1246,2015,Ecuador,1
+1247,2015,Egypt,647
+1248,2015,Estonia,2
+1249,2015,Ethiopia,7
+1250,2015,Finland,9
+1251,2015,France,37
+1252,2015,Georgia,1
+1253,2015,Germany,65
+1254,2015,Greece,31
+1255,2015,Guinea,2
+1256,2015,Hungary,1
+1257,2015,India,884
+1258,2015,Indonesia,29
+1259,2015,Iran,9
+1260,2015,Iraq,2751
+1261,2015,Ireland,28
+1262,2015,Israel,58
+1263,2015,Italy,5
+1264,2015,Ivory Coast,4
+1265,2015,Japan,10
+1266,2015,Jordan,4
+1267,2015,Kenya,71
+1268,2015,Kosovo,2
+1269,2015,Kuwait,1
+1270,2015,Kyrgyzstan,3
+1271,2015,Laos,2
+1272,2015,Lebanon,44
+1273,2015,Lesotho,1
+1274,2015,Libya,543
+1275,2015,Macedonia,4
+1276,2015,Malaysia,5
+1277,2015,Maldives,2
+1278,2015,Mali,121
+1279,2015,Malta,1
+1280,2015,Mexico,19
+1281,2015,Montenegro,1
+1282,2015,Morocco,1
+1283,2015,Mozambique,8
+1284,2015,Myanmar,37
+1285,2015,Nepal,48
+1286,2015,Netherlands,3
+1287,2015,Niger,41
+1288,2015,Nigeria,638
+1289,2015,Pakistan,1243
+1290,2015,Paraguay,19
+1291,2015,Peru,10
+1292,2015,Philippines,721
+1293,2015,Qatar,1
+1294,2015,Russia,21
+1295,2015,Saudi Arabia,103
+1296,2015,Senegal,2
+1297,2015,Somalia,418
+1298,2015,South Africa,5
+1299,2015,South Korea,1
+1300,2015,South Sudan,54
+1301,2015,Spain,1
+1302,2015,Sri Lanka,11
+1303,2015,Sudan,158
+1304,2015,Sweden,32
+1305,2015,Syria,491
+1306,2015,Tajikistan,3
+1307,2015,Tanzania,14
+1308,2015,Thailand,278
+1309,2015,Trinidad and Tobago,1
+1310,2015,Tunisia,17
+1311,2015,Turkey,422
+1312,2015,Uganda,10
+1313,2015,Ukraine,637
+1314,2015,United Kingdom,114
+1315,2015,United States,38
+1316,2015,Uzbekistan,1
+1317,2015,Venezuela,3
+1318,2015,West Bank and Gaza Strip,246
+1319,2015,Yemen,664
+1320,2016,Afghanistan,1617
+1321,2016,Albania,2
+1322,2016,Algeria,9
+1323,2016,Angola,2
+1324,2016,Argentina,2
+1325,2016,Armenia,2
+1326,2016,Australia,9
+1327,2016,Austria,3
+1328,2016,Azerbaijan,2
+1329,2016,Bahrain,3
+1330,2016,Bangladesh,88
+1331,2016,Belgium,6
+1332,2016,Brazil,2
+1333,2016,Bulgaria,1
+1334,2016,Burkina Faso,10
+1335,2016,Burundi,83
+1336,2016,Cameroon,56
+1337,2016,Canada,6
+1338,2016,Central African Republic,38
+1339,2016,Chad,5
+1340,2016,Chile,18
+1341,2016,China,5
+1342,2016,Colombia,109
+1343,2016,Cyprus,2
+1344,2016,Czech Republic,2
+1345,2016,Democratic Republic of the Congo,169
+1346,2016,Denmark,1
+1347,2016,Ecuador,2
+1348,2016,Egypt,376
+1349,2016,Ethiopia,13
+1350,2016,Finland,3
+1351,2016,France,26
+1352,2016,Georgia,4
+1353,2016,Germany,44
+1354,2016,Ghana,1
+1355,2016,Greece,31
+1356,2016,Guinea,1
+1357,2016,Guyana,1
+1358,2016,Haiti,1
+1359,2016,Honduras,1
+1360,2016,Hungary,1
+1361,2016,India,1025
+1362,2016,Indonesia,19
+1363,2016,Iran,10
+1364,2016,Iraq,3360
+1365,2016,Ireland,15
+1366,2016,Israel,50
+1367,2016,Italy,11
+1368,2016,Ivory Coast,1
+1369,2016,Japan,1
+1370,2016,Jordan,9
+1371,2016,Kazakhstan,3
+1372,2016,Kenya,65
+1373,2016,Kosovo,8
+1374,2016,Kuwait,2
+1375,2016,Kyrgyzstan,4
+1376,2016,Laos,4
+1377,2016,Lebanon,41
+1378,2016,Libya,422
+1379,2016,Madagascar,1
+1380,2016,Malaysia,19
+1381,2016,Maldives,1
+1382,2016,Mali,99
+1383,2016,Mexico,5
+1384,2016,Moldova,1
+1385,2016,Mozambique,79
+1386,2016,Myanmar,74
+1387,2016,Nepal,43
+1388,2016,Netherlands,6
+1389,2016,New Zealand,1
+1390,2016,Niger,25
+1391,2016,Nigeria,533
+1392,2016,Pakistan,864
+1393,2016,Panama,1
+1394,2016,Paraguay,15
+1395,2016,Peru,3
+1396,2016,Philippines,632
+1397,2016,Poland,2
+1398,2016,Republic of the Congo,15
+1399,2016,Russia,55
+1400,2016,Rwanda,1
+1401,2016,Saudi Arabia,124
+1402,2016,Sierra Leone,1
+1403,2016,Slovak Republic,1
+1404,2016,Somalia,602
+1405,2016,South Africa,27
+1406,2016,South Korea,1
+1407,2016,South Sudan,59
+1408,2016,Spain,3
+1409,2016,Sri Lanka,1
+1410,2016,Sudan,173
+1411,2016,Sweden,16
+1412,2016,Switzerland,1
+1413,2016,Syria,473
+1414,2016,Taiwan,1
+1415,2016,Tajikistan,2
+1416,2016,Tanzania,3
+1417,2016,Thailand,329
+1418,2016,Tunisia,12
+1419,2016,Turkey,542
+1420,2016,Uganda,15
+1421,2016,Ukraine,61
+1422,2016,United Kingdom,105
+1423,2016,United States,64
+1424,2016,Uruguay,1
+1425,2016,Venezuela,6
+1426,2016,West Bank and Gaza Strip,157
+1427,2016,Yemen,525
+1428,2017,Afghanistan,1414
+1429,2017,Albania,1
+1430,2017,Algeria,14
+1431,2017,Angola,6
+1432,2017,Argentina,3
+1433,2017,Australia,4
+1434,2017,Austria,1
+1435,2017,Azerbaijan,2
+1436,2017,Bahrain,21
+1437,2017,Bangladesh,41
+1438,2017,Belgium,3
+1439,2017,Brazil,2
+1440,2017,Burkina Faso,32
+1441,2017,Burundi,21
+1442,2017,Cameroon,94
+1443,2017,Canada,12
+1444,2017,Central African Republic,43
+1445,2017,Chad,6
+1446,2017,Chile,12
+1447,2017,China,6
+1448,2017,Colombia,117
+1449,2017,Czech Republic,3
+1450,2017,Democratic Republic of the Congo,143
+1451,2017,Djibouti,1
+1452,2017,Dominican Republic,1
+1453,2017,Ecuador,3
+1454,2017,Egypt,224
+1455,2017,Ethiopia,27
+1456,2017,Finland,2
+1457,2017,France,41
+1458,2017,Gabon,4
+1459,2017,Georgia,1
+1460,2017,Germany,27
+1461,2017,Greece,43
+1462,2017,Honduras,1
+1463,2017,India,966
+1464,2017,Indonesia,27
+1465,2017,Iran,11
+1466,2017,Iraq,2466
+1467,2017,Ireland,17
+1468,2017,Israel,32
+1469,2017,Italy,8
+1470,2017,Ivory Coast,13
+1471,2017,Jamaica,2
+1472,2017,Jordan,8
+1473,2017,Kenya,97
+1474,2017,Kosovo,8
+1475,2017,Kyrgyzstan,2
+1476,2017,Laos,1
+1477,2017,Latvia,1
+1478,2017,Lebanon,23
+1479,2017,Liberia,1
+1480,2017,Libya,190
+1481,2017,Macedonia,1
+1482,2017,Malawi,1
+1483,2017,Malaysia,4
+1484,2017,Maldives,2
+1485,2017,Mali,141
+1486,2017,Malta,3
+1487,2017,Mexico,20
+1488,2017,Mozambique,11
+1489,2017,Myanmar,115
+1490,2017,Nepal,247
+1491,2017,Netherlands,1
+1492,2017,Niger,13
+1493,2017,Nigeria,484
+1494,2017,Norway,1
+1495,2017,Pakistan,719
+1496,2017,Papua New Guinea,8
+1497,2017,Paraguay,10
+1498,2017,Peru,8
+1499,2017,Philippines,692
+1500,2017,Poland,1
+1501,2017,Russia,33
+1502,2017,Rwanda,2
+1503,2017,Saudi Arabia,54
+1504,2017,Serbia,1
+1505,2017,Sierra Leone,3
+1506,2017,Somalia,614
+1507,2017,South Africa,29
+1508,2017,South Sudan,54
+1509,2017,Spain,4
+1510,2017,Sri Lanka,41
+1511,2017,Sudan,106
+1512,2017,Sweden,18
+1513,2017,Syria,243
+1514,2017,Taiwan,1
+1515,2017,Tajikistan,2
+1516,2017,Tanzania,6
+1517,2017,Thailand,179
+1518,2017,Tunisia,4
+1519,2017,Turkey,181
+1520,2017,Uganda,13
+1521,2017,Ukraine,61
+1522,2017,United Kingdom,122
+1523,2017,United States,65
+1524,2017,Venezuela,17
+1525,2017,Vietnam,2
+1526,2017,West Bank and Gaza Strip,83
+1527,2017,Yemen,226
+1528,2017,Zambia,2
+1529,2017,Zimbabwe,3
