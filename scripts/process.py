@@ -15,11 +15,11 @@ def create_dataframe(filename):
     # dataframe1 = dataframe.set_index('eventid').to_json(OUTPUT_FILE2, orient='index')
     dataframe = dataframe.loc[dataframe['iyear'].isin(range(2000, 2018))]
     #dataframe1 = dataframe.to_csv("../data/test.csv")
-    group = dataframe.groupby(['iyear', 'country_txt', 'gname']).size().reset_index(name='percentage')
+    group = dataframe.groupby(['iyear', 'country_txt', 'gname']).size().reset_index(name='count')
     country = dataframe.groupby(['iyear', 'country_txt']).size().reset_index(name='count')
     # country = country.set_index(['iyear', 'country_txt'])
     group = group.set_index(['iyear', 'country_txt', 'gname'])
-    group = group.groupby(level=[0, 1]).apply(lambda g: g / g.sum())
+    group['percentage'] = group.groupby(level=[0, 1]).apply(lambda g: g / g.sum())
     group = group.reset_index()
 
 

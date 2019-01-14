@@ -7,27 +7,22 @@ window.onload = function() {
       group = response[0]
 
 
-      donutChart(group)
+      donutChart(group, "United States")
 
   }).catch(function(e){
       throw(e);
   });
 
-  function donutChart (data) {
-    console.log(data)
+  function donutChart (data, country) {
     keys = Object.keys(data)
     events = []
     for (i in keys) {
-      events.push(data[i])
-    }
-    console.log(events)
+      if (data[i].iyear == 2014) {
+        events.push(data[i])
 
-    var data = [
-  {name: "USA", value: 40},
-  {name: "UK", value: 20},
-  {name: "Canada", value: 30},
-  {name: "Mexico", value: 10},
-];
+      }
+    }
+
 var text = "";
 
     var width = 450
@@ -36,7 +31,7 @@ var text = "";
     var duration = 750;
 
     var radius = Math.min(width, height) / 2;
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    var color = d3.scaleOrdinal(d3.schemeSet3);
 
     var svg = d3.select("#donut")
             .append("svg")
@@ -52,11 +47,12 @@ var text = "";
                 .outerRadius(radius);
 
     var pie = d3.pie()
-                .value(function(d) { return d.value; })
+                .value(function(d) { if (d.country_txt == country) {
+                  return (d.percentage); }})
                 .sort(null);
 
     var path = g.selectAll('path')
-                .data(pie(data))
+                .data(pie(events))
                 .enter()
                 .append("g")
                 .on("mouseover", function(d) {
@@ -68,13 +64,13 @@ var text = "";
 
       g.append("text")
         .attr("class", "name-text")
-        .text(`${d.data.name}`)
+        .text(`${d.data.gname}`)
         .attr('text-anchor', 'middle')
         .attr('dy', '-1.2em');
 
       g.append("text")
         .attr("class", "value-text")
-        .text(`${d.data.value}%`)
+        .text(`${(d.data.percentage * 100).toFixed(2)}%`)
         .attr('text-anchor', 'middle')
         .attr('dy', '.6em');
     })
@@ -86,16 +82,16 @@ var text = "";
     })
   .append('path')
   .attr('d', arc)
-  .attr('fill', (d,i) => color(i))
+  .attr('fill', (d, i) => color(i))
   .on("mouseover", function(d) {
       d3.select(this)
         .style("cursor", "pointer")
-        .style("fill", "black");
+        .style("opacity", 0.5);
     })
   .on("mouseout", function(d) {
       d3.select(this)
         .style("cursor", "none")
-        .style("fill", color(this._current));
+        .style("opacity", 1.0);
     })
   .each(function(d, i) { this._current = i; });
 
