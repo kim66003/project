@@ -48,19 +48,12 @@ svg.call(tip);
       // console.log(country)
       keys = Object.keys(country)
       counts = []
-      counts2 = []
       events = []
       for (i in keys) {
           events.push(country[i])
-          // if (country[i].iyear == 2015) {
-          //     console.log(country[i])
-          // }
       }
-      events.forEach(function(d) { if (d.iyear == 2000){ counts2.push(d.count)}})
-      var max2 = Math.max.apply(null, counts2)
-      console.log(max2)
 
-      events.forEach(function(d) { if (d.iyear == 2017){ counts.push(d.count)}})
+      events.forEach(function(d) { if (d.iyear == 2003){ counts.push(d.count)}})
       var min = 0;
       var max = Math.max.apply(null, counts)
       console.log(max)
@@ -70,35 +63,31 @@ svg.call(tip);
           .domain([min, max]);
 
 
-    ready(data, attacks, svg, path, color, tip, events)
+    ready(data, attacks, svg, path, color, tip, events, 2003)
 
   }).catch(function(e){
       throw(e);
   });
 };
 
-function ready(data, attacks, svg, path, color, tip, events) {
+function ready(data, attacks, svg, path, color, tip, events, year) {
 
   var attacksById = {};
-  var attacksById2 = {};
+  var countries = []
+  var uniqueNames = []
+  events.forEach(function(d) { if (d.iyear == year) { attacksById[d.iyear + d.country_txt] = +d.count
+  countries.push(d.country_txt)}});
+  $.each(countries, function(i, el){
+    if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+});
+  console.log(attacksById)
+  console.log(uniqueNames)
 
-  events.forEach(function(d) { attacksById2[d.iyear + d.country_txt] = +d.count});
-  console.log(attacksById2)
-  // data.features.forEach(function(d) { d.id = d.properties.name });
+  // attacks.forEach(function(d) { attacksById[d.id] = +d.attacks; });
+  data.features.forEach(function(d) {
+    if (uniqueNames.includes(d.properties.name)) {d.attacks = attacksById[year + d.properties.name]}
+    else {d.attacks = 0} });
   console.log(data.features)
-  // years = []
-  // attacks.forEach(function(d) {
-  //   events.forEach(function(e) {
-  //     if (d.name == e.country_txt && e.iyear == 2017) {
-  //       d.attacks = e.count
-  //       years.push(e.iyear)
-  //     }
-  //   })})
-  //   console.log(years)
-  //   console.log(attacks)
-
-  attacks.forEach(function(d) { attacksById[d.id] = +d.attacks; });
-  data.features.forEach(function(d) { d.attacks = attacksById[d.id] });
 
   svg.append("g")
       .attr("class", "countries")
@@ -106,7 +95,7 @@ function ready(data, attacks, svg, path, color, tip, events) {
       .data(data.features)
     .enter().append("path")
       .attr("d", path)
-      .style("fill", function(d) { return color(attacksById[d.id]); })
+      .style("fill", function(d) { return color(d.attacks); })
       .style('stroke', 'white')
       .style('stroke-width', 1.5)
       .style("opacity",0.8)
