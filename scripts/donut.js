@@ -1,38 +1,40 @@
 window.onload = function() {
 
-  input = "../data/globalterrorismcopy.json"
+  input = "../data/group.json"
   var requests = [d3.json(input)];
 
   Promise.all(requests).then(function(response) {
-      globterr = response[0]
+      group = response[0]
 
-      donutChart(globterr)
+
+      donutChart(group)
 
   }).catch(function(e){
       throw(e);
   });
 
   function donutChart (data) {
-    keys = Object.keys(data)
-    console.log(keys)
-    values = Object.values(data)
-    console.log(values)
+    console.log(data)
+    // keys = Object.keys(data)
+    // console.log(keys)
+    // values = Object.values(data)
+    // console.log(values)
     // keys.forEach(function(d){
     //   console.log("hoi")
     //   // console.log(data[d]["iyear"])
     // })
-    for (key in data) {
-      columns = []
-      events = data[key]
-      columns = Object.keys(events)
-    }
+    // for (key in data) {
+    //   columns = []
+    //   events = data[key]
+    //   columns = Object.keys(events)
+    // }
     // console.log(data[keys[0]][columns[0]])
 
     var data = [
   {name: "USA", value: 40},
   {name: "UK", value: 20},
   {name: "Canada", value: 30},
-  {name: "Maxico", value: 10},
+  {name: "Mexico", value: 10},
 ];
 var text = "";
 
@@ -79,7 +81,7 @@ var text = "";
 
       g.append("text")
         .attr("class", "value-text")
-        .text(`${d.data.value}`)
+        .text(`${d.data.value}%`)
         .attr('text-anchor', 'middle')
         .attr('dy', '.6em');
     })
