@@ -15,20 +15,12 @@ window.onload = function() {
 
   function donutChart (data) {
     console.log(data)
-    // keys = Object.keys(data)
-    // console.log(keys)
-    // values = Object.values(data)
-    // console.log(values)
-    // keys.forEach(function(d){
-    //   console.log("hoi")
-    //   // console.log(data[d]["iyear"])
-    // })
-    // for (key in data) {
-    //   columns = []
-    //   events = data[key]
-    //   columns = Object.keys(events)
-    // }
-    // console.log(data[keys[0]][columns[0]])
+    keys = Object.keys(data)
+    events = []
+    for (i in keys) {
+      events.push(data[i])
+    }
+    console.log(events)
 
     var data = [
   {name: "USA", value: 40},
@@ -45,6 +37,7 @@ var text = "";
 
     var radius = Math.min(width, height) / 2;
     var color = d3.scaleOrdinal(d3.schemeCategory10);
+
     var svg = d3.select("#donut")
             .append("svg")
             .attr("class", "pie")

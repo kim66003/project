@@ -34,16 +34,14 @@ svg.call(tip);
 
   input = "../data/country.json"
   input2 = "../data/world_countries.json"
-  input3 = "../data/world_attacks.tsv"
-  var requests = [d3.json(input), d3.json(input2), d3.tsv(input3), svg, path, tip];
+  var requests = [d3.json(input), d3.json(input2), svg, path, tip];
 
   Promise.all(requests).then(function(response) {
       country = response[0]
       data = response[1]
-      attacks = response[2]
-      svg = response[3]
-      path = response[4]
-      tip = response[5]
+      svg = response[2]
+      path = response[3]
+      tip = response[4]
 
       // console.log(country)
       keys = Object.keys(country)
@@ -63,14 +61,14 @@ svg.call(tip);
           .domain([min, max]);
 
 
-    ready(data, attacks, svg, path, color, tip, events, 2003)
+    ready(data, svg, path, color, tip, events, 2003)
 
   }).catch(function(e){
       throw(e);
   });
 };
 
-function ready(data, attacks, svg, path, color, tip, events, year) {
+function ready(data, svg, path, color, tip, events, year) {
 
   var attacksById = {};
   var countries = []
