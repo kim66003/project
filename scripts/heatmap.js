@@ -56,6 +56,7 @@ function makeHeatMap () {
 
 
       drawMap(data, svg, path, color, tip, events, 2005)
+      drawLegend(svg, color, max)
 
     }).catch(function(e){
         throw(e);
@@ -85,7 +86,7 @@ function drawMap(data, svg, path, color, tip, events, year) {
       .data(data.features)
     .enter().append("path")
       .attr("d", path)
-      .style("fill", function(d) { if (d.attacks === 0) { return "#ffffff" } else { return color(d.attacks) }; })
+      .style("fill", function(d) { if (d.attacks === 0) { return "#ffe6c9" } else { return color(d.attacks) }; })
       .style("stroke", "white")
       .style("stroke-width", 1.5)
       .style("opacity",0.8)
@@ -115,7 +116,7 @@ function drawMap(data, svg, path, color, tip, events, year) {
       .attr("d", path);
 }
 
-function drawLegend() {
+function drawLegend(svg, color, max) {
   //Append a defs (for definition) element to your SVG
 var defs = svg.append("defs");
 
@@ -126,17 +127,40 @@ var linearGradient = defs.append("linearGradient")
 //Vertical gradient
 linearGradient
     .attr("x1", "0%")
-    .attr("y1", "0%")
+    .attr("y1", "100%")
     .attr("x2", "0%")
-    .attr("y2", "100%");
+    .attr("y2", "0%");
 
-    //Set the color for the start (0%)
-    linearGradient.append("stop")
-        .attr("offset", "0%")
-        .attr("stop-color", "#ffa474"); //light blue
+    //Append multiple color stops by using D3's data/enter step
+linearGradient.selectAll("stop")
+    .data( color.range() )
+    .enter().append("stop")
+    .attr("offset", function(d,i) { return i/(color.range().length - 1); })
+    .attr("stop-color", function(d) { return d; });
 
-    //Set the color for the end (100%)
-    linearGradient.append("stop")
-        .attr("offset", "100%")
-        .attr("stop-color", "#8b0000"); //dark blue
+    width = 20;
+    height = 550;
+
+    //Draw the rectangle and fill with gradient
+    svg.append("rect")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("transform", "translate(40, 10)")
+        .style("fill", "url(#linear-gradient)")
+        .attr("opacity", 0.8);
+
+        // yscale for axis
+      var yScale = d3.scaleLinear()
+              .range([0, height])
+              .domain([max, 0]);
+      // yaxis scaled
+      var yAxis = d3.axisLeft()
+              .scale(yScale)
+              .ticks(9);
+
+      // add axis
+      svg.append("g")
+        .attr("class", "yAxis")
+        .attr("transform", "translate(40,10)")
+        .call(yAxis)
 }
