@@ -24,6 +24,11 @@ img {
   font-size: 3em;
 }
 
+.pie .country-text{
+  font-size: 2em;
+  fill: #707070;
+}
+
 .names {
   fill: none;
   stroke: #fff;
@@ -93,5 +98,12 @@ text{
   pointer-events:none;
 }
 
-    .details{
-      color:white;
+.details{
+  color:white;
+}
+
+.line {
+  fill: none;
+  stroke: purple;
+  stroke-width: 3px;
+}

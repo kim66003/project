@@ -1,91 +1,83 @@
-window.onload = function() {
+function makeHeatMap () {
 
-var format = d3.format(",");
+  var format = d3.format(",");
 
-// Set tooltips
-var tip = d3.tip()
-            .attr('class', 'd3-tip')
-            .offset([-10, -50])
-            .html(function(d) {
-              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Terrorist attacks: </strong><span class='details'>" + format(d.attacks) +"</span>";
-            })
+  // Set tooltips
+  var tip = d3.tip()
+              .attr("class", "d3-tip")
+              .offset([-10, -50])
+              .html(function(d) {
+                return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Terrorist attacks: </strong><span class='details'>" + format(d.attacks) +"</span>";
+              })
 
-var margin = {top: 0, right: 0, bottom: 0, left: 0},
-            width = 1300 - margin.left - margin.right,
-            height = 600 - margin.top - margin.bottom;
+  var margin = {top: 0, right: 0, bottom: 0, left: 0},
+              width = 1300 - margin.left - margin.right,
+              height = 600 - margin.top - margin.bottom;
 
-var path = d3.geoPath();
+  var path = d3.geoPath();
 
-var svg = d3.select("#heatmap")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height)
-            .append('g')
-            .attr('class', 'map');
+  var svg = d3.select("#heatmap")
+              .append("svg")
+              .attr("width", width)
+              .attr("height", height)
+              .append("g")
+              .attr("class", "map");
 
-var projection = d3.geoMercator()
-                   .scale(140)
-                  .translate( [width / 2, height / 1.4]);
+  var projection = d3.geoMercator()
+                     .scale(140)
+                    .translate( [width / 2, height / 1.4]);
 
-var path = d3.geoPath().projection(projection);
+  var path = d3.geoPath().projection(projection);
 
-svg.call(tip);
-
-
-  input = "../data/country.json"
-  input2 = "../data/world_countries.json"
-  var requests = [d3.json(input), d3.json(input2), svg, path, tip];
-
-  Promise.all(requests).then(function(response) {
-      country = response[0]
-      data = response[1]
-      svg = response[2]
-      path = response[3]
-      tip = response[4]
-
-      // console.log(country)
-      keys = Object.keys(country)
-      counts = []
-      events = []
-      for (i in keys) {
-          events.push(country[i])
-      }
-
-      events.forEach(function(d) { if (d.iyear == 2003){ counts.push(d.count)}})
-      var min = 0;
-      var max = Math.max.apply(null, counts)
-      console.log(max)
-
-      var color = d3.scaleSequential(d3.interpolateOrRd)
-          .clamp(true)
-          .domain([min, max]);
+  svg.call(tip);
 
 
-    ready(data, svg, path, color, tip, events, 2003)
+    input = "../data/country.json"
+    input2 = "../data/world_countries.json"
+    var requests = [d3.json(input), d3.json(input2), svg, path, tip];
 
-  }).catch(function(e){
-      throw(e);
-  });
-};
+    Promise.all(requests).then(function(response) {
+        country = response[0]
+        data = response[1]
+        svg = response[2]
+        path = response[3]
+        tip = response[4]
 
-function ready(data, svg, path, color, tip, events, year) {
+        counts = []
+        events = Object.values(country)
+
+        events.forEach(function(d) { if (d.iyear === 2005){ counts.push(d.count)}})
+        var min = 0;
+        var max = Math.max.apply(null, counts)
+
+        var color = d3.scaleLinear()
+                      .domain([1, max])
+                      .range([d3.rgb("#fdd3a0"), d3.rgb("#800000")]);
+
+
+      drawMap(data, svg, path, color, tip, events, 2005)
+
+    }).catch(function(e){
+        throw(e);
+    });
+
+}
+
+function drawMap(data, svg, path, color, tip, events, year) {
 
   var attacksById = {};
   var countries = []
   var uniqueNames = []
-  events.forEach(function(d) { if (d.iyear == year) { attacksById[d.iyear + d.country_txt] = +d.count
+  events.forEach(function(d) { if (d.iyear === year) { attacksById[d.iyear + d.country_txt] = +d.count
   countries.push(d.country_txt)}});
   $.each(countries, function(i, el){
     if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
 });
-  console.log(attacksById)
-  console.log(uniqueNames)
 
   // attacks.forEach(function(d) { attacksById[d.id] = +d.attacks; });
   data.features.forEach(function(d) {
     if (uniqueNames.includes(d.properties.name)) {d.attacks = attacksById[year + d.properties.name]}
     else {d.attacks = 0} });
-  console.log(data.features)
 
   svg.append("g")
       .attr("class", "countries")
@@ -93,14 +85,14 @@ function ready(data, svg, path, color, tip, events, year) {
       .data(data.features)
     .enter().append("path")
       .attr("d", path)
-      .style("fill", function(d) { return color(d.attacks); })
-      .style('stroke', 'white')
-      .style('stroke-width', 1.5)
+      .style("fill", function(d) { if (d.attacks === 0) { return "#ffffff" } else { return color(d.attacks) }; })
+      .style("stroke", "white")
+      .style("stroke-width", 1.5)
       .style("opacity",0.8)
       // tooltips
         .style("stroke","white")
-        .style('stroke-width', 0.3)
-        .on('mouseover',function(d){
+        .style("stroke-width", 0.3)
+        .on("mouseover",function(d){
           tip.show(d);
 
           d3.select(this)
@@ -108,7 +100,7 @@ function ready(data, svg, path, color, tip, events, year) {
             .style("stroke","white")
             .style("stroke-width",3);
         })
-        .on('mouseout', function(d){
+        .on("mouseout", function(d){
           tip.hide(d);
 
           d3.select(this)
@@ -121,4 +113,30 @@ function ready(data, svg, path, color, tip, events, year) {
       .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
       .attr("class", "names")
       .attr("d", path);
+}
+
+function drawLegend() {
+  //Append a defs (for definition) element to your SVG
+var defs = svg.append("defs");
+
+//Append a linearGradient element to the defs and give it a unique id
+var linearGradient = defs.append("linearGradient")
+    .attr("id", "linear-gradient");
+
+//Vertical gradient
+linearGradient
+    .attr("x1", "0%")
+    .attr("y1", "0%")
+    .attr("x2", "0%")
+    .attr("y2", "100%");
+
+    //Set the color for the start (0%)
+    linearGradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#ffa474"); //light blue
+
+    //Set the color for the end (100%)
+    linearGradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#8b0000"); //dark blue
 }
