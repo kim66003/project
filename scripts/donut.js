@@ -7,7 +7,7 @@ window.onload = function() {
       group = response[0]
 
 
-      donutChart(group, "United States")
+      donutChart(group, "India")
 
   }).catch(function(e){
       throw(e);
