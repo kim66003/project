@@ -41,8 +41,10 @@ var valueline2 = d3.line()
 // appends a "group" element to "svg"
 // moves the "group" element to the top left margin
 var svg = d3.select("#line").append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+            .attr("viewBox", [0, 0, (width + margin.right + margin.left),
+            (height + margin.top + margin.bottom)].join(' '))
+            // .attr("width", width + margin.left + margin.right)
+            // .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
