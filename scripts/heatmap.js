@@ -1,4 +1,4 @@
-function makeHeatMap () {
+function showHeatMap () {
 
   var format = d3.format(",");
 
@@ -20,8 +20,6 @@ function makeHeatMap () {
               .append("svg")
               .attr("viewBox", [0, 0, (width + margin.right + margin.left),
                         (height + margin.top + margin.bottom)].join(' '))
-              // .attr("width", width)
-              // .attr("height", height)
               .append("g")
               .attr("class", "map");
 
@@ -147,7 +145,7 @@ linearGradient.selectAll("stop")
     svg.append("rect")
         .attr("width", width)
         .attr("height", height)
-        .attr("transform", "translate(40, 10)")
+        .attr("transform", "translate(120, 20)")
         .style("fill", "url(#linear-gradient)")
         .attr("opacity", 0.8);
 
@@ -163,6 +161,6 @@ linearGradient.selectAll("stop")
       // add axis
       svg.append("g")
         .attr("class", "yAxis")
-        .attr("transform", "translate(40,10)")
+        .attr("transform", "translate(120, 20)")
         .call(yAxis)
 }

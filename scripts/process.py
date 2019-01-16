@@ -18,7 +18,7 @@ def create_df(filename):
     group['percentage'] = group.groupby(level=[0, 1]).apply(lambda g: g / g.sum())
     group = group.reset_index()
     killsandwound = df.groupby(['iyear', 'country_txt']).sum()[['nkill']].add_prefix('sum_')
-    killsandwound['sum_wound'] = df.groupby(['iyear', 'country_txt']).sum()[['nwound']]
+    killsandwound['sum_nwound'] = df.groupby(['iyear', 'country_txt']).sum()[['nwound']]
     killsandwound = killsandwound.reset_index()
 
     print(killsandwound.head())

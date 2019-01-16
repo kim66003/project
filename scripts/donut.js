@@ -1,4 +1,4 @@
-function makeDonutChart () {
+function showDonutChart () {
 
   input = "../data/group.json"
   var requests = [d3.json(input)];
@@ -7,7 +7,7 @@ function makeDonutChart () {
       group = response[0]
 
 
-      drawDonut(group, "Indonesia")
+      drawDonut(group, "Pakistan")
 
   }).catch(function(e){
       throw(e);
@@ -19,10 +19,9 @@ function drawDonut (data, country) {
   values = Object.values(data)
   events = []
   values.forEach(function(d) {
-    if (d.iyear == 2005 && d.country_txt == "Indonesia") { events.push(d) }});
+    if (d.iyear == 2005 && d.country_txt == "Pakistan") { events.push(d) }});
 
     events.sort(function(a, b) { return a.percentage - b.percentage})
-    console.log(events)
 
 var text = "";
 
@@ -40,8 +39,6 @@ var margin = {top: 5, right: 5, bottom: 5, left: 5},
           .attr("class", "pie")
           .attr("viewBox", [0, 0, (width + margin.right + margin.left),
                         (height + margin.top + margin.bottom)].join(' '));
-          // .attr("width", width)
-          // .attr("height", height);
 
   var g = svg.append("g")
           .attr("transform", "translate(" + (width/2) + "," + (height/2) + ")");
