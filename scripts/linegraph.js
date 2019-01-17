@@ -8,10 +8,10 @@ function showLineGraph () {
       kw = Object.values(kw)
 
       // trigger render
-      data = makeDict(kw, "Pakistan")
+      data = makeDict(kw, "Iraq")
       kwcountry = data[1]
       data = data[0]
-      drawLineGraph(data, kwcountry, "Pakistan")
+      drawLineGraph(kw, data, kwcountry, "Iraq")
 
   }).catch(function(e){
       throw(e);
@@ -19,9 +19,7 @@ function showLineGraph () {
 
 }
 
-function drawLineGraph(kw, kwcountry, country) {
-  console.log(kw)
-  tooltipText = ["Fatalities", "Non-fatal infuries"]
+function drawLineGraph(origData, data, kwcountry, country) {
 
   var margin = {top: 30, right: 20, bottom: 50, left: 60},
       width = 700 - margin.left - margin.right,
@@ -52,18 +50,42 @@ function drawLineGraph(kw, kwcountry, country) {
     .domain([0, d3.max(kwcountry, function(d) { return Math.max(d.sum_nkill, d.sum_wound); })])
     .nice();
 
+  /* Add Axis into SVG */
+  var xAxis = d3.axisBottom(xScale)
+                .tickFormat(function(d){ return d })
+                .ticks(18);
+  var yAxis = d3.axisLeft(yScale);
+
   var color = ["#583aa5", "#a57e3a", "#87a53a", "#a53a87"];
 
   /* Add SVG */
     var svg = d3.select("#line").append("svg")
+                .attr("id", function() { if (/\s/.test(country)) {
+                      return country.replace(/\s/g,''); } else { return country; }})
                 .attr("viewBox", [0, 0, (width + margin.right + margin.left),
                 (height + margin.top + margin.bottom)].join(' '))
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+      d3.select('#inds')
+    			.on("change", function () {
+    				var sect = document.getElementById("inds");
+    				var section = sect.options[sect.selectedIndex].value;
+            newData = makeDict(origData, section)
+            newDataCountry = newData[1]
+            newData = newData[0]
+
+    		    //debugger
+    				updateGraph(origData, newData, newDataCountry, country, section);
+
+    				jQuery('h1.page-header').html(section);
+    			});
+
+    tooltipText = ["Fatalities", "Non-fatal injuries"]
 
   /* Add line into SVG */
   var line = d3.line()
+    .curve(d3.curveMonotoneX)
     .x(d => xScale(d.date))
     .y(d => yScale(d.nkw));
 
@@ -71,7 +93,8 @@ function drawLineGraph(kw, kwcountry, country) {
     .attr('class', 'lines');
 
   lines.selectAll('.line-group')
-    .data(kw).enter()
+    .data(data)
+    .enter()
     .append('g')
     .attr('class', 'line-group')
     .on("mouseover", function(d, i) {
@@ -114,7 +137,7 @@ function drawLineGraph(kw, kwcountry, country) {
 
   /* Add circles in the line */
   lines.selectAll("circle-group")
-    .data(kw).enter()
+    .data(data).enter()
     .append("g")
     .style("fill", (d, i) => color[i])
     .selectAll("circle")
@@ -155,13 +178,6 @@ function drawLineGraph(kw, kwcountry, country) {
             .attr("r", circleRadius);
         });
 
-
-  /* Add Axis into SVG */
-  var xAxis = d3.axisBottom(xScale)
-                .tickFormat(function(d){ return d })
-                .ticks(18);
-  var yAxis = d3.axisLeft(yScale);
-
   svg.append("g")
     .attr("class", "x axis")
     .attr("transform", `translate(0, ${height})`)
@@ -198,6 +214,16 @@ function drawLineGraph(kw, kwcountry, country) {
   .text("Number of fatalities and non-fatal injuries from terrorist attacks in " + country)
 }
 
+function updateGraph (origData, data, kwcountry, oldcountry, country) {
+    if (/\s/.test(oldcountry)) {
+      oldcountry = oldcountry.replace(/\s/g,''); }
+
+    d3.select("#" + oldcountry).remove();
+
+    drawLineGraph(origData, data, kwcountry, country)
+
+}
+
 function makeDict (data, country) {
   var dict = []
   var kills = []
@@ -205,7 +231,6 @@ function makeDict (data, country) {
   var kwcountry = []
   var country2;
   data.forEach(function(d) { if (d.country_txt == country) { kwcountry.push(d); }})
-  console.log(kwcountry)
   kwcountry.forEach(function(d) {
       country2 = d.country_txt
       kills.push({date: d.iyear, nkw: d.sum_nkill})

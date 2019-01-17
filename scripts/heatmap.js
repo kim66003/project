@@ -46,7 +46,7 @@ function showHeatMap () {
         counts = []
         events = Object.values(country)
 
-        events.forEach(function(d) { if (d.iyear === 2017){ counts.push(d.count)}})
+        events.forEach(function(d) { if (d.iyear === 2000){ counts.push(d.count)}})
         var min = 0;
         var max = Math.max.apply(null, counts)
 
@@ -55,7 +55,7 @@ function showHeatMap () {
                       .range([d3.rgb("#fdd3a0"), d3.rgb("#800000")]);
 
 
-      drawMap(data, svg, path, color, tip, events, 2017)
+      drawMap(data, svg, path, color, tip, events, 2000)
       drawLegend(svg, color, max)
 
     }).catch(function(e){
