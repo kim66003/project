@@ -7,7 +7,7 @@ function showDonutChart () {
       group = response[0]
 
 
-      drawDonut(group, "Indonesia")
+      drawDonut(group, "Iraq")
 
   }).catch(function(e){
       throw(e);
@@ -19,7 +19,7 @@ function drawDonut (data, country) {
   values = Object.values(data)
   events = []
   values.forEach(function(d) {
-    if (d.iyear == 2000 && d.country_txt == "Indonesia") { events.push(d) }});
+    if (d.iyear == 2015 && d.country_txt == "Iraq") { events.push(d) }});
 
     events.sort(function(a, b) { return a.percentage - b.percentage})
 

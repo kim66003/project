@@ -42,21 +42,27 @@ function showHeatMap () {
         svg = response[2]
         path = response[3]
         tip = response[4]
-
+        year = 2000
         counts = []
+        counts2 = []
         events = Object.values(country)
 
-        events.forEach(function(d) { if (d.iyear === 2000){ counts.push(d.count)}})
-        var min = 0;
+        events.forEach(function(d) { if (d.iyear == year) { counts.push(d.count) }})
         var max = Math.max.apply(null, counts)
+        max = Math.round(max/100)*100
+
+        events.forEach(function(d) { counts2.push(d.count) })
+        var min = 0;
+        var max2 = Math.max.apply(null, counts2)
+        max2 = Math.round(max2/1000)*1000
 
         var color = d3.scaleLinear()
-                      .domain([1, max])
+                      .domain([1, max2])
                       .range([d3.rgb("#fdd3a0"), d3.rgb("#800000")]);
 
 
-      drawMap(data, svg, path, color, tip, events, 2000)
-      drawLegend(svg, color, max)
+      drawMap(data, svg, path, color, tip, events, year)
+      drawLegend(svg, color, max2)
 
     }).catch(function(e){
         throw(e);
@@ -86,7 +92,7 @@ function drawMap(data, svg, path, color, tip, events, year) {
       .data(data.features)
     .enter().append("path")
       .attr("d", path)
-      .style("fill", function(d) { if (d.attacks === 0) { return "#ffe6c9" } else { return color(d.attacks) }; })
+      .style("fill", function(d) { if (d.attacks === 0) { return "#fff3e5" } else { return color(d.attacks) }; })
       .style("stroke", "white")
       .style("stroke-width", 1.5)
       .style("opacity",0.8)

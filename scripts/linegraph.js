@@ -1,6 +1,6 @@
 function showLineGraph () {
 
-  input = "../data/killsandwound.json"
+  var input = "../data/killsandwound.json"
   var requests = [d3.json(input)];
 
   Promise.all(requests).then(function(response) {
