@@ -53,7 +53,7 @@ On this day I didn't commit anything to github because I was working on my data 
 And I wanted it to look like this:
 
 #### Processed Data:
-![alt text](https://github.com/kim66003/project/blob/master/process/data_heads_11-10-2019.png)
+![alt text](https://github.com/kim66003/project/blob/master/process/data_heads_11-10-2019.PNG)
 
 ### <u>Jan 14, 2019:</u>
 
