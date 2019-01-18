@@ -37,3 +37,9 @@ I didn't commit my python script and processed data on this day because my datas
 - Added grid to visualisations.html with some text and an example donut chart (not with own data)
 - Added 3 javascript files and css file to folder scripts
 - Added d3 folder with d3, d3-tip and legend
+
+Index page:
+![alt text](https://github.com/kim66003/project/blob/master/process/index_10-01-2019.png)
+
+Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_10-01-2019.png)
