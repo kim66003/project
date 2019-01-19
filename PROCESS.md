@@ -57,4 +57,14 @@ And I wanted it to look like this:
 
 ### <u>Jan 14, 2019:</u>
 
-- I finally got my data the way I wanted it with some help.
+So I finally got my data the way I wanted it as you can see in the picture above. I wanted to have different dataframes with the data I needed to make a worldmap, linegraph and donut chart. So I had to groupby some variables and count the rows or sum the values in a column. I finally succeeded with some help.
+
+- Made a heatmap with number of terrorist attacks in the period of 2000-2017
+- Made a donut chart with percentage of all the groups responsible for an attack per year per country
+- I used a bootstrap grid to put my visualisations in there
+- I had the problem that you could either see the worldmap or the donut chart on my visualisations page, depending on which one I loaded last in my visualisations.html
+- So I found out this was because I needed to have 1 windows.onload in a main.js and call the worldmap and donut chart function in there
+#### Visualisations page with worldmap:
+![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_14-01-2019.png)
+#### Visualisations page with donut chart:
+![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_14-01-2019_v2.png)
