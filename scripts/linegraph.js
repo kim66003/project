@@ -47,7 +47,7 @@ function drawLineGraph(origData, data, kwcountry, country) {
   var yScale = d3.scaleLinear()
                   .range([height, 0])
                   .clamp(true)
-    .domain([0, d3.max(kwcountry, function(d) { return Math.max(d.sum_nkill, d.sum_wound); })])
+    .domain([0, d3.max(kwcountry, function(d) { return Math.max(d.sum_nkill, d.sum_nwound); })])
     .nice();
 
   /* Add Axis into SVG */
@@ -234,7 +234,7 @@ function makeDict (data, country) {
   kwcountry.forEach(function(d) {
       country2 = d.country_txt
       kills.push({date: d.iyear, nkw: d.sum_nkill})
-      wounded.push({date: d.iyear, nkw: d.sum_wound})
+      wounded.push({date: d.iyear, nkw: d.sum_nwound})
   });
     dict.push({
     country: country2,
