@@ -42,7 +42,7 @@ function showHeatMap () {
         svg = response[2]
         path = response[3]
         tip = response[4]
-        year = 2000
+        year = 2017
         counts = []
         counts2 = []
         events = Object.values(country)
@@ -57,12 +57,16 @@ function showHeatMap () {
         max2 = Math.round(max2/1000)*1000
 
         var color = d3.scaleLinear()
-                      .domain([1, max2])
+                      .domain([1, max])
                       .range([d3.rgb("#fdd3a0"), d3.rgb("#800000")]);
+
+    //     var color2 = d3.scaleThreshold()
+    // .domain([0,5,10,25,50,100,250,500,1000,2500,5000])
+    // .range(["#fff7ec", "#fee8c8", "#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#990000", "#7f0000"])
 
 
       drawMap(data, svg, path, color, tip, events, year)
-      drawLegend(svg, color, max2)
+      drawLegend(svg, color, max)
 
     }).catch(function(e){
         throw(e);

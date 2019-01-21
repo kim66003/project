@@ -6,12 +6,13 @@ function showLineGraph () {
   Promise.all(requests).then(function(response) {
       kw = response[0]
       kw = Object.values(kw)
+      country = "Iraq"
 
       // trigger render
-      data = makeDict(kw, "Iraq")
+      data = makeDict(kw, country)
       kwcountry = data[1]
       data = data[0]
-      drawLineGraph(kw, data, kwcountry, "Iraq")
+      drawLineGraph(kw, data, kwcountry, country)
 
   }).catch(function(e){
       throw(e);

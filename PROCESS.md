@@ -68,3 +68,22 @@ So I finally got my data the way I wanted it as you can see in the picture above
 ![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_14-01-2019.png)
 #### Visualisations page with donut chart:
 ![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_14-01-2019_v2.png)
+
+### <u>Jan 15, 2019:</u>
+- I processed my data for my linegraph and converted it to killsandwound.json
+- I made a main.js where I call functions from my other .js files so there is only one windows.onload
+- I made a line graph
+#### Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_15-01-2019.png)
+
+### <u>Jan 16, 2019:</u>
+- Index page scrolls down when loading page
+- Updated story page
+- Worked on line graph
+- Donut chart shows values small to large
+#### Story page:
+![alt text](https://github.com/kim66003/project/blob/master/process/story_16-01-2019.png)
+#### Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_16-01-2019.png)
+
+### <u>Jan 17, 2019:</u>
