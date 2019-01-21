@@ -110,6 +110,7 @@ So I finally got my data the way I wanted it as you can see in the picture above
 - Still want to add year slider to heatmap but haven't had the time yet
 - Been working on update function line graph but it's not perfect yet
 - Hope to finish line graph with functioning update tomorrow
+- As you can see in the page with the new script, when another country is chosen in the dropdown, the circles of the last country remain
 #### Visualisations page with old script:
 ![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_21-01-2019_no_update.png)
 #### Visualisations page with new script:
