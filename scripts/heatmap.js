@@ -42,7 +42,7 @@ function showHeatMap () {
         svg = response[2]
         path = response[3]
         tip = response[4]
-        year = 2017
+        year = 2005
         counts = []
         counts2 = []
         events = Object.values(country)

@@ -2,7 +2,7 @@ function showLineGraph () {
 
   d3.json("../data/killsandwound.json").then(function(data) {
     data = Object.values(data)
-    var country = "United Kingdom"
+    var country = "Iraq"
 
     kw = makeDict(data, country)
     kwcountry = kw[1]

@@ -44,7 +44,6 @@ I didn't commit my python script and processed data on this day because my datas
 ![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_10-01-2019.png)
 
 ### <u>Jan 11, 2019:</u>
-
 On this day I didn't commit anything to github because I was working on my data again with the original dataset (158mb) so this was too big to commit again. I found out  that I had to reformat my data because I had to get the frequencies of some variables in a new dataframe (with pandas) and I was struggling with this a lot. My data looked like this:
 
 #### Data:
@@ -56,7 +55,6 @@ And I wanted it to look like this:
 ![alt text](https://github.com/kim66003/project/blob/master/process/data_heads_11-10-2019.PNG)
 
 ### <u>Jan 14, 2019:</u>
-
 So I finally got my data the way I wanted it as you can see in the picture above. I wanted to have different dataframes with the data I needed to make a worldmap, linegraph and donut chart. So I had to groupby some variables and count the rows or sum the values in a column. I finally succeeded with some help.
 
 - Made a heatmap with number of terrorist attacks in the period of 2000-2017
@@ -87,3 +85,32 @@ So I finally got my data the way I wanted it as you can see in the picture above
 ![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_16-01-2019.png)
 
 ### <u>Jan 17, 2019:</u>
+- Made dropdown menu on navbar for different countries (not all yet)
+- Tried to make update function for line graph based on dropdown
+- Didn't really work out (yet)
+#### Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_17-01-2019.png)
+
+### <u>Jan 18, 2019:</u>
+- Played around with heatmap colours and max values
+- In doubt whether to keep the legend the same throughout the years (so same max value) or if I should update the legend with every year
+- Colours don't say alot if I don't update legend (see pic below)
+- Thinking about defining colours in legend with uneven values like so: 0, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000
+- Worked on process.py
+#### Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_18-01-2019.png)
+
+### <u>Jan 19, 2019:</u>
+- Changed some stuff in linegraph.js
+- Linegraph can now update with dropdown but it doesn't transition, just throws away svg and loads new one
+- Would like to improve update function so I won't throw away svg every time, only update data and transition
+
+### <u>Jan 21, 2019:</u>
+- Haven't changed heatmap yet (legend)
+- Still want to add year slider to heatmap but haven't had the time yet
+- Been working on update function line graph but it's not perfect yet
+- Hope to finish line graph with functioning update tomorrow
+#### Visualisations page with old script:
+![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_21-01-2019_no_update.png)
+#### Visualisations page with new script:
+![alt text](https://github.com/kim66003/project/blob/master/process/visualisations_21-01-2019_with_update.png)
