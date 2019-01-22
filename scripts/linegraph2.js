@@ -1,16 +1,11 @@
-function showLineGraph () {
+function showLineGraph (data, country) {
+  d3.select("#linegraph").remove();
 
-  d3.json("../data/killsandwound.json").then(function(data) {
-    data = Object.values(data)
-    var country = "Iraq"
+  data = Object.values(data)
 
-    kw = makeDict(data, country)
-    kwcountry = kw[1]
-    kw = kw[0]
-    drawLineGraph2(data, kw, kwcountry, country)
-  })
-
-  // var country = "Iraq"
+  kw = makeDict(data, country)
+  kwcountry = kw[1]
+  kw = kw[0]
 
   var margin = {top: 30, right: 20, bottom: 50, left: 60},
       width = 700 - margin.left - margin.right,
@@ -44,13 +39,14 @@ function showLineGraph () {
   var yAxis = d3.axisLeft(yScale);
 
   /* Add SVG */
-    var svg = d3.select("#line").append("svg")
-                // .attr("id", function() { if (/\s/.test(country)) {
-                //       return country.replace(/\s/g,''); } else { return country; }})
-                .attr("viewBox", [0, 0, (width + margin.right + margin.left),
-                (height + margin.top + margin.bottom)].join(' '))
-                .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var svg = d3.select("#line").append("svg")
+              // .attr("id", function() { if (/\s/.test(country)) {
+              //       return country.replace(/\s/g,''); } else { return country; }})
+              .attr("id", "linegraph")
+              .attr("viewBox", [0, 0, (width + margin.right + margin.left),
+              (height + margin.top + margin.bottom)].join(' '))
+              .append("g")
+              .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   var color = ["#583aa5", "#a57e3a", "#87a53a", "#a53a87"];
 
@@ -65,8 +61,10 @@ function showLineGraph () {
   let lines = svg.append('g')
     .attr('class', 'lineholder');
 
+
   function drawLineGraph2 (origData, data, kwcountry, country) {
 
+        // update graph on change
         d3.select('#inds')
             .on("change", function () {
               var sect = document.getElementById("inds");
@@ -74,7 +72,6 @@ function showLineGraph () {
               newData = makeDict(origData, section)
               newDataCountry = newData[1]
               newData = newData[0]
-              console.log(newData)
 
               //debugger
               updateGraph2(origData, newData, newDataCountry, section);
@@ -82,11 +79,145 @@ function showLineGraph () {
               jQuery('h1.page-header').html(section);
             });
 
-      updateGraph2(origData, data, kwcountry, country)
+      // define domain x- and yscale
+      xScale
+      .domain(d3.extent(kwcountry, function(d) { return d.iyear; }));
+
+      yScale
+      .clamp(true)
+      .domain([0, d3.max(kwcountry, function(d) { return Math.max(d.sum_nkill, d.sum_nwound); })])
+      .nice();
+
+      // draw lines
+      lines.selectAll('.line-group')
+        .data(data)
+        .enter()
+        .append('g')
+        .attr('class', 'line-group')
+        .on("mouseover", function(d, i) {
+            svg.append("text")
+              .attr("class", "title-text")
+              .style("fill", color[i])
+              .text(tooltipText[i])
+              .attr("text-anchor", "middle")
+              .attr("x", (width) / 2)
+              .attr("y", 5);
+          })
+        .on("mouseout", function(d) {
+            svg.select(".title-text").remove();
+          })
+        .append('path')
+        .attr('class', 'line')
+        .attr('d', d => line(d.values))
+        .style('stroke', (d, i) => color[i])
+        .style('opacity', lineOpacity)
+        .on("mouseover", function(d) {
+            d3.selectAll('.line')
+      					.style('opacity', otherLinesOpacityHover);
+            d3.selectAll('.circle')
+      					.style('opacity', circleOpacityOnLineHover);
+            d3.select(this)
+              .style('opacity', lineOpacityHover)
+              .style("stroke-width", lineStrokeHover)
+              .style("cursor", "pointer");
+          })
+        .on("mouseout", function(d) {
+            d3.selectAll(".line")
+      					.style('opacity', lineOpacity);
+            d3.selectAll('.circle')
+      					.style('opacity', circleOpacity);
+            d3.select(this)
+              .style("stroke-width", lineStroke)
+              .style("cursor", "none");
+          });
+
+
+      // add circles to each line
+      lines.selectAll("circle-group")
+        .data(data).enter()
+        .append("g")
+        .attr("class", "test-group")
+        .style("fill", (d, i) => color[i])
+        .selectAll("circle")
+        .data(d => d.values).enter()
+        .append("g")
+        .attr("class", "circle")
+        .on("mouseover", function(d) {
+            d3.select(this)
+              .style("cursor", "pointer")
+              .append("text")
+              .attr("class", "text")
+              .text(`${d.nkw}`)
+              .attr("x", d => xScale(d.date) + 5)
+              .attr("y", d => yScale(d.nkw) - 10);
+          })
+        .on("mouseout", function(d) {
+            d3.select(this)
+              .style("cursor", "none")
+              .transition()
+              .duration(duration)
+              .selectAll(".text").remove();
+          })
+        .append("circle")
+        .attr("cx", d => xScale(d.date))
+        .attr("cy", d => yScale(d.nkw))
+        .attr("r", circleRadius)
+        .style('opacity', circleOpacity)
+        .on("mouseover", function(d) {
+              d3.select(this)
+                .transition()
+                .duration(duration)
+                .attr("r", circleRadiusHover);
+            })
+          .on("mouseout", function(d) {
+              d3.select(this)
+                .transition()
+                .duration(duration)
+                .attr("r", circleRadius);
+            });
+
+      svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(0, ${height})`)
+        .call(xAxis);
+
+      svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
+        // add axis labels
+          svg.append("g").append('text')
+          .attr('class', 'axis-label')
+          .attr('y', height + 40)
+          .attr('x', width / 2 - 20)
+          .attr('fill', 'black')
+          .text("Year");
+
+          svg.append("g")
+          .append('text')
+          .attr('class', 'axis-label')
+          .attr('y', - 50)
+          .attr('x', - height / 2)
+          .attr('fill', 'black')
+          .attr('transform', 'rotate(-90)')
+          .attr('text-anchor', 'middle')
+          .text("Number of kills and wounded")
+
+          // add title
+      svg.append("g")
+      .append('text')
+      .attr('class', 'title')
+      .attr('x', margin.left)
+      .attr('y', -10)
+      .text("Number of fatalities and non-fatal injuries from terrorist attacks in " + country)
 
   }
 
   function updateGraph2 (origData, data, kwcountry, country) {
+    svg.selectAll(".line").remove();
+    svg.selectAll(".circle").remove();
+    svg.selectAll(".text").remove();
+
       xScale
       .domain(d3.extent(kwcountry, function(d) { return d.iyear; }));
 
@@ -99,12 +230,15 @@ function showLineGraph () {
       var state = lines.selectAll('.line-group')
         .data(data);
 
+
       state.enter()
       .append('g')
       .merge(state)
       .attr('class', 'line-group');
 
-      var lineupdates = d3.select(".line-group").selectAll(".line")
+      var lineupdates = d3
+      .select(".line-group")
+      .selectAll(".line")
       .data(data);
 
       lineupdates.enter()
@@ -147,115 +281,102 @@ function showLineGraph () {
       state.exit().remove();
       lineupdates.exit().remove();
 
-        var circle = lines.selectAll("circle-group")
+        var circle = d3.selectAll(".test-group")
           .data(data);
 
         circle.enter()
-        .append('g')
+        // .append('g')
         .style("fill", (d, i) => color[i])
         .merge(circle)
-        .attr('class', 'circle-group');
+        .attr('class', 'test-group');
 
-        var circleupdates = d3.select(".circle-group").selectAll(".circle")
+
+        var circleupdates = d3.selectAll(".test-group").selectAll(".circle")
         .data(d => d.values);
 
-        circleupdates.enter()
-        .append('g')
-        .merge(circleupdates)
-        .attr('class', 'circle');
+        // circleupdates.enter()
+        // .append('circle')
+        // // .merge(circleupdates)
+        // .attr('class', 'circle');
 
-        d3.selectAll(".circle")
-        .on("mouseover", function(d) {
-            d3.select(this)
-              .style("cursor", "pointer")
-              .append("text")
-              .attr("class", "text")
-              .text(`${d.nkw}`)
-              .attr("x", d => xScale(d.date) + 5)
-              .attr("y", d => yScale(d.nkw) - 10);
-          })
-        .on("mouseout", function(d) {
-            d3.select(this)
-              .style("cursor", "none")
-              .transition()
-              .duration(duration)
-              .selectAll(".text").remove();
-          })
+        // d3.selectAll(".circle")
+        // .on("mouseover", function(d) {
+        //   console.log("hoi")
+        //     d3.select(this)
+        //       .style("cursor", "pointer")
+        //       .append("text")
+        //       .attr("class", "text")
+        //       .text(`${d.nkw}`)
+        //       .attr("x", d => xScale(d.date) + 5)
+        //       .attr("y", d => yScale(d.nkw) - 10);
+        //   })
+        // .on("mouseout", function(d) {
+        //     d3.select(this)
+        //       .style("cursor", "none")
+        //       .transition()
+        //       .duration(duration)
+        //       .selectAll(".text").remove();
+        //   })
+
+
+
+          // .append('circle')
+          // // .merge(circleupdates)
+          // .attr('class', 'circle');
+          circleupdates.enter()
         .append("circle")
+        .attr('class', "circle")
         .attr("cx", d => xScale(d.date))
         .attr("cy", d => yScale(d.nkw))
         .attr("r", circleRadius)
         .style('opacity', circleOpacity)
         .on("mouseover", function(d) {
-              d3.select(this)
-                .transition()
-                .duration(duration)
-                .attr("r", circleRadiusHover);
+          // d3.select(this)
+          //   .style("cursor", "pointer")
+          //   .append("text")
+          //   .attr("class", "text")
+          //   .text(`${d.nkw}`)
+          //   .attr("x", d => xScale(d.date) + 5)
+          //   .attr("y", d => yScale(d.nkw) - 10);
+          d3.select(this)
+          .style("cursor", "pointer")
+          .append("text")
+          .attr("class", "text")
+          .text("hoi")
+          // .transition()
+          // .duration(duration)
+          // .attr("r", circleRadiusHover)
+              // d3.select(this)
+              //   .style("cursor", "pointer")
+              //   .append("text")
+              //   .attr("class", "text")
+              //   .text(`${d.nkw}`)
+              //   .attr("x", d => xScale(d.date) + 5)
+              //   .attr("y", d => yScale(d.nkw) - 10)
+              //   .transition()
+              //   .duration(duration)
+              //   .attr("r", circleRadiusHover);
             })
           .on("mouseout", function(d) {
+              // // d3.select(this)
+              //   .transition()
+              //   .duration(duration)
+              //   .attr("r", circleRadius);
               d3.select(this)
+                .style("cursor", "none")
                 .transition()
                 .duration(duration)
-                .attr("r", circleRadius);
+                .selectAll(".text").remove();
+
             });
 
             circle.exit().remove()
             circleupdates.exit().remove()
 
 
-
-
-
-      //   circle.enter()
-      //   .append("g")
-      //   .style("fill", (d, i) => color[i])
-      //   .selectAll("circle")
-      //   .data(d => d.values).enter()
-      //   .append("g")
-      //   .attr("class", "circle")
-      //   .on("mouseover", function(d) {
-      //       d3.select(this)
-      //         .style("cursor", "pointer")
-      //         .append("text")
-      //         .attr("class", "text")
-      //         .text(`${d.nkw}`)
-      //         .attr("x", d => xScale(d.date) + 5)
-      //         .attr("y", d => yScale(d.nkw) - 10);
-      //     })
-      //   .on("mouseout", function(d) {
-      //       d3.select(this)
-      //         .style("cursor", "none")
-      //         .transition()
-      //         .duration(duration)
-      //         .selectAll(".text").remove();
-      //     });
-      //
-      // circle.transition()
-      // .append("circle")
-      // .attr("cx", d => xScale(d.date))
-      // .attr("cy", d => yScale(d.nkw))
-      // .attr("r", circleRadius)
-      // .style('opacity', circleOpacity)
-      // .on("mouseover", function(d) {
-      //       d3.select(this)
-      //         .transition()
-      //         .duration(duration)
-      //         .attr("r", circleRadiusHover);
-      //     })
-      //   .on("mouseout", function(d) {
-      //       d3.select(this)
-      //         .transition()
-      //         .duration(duration)
-      //         .attr("r", circleRadius);
-      //     });
-      //
-      //   circle.exit().remove()
-
-
-       ///// Axes
+        // remove axes and title
         svg.selectAll(".axis").remove();
         svg.selectAll(".title").remove();
-
 
         svg.append("g")
         .attr("class", "x axis")
@@ -268,24 +389,6 @@ function showLineGraph () {
         .attr("class", "y axis")
         .call(yAxis);
 
-        // add axis labels
-          svg.append("g").append('text')
-          .attr('class', 'axis-label')
-          .attr('y', height + 40)
-          .attr('x', width / 2 - 20)
-          .attr('fill', 'black')
-          .text("Year");
-
-          svg.append("g")
-          .append('text')
-          .attr('class', 'axis-label')
-          .attr('y', - 50)
-          .attr('x', - height / 2)
-          .attr('fill', 'black')
-          .attr('transform', 'rotate(-90)')
-          .attr('text-anchor', 'middle')
-          .text("Number of kills and wounded")
-
           // add title
       svg.append("g")
       .append('text')
@@ -295,8 +398,9 @@ function showLineGraph () {
       .text("Number of fatalities and non-fatal injuries from terrorist attacks in " + country)
 
   }
- }
+  drawLineGraph2(data, kw, kwcountry, country)
 
+ }
 
 
 function makeDict (data, country) {

@@ -1,5 +1,3 @@
-function showHeatMap () {
-
   var format = d3.format(",");
 
   // Set tooltips
@@ -31,21 +29,10 @@ function showHeatMap () {
 
   svg.call(tip);
 
-
-    input = "../data/country.json"
-    input2 = "../data/world_countries.json"
-    var requests = [d3.json(input), d3.json(input2), svg, path, tip];
-
-    Promise.all(requests).then(function(response) {
-        country = response[0]
-        data = response[1]
-        svg = response[2]
-        path = response[3]
-        tip = response[4]
-        year = 2005
+    function showHeatMap (data, dataMap, donutData, lineData, country, year) {
         counts = []
         counts2 = []
-        events = Object.values(country)
+        events = Object.values(data)
 
         events.forEach(function(d) { if (d.iyear == year) { counts.push(d.count) }})
         var max = Math.max.apply(null, counts)
@@ -63,29 +50,30 @@ function showHeatMap () {
     //     var color2 = d3.scaleThreshold()
     // .domain([0,5,10,25,50,100,250,500,1000,2500,5000])
     // .range(["#fff7ec", "#fee8c8", "#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#990000", "#7f0000"])
-
-
-      drawMap(data, svg, path, color, tip, events, year)
-      drawLegend(svg, color, max)
-
-    }).catch(function(e){
-        throw(e);
-    });
+      drawSlider()
+      drawMap(dataMap, events, color, donutData, lineData, country, year)
+      drawLegend(color, max)
 
 }
 
-function drawMap(data, svg, path, color, tip, events, year) {
+function drawMap(data, events, color, donutData, lineData, country, year) {
 
   var attacksById = {};
   var countries = []
+  var countries2 = []
   var uniqueNames = []
+  var uniqueNames2 = []
   events.forEach(function(d) { if (d.iyear === year) { attacksById[d.iyear + d.country_txt] = +d.count
   countries.push(d.country_txt)}});
   $.each(countries, function(i, el){
     if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
 });
+  events.forEach(function(d) { countries2.push(d.country_txt) });
+  $.each(countries2, function(i, el){
+    if($.inArray(el, uniqueNames2) === -1) uniqueNames2.push(el);
+  });
+  console.log(uniqueNames2)
 
-  // attacks.forEach(function(d) { attacksById[d.id] = +d.attacks; });
   data.features.forEach(function(d) {
     if (uniqueNames.includes(d.properties.name)) {d.attacks = attacksById[year + d.properties.name]}
     else {d.attacks = 0} });
@@ -112,12 +100,16 @@ function drawMap(data, svg, path, color, tip, events, year) {
             .style("stroke-width",3);
         })
         .on("mouseout", function(d){
-          tip.hide(d);
+          tip.hide(d)
 
           d3.select(this)
             .style("opacity", 0.8)
             .style("stroke","white")
             .style("stroke-width",0.3);
+        })
+        .on("mousedown", function(d) {
+          showDonut(donutData, d.properties.name, year)
+          showLineGraph(lineData, d.properties.name)
         });
 
       svg.append("path")
@@ -126,7 +118,7 @@ function drawMap(data, svg, path, color, tip, events, year) {
       .attr("d", path);
 }
 
-function drawLegend(svg, color, max) {
+function drawLegend(color, max) {
   //Append a defs (for definition) element to your SVG
 var defs = svg.append("defs");
 
@@ -173,4 +165,37 @@ linearGradient.selectAll("stop")
         .attr("class", "yAxis")
         .attr("transform", "translate(120, 20)")
         .call(yAxis)
+}
+
+function drawSlider() {
+
+  // Time
+  var dataTime = d3.range(0, 18).map(function(d) {
+    return new Date(2000 + d, 10, 4);
+  });
+
+  var sliderTime = d3
+    .sliderBottom()
+    .min(d3.min(dataTime))
+    .max(d3.max(dataTime))
+    .step(1000 * 60 * 60 * 24 * 365)
+    .width(500)
+    .tickFormat(d3.timeFormat('%Y'))
+    .tickValues(dataTime)
+    .default(new Date(2000, 10, 4))
+    .on('onchange', val => {
+      d3.select('p#value-time').text(d3.timeFormat('%Y')(val));
+    });
+
+  var gTime = d3
+    .select('div#slider-time')
+    .append('svg')
+    .attr('width', 600)
+    .attr('height', 100)
+    .append('g')
+    .attr('transform', 'translate(30,30)');
+
+  gTime.call(sliderTime);
+
+  d3.select('p#value-time').text(d3.timeFormat('%Y')(sliderTime.value()));
 }

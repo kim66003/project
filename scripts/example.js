@@ -152,3 +152,50 @@ function draw(data, country) {
     .attr('y', -10)
     .text("Number of fatalities and non-fatal injuries from terrorist attacks in " + country)
   }
+
+
+
+  //   circle.enter()
+  //   .append("g")
+  //   .style("fill", (d, i) => color[i])
+  //   .selectAll("circle")
+  //   .data(d => d.values).enter()
+  //   .append("g")
+  //   .attr("class", "circle")
+  //   .on("mouseover", function(d) {
+  //       d3.select(this)
+  //         .style("cursor", "pointer")
+  //         .append("text")
+  //         .attr("class", "text")
+  //         .text(`${d.nkw}`)
+  //         .attr("x", d => xScale(d.date) + 5)
+  //         .attr("y", d => yScale(d.nkw) - 10);
+  //     })
+  //   .on("mouseout", function(d) {
+  //       d3.select(this)
+  //         .style("cursor", "none")
+  //         .transition()
+  //         .duration(duration)
+  //         .selectAll(".text").remove();
+  //     });
+  //
+  // circle.transition()
+  // .append("circle")
+  // .attr("cx", d => xScale(d.date))
+  // .attr("cy", d => yScale(d.nkw))
+  // .attr("r", circleRadius)
+  // .style('opacity', circleOpacity)
+  // .on("mouseover", function(d) {
+  //       d3.select(this)
+  //         .transition()
+  //         .duration(duration)
+  //         .attr("r", circleRadiusHover);
+  //     })
+  //   .on("mouseout", function(d) {
+  //       d3.select(this)
+  //         .transition()
+  //         .duration(duration)
+  //         .attr("r", circleRadius);
+  //     });
+  //
+  //   circle.exit().remove()

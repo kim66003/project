@@ -1,22 +1,11 @@
-function showLineGraph () {
+function showLineGraph (data, country) {
 
-  var input = "../data/killsandwound.json"
-  var requests = [d3.json(input)];
+      events = Object.values(data)
+      dict = makeDict(events, country)
+      kwcountry = dict[1]
+      data = dict[0]
 
-  Promise.all(requests).then(function(response) {
-      kw = response[0]
-      kw = Object.values(kw)
-      country = "Iraq"
-
-      // trigger render
-      data = makeDict(kw, country)
-      kwcountry = data[1]
-      data = data[0]
-      drawLineGraph(kw, data, kwcountry, country)
-
-  }).catch(function(e){
-      throw(e);
-  });
+      drawLineGraph(events, data, kwcountry, country)
 
 }
 
