@@ -3,7 +3,7 @@
   // Set tooltips
   var tip = d3.tip()
               .attr("class", "d3-tip")
-              .offset([60, 120])
+              .offset([0, 50])
               .html(function(d) {
                 return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Terrorist attacks: </strong><span class='details'>" + format(d.attacks) +"</span>";
               })
