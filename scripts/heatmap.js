@@ -145,41 +145,41 @@ function drawMap(data, events, color, donutData, lineData, country, year) {
 }
 
 function drawLegend(color, max) {
-  d3.selectAll("defs").remove()
-  d3.select(".yAxis").remove()
-  d3.selectAll("#linear-gradient").remove()
-  d3.selectAll("rect").remove()
+  // d3.selectAll("defs").remove()
+  // d3.select(".yAxis").remove()
+  // d3.selectAll("#linear-gradient").remove()
+  // d3.selectAll("rect").remove()
   //Append a defs (for definition) element to your SVG
-var defs = svg.append("defs");
-
-//Append a linearGradient element to the defs and give it a unique id
-var linearGradient = defs.append("linearGradient")
-    .attr("id", "linear-gradient");
-
-//Vertical gradient
-linearGradient
-    .attr("x1", "0%")
-    .attr("y1", "100%")
-    .attr("x2", "0%")
-    .attr("y2", "0%");
-
-    //Append multiple color stops by using D3's data/enter step
-linearGradient.selectAll("stop")
-    .data( color.range() )
-    .enter().append("stop")
-    .attr("offset", function(d,i) { return i/(color.range().length - 1); })
-    .attr("stop-color", function(d) { return d; });
+// var defs = svg.append("defs");
+//
+// //Append a linearGradient element to the defs and give it a unique id
+// var linearGradient = defs.append("linearGradient")
+//     .attr("id", "linear-gradient");
+//
+// //Vertical gradient
+// linearGradient
+//     .attr("x1", "0%")
+//     .attr("y1", "100%")
+//     .attr("x2", "0%")
+//     .attr("y2", "0%");
+//
+//     //Append multiple color stops by using D3's data/enter step
+// linearGradient.selectAll("stop")
+//     .data( color.range() )
+//     .enter().append("stop")
+//     .attr("offset", function(d,i) { return i/(color.range().length - 1); })
+//     .attr("stop-color", function(d) { return d; });
 
     width = 20;
     height = 550;
 
     //Draw the rectangle and fill with gradient
-    svg.append("rect")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("transform", "translate(120, 20)")
-        .style("fill", "url(#linear-gradient)")
-        .attr("opacity", 0.8);
+    // svg.append("rect")
+    //     .attr("width", width)
+    //     .attr("height", height)
+    //     .attr("transform", "translate(120, 20)")
+    //     .style("fill", "url(#linear-gradient)")
+    //     .attr("opacity", 0.8);
 
         var color = d3.scaleThreshold()
                       .domain([0,5,10,25,50,100,250,500,1000,2500,5000])
@@ -190,11 +190,11 @@ linearGradient.selectAll("stop")
                         .enter()
                         .append("g")
                         .attr("class", "legend")
-                        .attr("transform", function(d, i) { return "translate(50," + ((i * (height / 11)) + 20) + ")"; });
+                        .attr("transform", function(d, i) { return "translate(120," + ((i * (height / 11)) + 20) + ")"; });
 
   // draw legend colored rectangles
   legend.append("rect")
-      .attr("x", width - 5)
+      .attr("x", 0)
       .attr("width", width)
       .attr("height", (height / 11))
       .style("fill", color);
@@ -213,7 +213,7 @@ linearGradient.selectAll("stop")
       // add axis
       svg.append("g")
         .attr("class", "yAxis")
-        .attr("transform", "translate(65, 20)")
+        .attr("transform", "translate(120, 20)")
         .call(yAxis)
   //
   // // draw legend text
@@ -225,19 +225,19 @@ linearGradient.selectAll("stop")
   //     .text(function(d) { return d;})
 
         // yscale for axis
-      var yScale = d3.scaleLinear()
-              .range([0, height])
-              .domain([max, 0]);
-      // yaxis scaled
-      var yAxis = d3.axisLeft()
-              .scale(yScale)
-              .ticks(9);
-
-      // add axis
-      svg.append("g")
-        .attr("class", "yAxis")
-        .attr("transform", "translate(120, 20)")
-        .call(yAxis)
+      // var yScale = d3.scaleLinear()
+      //         .range([0, height])
+      //         .domain([max, 0]);
+      // // yaxis scaled
+      // var yAxis = d3.axisLeft()
+      //         .scale(yScale)
+      //         .ticks(9);
+      //
+      // // add axis
+      // svg.append("g")
+      //   .attr("class", "yAxis")
+      //   .attr("transform", "translate(120, 20)")
+      //   .call(yAxis)
 }
 
 function drawSlider(data, dataMap, donutData, lineData, country) {
@@ -265,7 +265,7 @@ function drawSlider(data, dataMap, donutData, lineData, country) {
       color = multiData[2]
       // d3.select("svg").remove()
       drawMap(dataMap, events, color, donutData, lineData, country, year)
-      drawLegend(color, max)
+      // drawLegend(color, max)
 
     });
 
