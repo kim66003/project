@@ -65,19 +65,19 @@ function showLineGraph (data, country) {
   function drawLineGraph2 (origData, data, kwcountry, country) {
 
         // update graph on change
-        d3.select('#inds')
-            .on("change", function () {
-              var sect = document.getElementById("inds");
-              var section = sect.options[sect.selectedIndex].value;
-              newData = makeDict(origData, section)
-              newDataCountry = newData[1]
-              newData = newData[0]
-
-              //debugger
-              updateGraph2(origData, newData, newDataCountry, section);
-
-              jQuery('h1.page-header').html(section);
-            });
+        // d3.select('#inds')
+        //     .on("change", function () {
+        //       var sect = document.getElementById("inds");
+        //       var section = sect.options[sect.selectedIndex].value;
+        //       newData = makeDict(origData, section)
+        //       newDataCountry = newData[1]
+        //       newData = newData[0]
+        //
+        //       //debugger
+        //       updateGraph2(origData, newData, newDataCountry, section);
+        //
+        //       jQuery('h1.page-header').html(section);
+        //     });
 
       // define domain x- and yscale
       xScale
@@ -230,6 +230,7 @@ function showLineGraph (data, country) {
       var state = lines.selectAll('.line-group')
         .data(data);
 
+        // console.log(d3.selectAll(".test-group"));
 
       state.enter()
       .append('g')
@@ -299,24 +300,24 @@ function showLineGraph (data, country) {
         // // .merge(circleupdates)
         // .attr('class', 'circle');
 
-        // d3.selectAll(".circle")
-        // .on("mouseover", function(d) {
-        //   console.log("hoi")
-        //     d3.select(this)
-        //       .style("cursor", "pointer")
-        //       .append("text")
-        //       .attr("class", "text")
-        //       .text(`${d.nkw}`)
-        //       .attr("x", d => xScale(d.date) + 5)
-        //       .attr("y", d => yScale(d.nkw) - 10);
-        //   })
-        // .on("mouseout", function(d) {
-        //     d3.select(this)
-        //       .style("cursor", "none")
-        //       .transition()
-        //       .duration(duration)
-        //       .selectAll(".text").remove();
-        //   })
+        d3.selectAll(".circle")
+        .on("mouseover", function(d) {
+          console.log("hoi")
+            d3.select(this)
+              .style("cursor", "pointer")
+              .append("text")
+              .attr("class", "text")
+              .text(`${d.nkw}`)
+              .attr("x", d => xScale(d.date) + 5)
+              .attr("y", d => yScale(d.nkw) - 10);
+          })
+        .on("mouseout", function(d) {
+            d3.select(this)
+              .style("cursor", "none")
+              .transition()
+              .duration(duration)
+              .selectAll(".text").remove();
+          })
 
 
 
@@ -331,43 +332,16 @@ function showLineGraph (data, country) {
         .attr("r", circleRadius)
         .style('opacity', circleOpacity)
         .on("mouseover", function(d) {
-          // d3.select(this)
-          //   .style("cursor", "pointer")
-          //   .append("text")
-          //   .attr("class", "text")
-          //   .text(`${d.nkw}`)
-          //   .attr("x", d => xScale(d.date) + 5)
-          //   .attr("y", d => yScale(d.nkw) - 10);
-          d3.select(this)
-          .style("cursor", "pointer")
-          .append("text")
-          .attr("class", "text")
-          .text("hoi")
-          // .transition()
-          // .duration(duration)
-          // .attr("r", circleRadiusHover)
-              // d3.select(this)
-              //   .style("cursor", "pointer")
-              //   .append("text")
-              //   .attr("class", "text")
-              //   .text(`${d.nkw}`)
-              //   .attr("x", d => xScale(d.date) + 5)
-              //   .attr("y", d => yScale(d.nkw) - 10)
-              //   .transition()
-              //   .duration(duration)
-              //   .attr("r", circleRadiusHover);
-            })
-          .on("mouseout", function(d) {
-              // // d3.select(this)
-              //   .transition()
-              //   .duration(duration)
-              //   .attr("r", circleRadius);
               d3.select(this)
-                .style("cursor", "none")
                 .transition()
                 .duration(duration)
-                .selectAll(".text").remove();
-
+                .attr("r", circleRadiusHover);
+            })
+          .on("mouseout", function(d) {
+              d3.select(this)
+                .transition()
+                .duration(duration)
+                .attr("r", circleRadius);
             });
 
             circle.exit().remove()

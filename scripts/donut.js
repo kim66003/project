@@ -1,46 +1,41 @@
 var text = "";
 
-function showDonut (data, country, year) {
-  d3.select("#donutchart").remove();
+function showDonut (data, country, year, bool) {
 
-    events = getData(data, country, year)
-
-    drawDonut(data, events, country)
-
+  if (bool === 1) {
+    d3.select("#donutchart").remove();
   }
 
-    function getData (data, country, year) {
-      values = Object.values(data)
-      events = []
-      values.forEach(function(d) {
-        if (d.iyear == year && d.country_txt == country) { events.push(d) }});
+    var margin_D = {top: 5, right: 5, bottom: 5, left: 5},
+        width_D = 400 - margin_D.left - margin_D.right,
+        height_D = 400 - margin_D.top - margin_D.bottom;
+      var thickness = 50;
+      var duration_D = 750;
+      var radius = Math.min(width_D, height_D) / 2;
+      var color_D = d3.scaleOrdinal(d3.schemeSet3);
 
-      events.sort(function(a, b) { return a.percentage - b.percentage})
-      return events;
-    }
+      var svg2 = d3.select("#donut")
+                   .append("svg")
+                   // .attr("id", function() { if (/\s/.test(country)) {
+                  //       return country.replace(/\s/g,''); } else { return country; }})
+                   .attr("id", "donutchart")
+                   .attr("class", "pie")
+                   .attr("viewBox", [0, 0, (width_D + margin_D.right + margin_D.left),
+                                 (height_D + margin_D.top + margin_D.bottom)].join(' '));
+
+       var g = svg2.append("g")
+               .attr("transform", "translate(" + (width_D/2) + "," + (height_D/2) + ")");
+
 
     function drawDonut (data, events, country) {
 
-        var margin = {top: 5, right: 5, bottom: 5, left: 5},
-            width = 400 - margin.left - margin.right,
-            height = 400 - margin.top - margin.bottom;
-          var thickness = 50;
-          var duration = 750;
-
-          var radius = Math.min(width, height) / 2;
-          var color = d3.scaleOrdinal(d3.schemeSet3);
-
-      var svg = d3.select("#donut")
-              .append("svg")
-              // .attr("id", function() { if (/\s/.test(country)) {
-              //       return country.replace(/\s/g,''); } else { return country; }})
-              .attr("id", "donutchart")
-              .attr("class", "pie")
-              .attr("viewBox", [0, 0, (width + margin.right + margin.left),
-                            (height + margin.top + margin.bottom)].join(' '));
-
-      var g = svg.append("g")
-              .attr("transform", "translate(" + (width/2) + "," + (height/2) + ")");
+      if (typeof events === 'string') {
+        g.append("text")
+        .attr("class", "country-text")
+        .text(events)
+        .attr("text-anchor", "middle")
+        .attr("dy", "1em");
+      }
 
       var arc = d3.arc()
                   .innerRadius(radius - thickness)
@@ -51,17 +46,17 @@ function showDonut (data, country, year) {
                     return (d.percentage); }})
                   .sort(null);
 
-      d3.select('#inds')
-          .on("change", function () {
-            var sect = document.getElementById("inds");
-            var section = sect.options[sect.selectedIndex].value;
-            newData = getData(data, section, year)
-
-            //debugger
-            updateDonut(newData, section, year, g);
-
-            jQuery('h1.page-header').html(section);
-          });
+      // d3.select('#inds')
+      //     .on("change", function () {
+      //       var sect = document.getElementById("inds");
+      //       var section = sect.options[sect.selectedIndex].value;
+      //       newData = getData(data, section, year)
+      //
+      //       //debugger
+      //       updateDonut(newData, section, year);
+      //
+      //       jQuery('h1.page-header').html(section);
+      //     });
 
       var path = g.selectAll("path")
                   .data(pie(events))
@@ -91,13 +86,13 @@ function showDonut (data, country, year) {
     .on("mouseout", function(d) {
       d3.select(this)
         .style("cursor", "none")
-        .style("fill", color(this._current))
+        .style("fill", color_D(this._current))
         .select(".text-group").remove();
 
       })
     .append("path")
     .attr("d", arc)
-    .attr("fill", (d, i) => color(i))
+    .attr("fill", (d, i) => color_D(i))
     .on("mouseover", function(d) {
         d3.select(this)
           .style("cursor", "pointer")
@@ -114,7 +109,7 @@ function showDonut (data, country, year) {
     .attr("class", "country-text")
     .text(country)
     .attr("text-anchor", "middle")
-    .attr("dy", "3em");
+    .attr("dy", "2em");
 
     g.append("text")
     .attr("text-anchor", "middle")
@@ -123,17 +118,12 @@ function showDonut (data, country, year) {
 
     }
 
-    function updateDonut (data, country, year, g) {
+    events = getData(data, country, year)
+
+    drawDonut(data, events, country)
+
+    function updateDonut (data, country, year) {
       // d3.select("#donutchart").remove()
-
-        var margin = {top: 5, right: 5, bottom: 5, left: 5},
-            width = 400 - margin.left - margin.right,
-            height = 400 - margin.top - margin.bottom;
-          var thickness = 50;
-          var duration = 750;
-
-          var radius = Math.min(width, height) / 2;
-          var color = d3.scaleOrdinal(d3.schemeSet3);
 
           var arc = d3.arc()
                       .innerRadius(radius - thickness)
@@ -144,11 +134,12 @@ function showDonut (data, country, year) {
                         return (d.percentage); }})
                       .sort(null);
 
-          var path = g.selectAll("path")
+          var g_arcs = g.selectAll("g")
                       .data(pie(data));
 
-          path.enter()
+          g_arcs.enter()
           .append("g")
+          .merge(g_arcs)
           .on("mouseover", function(d) {
           let g = d3.select(this)
             .style("cursor", "pointer")
@@ -172,13 +163,13 @@ function showDonut (data, country, year) {
           .on("mouseout", function(d) {
           d3.select(this)
           .style("cursor", "none")
-          .style("fill", color(this._current))
+          .style("fill", color_D(this._current))
           .select(".text-group").remove();
 
           })
           .append("path")
           .attr("d", arc)
-          .attr("fill", (d, i) => color(i))
+          .attr("fill", (d, i) => color_D(i))
           .on("mouseover", function(d) {
           d3.select(this)
             .style("cursor", "pointer")
@@ -191,7 +182,7 @@ function showDonut (data, country, year) {
           })
           .each(function(d, i) { this._current = i; });
 
-          path.exit().remove()
+          g_arcs.exit().remove()
           d3.select(".country-text").remove()
           d3.select(".text-group").remove()
 
@@ -206,3 +197,17 @@ function showDonut (data, country, year) {
           .attr("dy", ".35em")
           .text(text);
     }
+}
+
+function getData (data, country, year) {
+  values = Object.values(data)
+  events = []
+  values.forEach(function(d) {
+    if (d.iyear == year && d.country_txt == country) { events.push(d) }});
+
+  events.sort(function(a, b) { return a.percentage - b.percentage})
+  if (events.length === 0) {
+    return "No data available for"
+  }
+  return events;
+}

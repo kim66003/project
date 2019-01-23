@@ -32,7 +32,27 @@ HTML file to show project webpage -->
       <li class="nav-item">
       <a class="nav-link" href="info.html">Info</a>
       </li>
-      <select id="inds">
+      <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="inds" data-toggle="dropdown">Choose country</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" value="Afghanistan" href="#line">Afghanistan</a>
+              <a class="dropdown-item" value="Albania" href="#line">Albania</a>
+              <a class="dropdown-item" value="Algeria" href="#line">Algeria</a>
+              <a class="dropdown-item" value="Angola" href="#line">Angola</a>
+              <a class="dropdown-item" value="Egypt" href="#line">Egypt</a>
+              <a class="dropdown-item" value="India" href="#line">India</a>
+              <a class="dropdown-item" value="Indonesia" href="#line">Indonesia</a>
+              <a class="dropdown-item" value="Iran" href="#line">Iran</a>
+              <a class="dropdown-item" value="Iraq" href="#line">Iraq</a>
+              <a class="dropdown-item" value="Pakistan" href="#line">Pakistan</a>
+              <a class="dropdown-item" value="Philippines" href="#line">Philippines</a>
+              <a class="dropdown-item" value="Syria" href="#line">Syria</a>
+              <a class="dropdown-item" value="Tunisia" href="#line">Tunisia</a>
+              <a class="dropdown-item" value="United Kingdom" href="#line">United Kingdom</a>
+              <a class="dropdown-item" value="United States" href="#line">United States</a>
+            </div>
+          </li>
+      <!-- <select id="inds">
         <option value="Afghanistan">Afghanistan</option>
         <option value="Albania">Albania</option>
         <option value="Algeria">Algeria</option>
@@ -48,7 +68,7 @@ HTML file to show project webpage -->
         <option value="Tunisia">Tunisia</option>
         <option value="United Kingdom">United Kingdom</option>
         <option value="United States">United States</option>
-      </select>
+      </select> -->
       </ul>
       <ul class="navbar-nav ml-auto">
 
@@ -60,12 +80,14 @@ HTML file to show project webpage -->
 
       <div class="container-fluid" id="linkedviews">
       <div class="row">
-      <div class="col-sm" id="heatmap" style="background-color: #a9a0fd;">
+      <div class="col-sm" style="background-color: #a9a0fd;">
       <h2> Number of terrorist incidents </h2>
+      <div class="col-sm" id="heatmap"></div>
       <div class="row align-items-center" id="timeslider">
       <div class="col-sm-2"><p id="value-time"></p></div>
       <div class="col-sm"><div id="slider-time"></div></div>
-    </div></div>
+    </div>
+  </div>
       <div class="w-100"></div>
       <div class="col-sm-7" id="line" style="background-color: #e9c9ff;">
       </div>

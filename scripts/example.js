@@ -199,3 +199,19 @@ function draw(data, country) {
   //     });
   //
   //   circle.exit().remove()
+
+
+  var circleupdates = d3.selectAll(".test-group").selectAll(".circle")
+  .data(d => d.values);
+
+  circleupdates.enter()
+  .append('circle')
+  .merge(circleupdates)
+  .attr('class', 'circle')
+  .style("fill", (d, i) => color[i])
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale(d.nkw))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+
+  console.log(d3.selectAll(".circle"));
