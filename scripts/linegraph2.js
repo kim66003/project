@@ -65,10 +65,9 @@ function showLineGraph (data, country) {
   function drawLineGraph2 (origData, data, kwcountry, country) {
 
         // update graph on change
-        // d3.select('#inds')
-        //     .on("change", function () {
-        //       var sect = document.getElementById("inds");
-        //       var section = sect.options[sect.selectedIndex].value;
+        // d3.selectAll('.dropdown-item')
+        //     .on("click", function () {
+        //       section = this.getAttribute("value")
         //       newData = makeDict(origData, section)
         //       newDataCountry = newData[1]
         //       newData = newData[0]
@@ -277,7 +276,9 @@ function showLineGraph (data, country) {
           d3.select(this)
             .style("stroke-width", lineStroke)
             .style("cursor", "none");
-        });
+        })
+        .transition()
+        .duration(1000);
 
       state.exit().remove();
       lineupdates.exit().remove();

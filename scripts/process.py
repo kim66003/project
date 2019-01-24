@@ -23,8 +23,9 @@ def create_df(filename):
     killsandwound = df.groupby(['iyear', 'country_txt']).sum()[['nkill']].add_prefix('sum_')
     killsandwound['sum_nwound'] = df.groupby(['iyear', 'country_txt']).sum()[['nwound']]
     killsandwound = killsandwound.reset_index()
-
     print(killsandwound.head())
+    attacktypes = df.groupby(['iyear', 'country_txt', 'nwound'])
+    print(attacktypes.head())
 
     # df2 = df2.apply(lambda x: x/x.sum()).reset_index()
     # df2 = df2.apply(lambda g: g / g.sum())

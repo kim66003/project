@@ -14,12 +14,12 @@ window.onload = function() {
       var kw = response[3]
 
       country = "Iraq"
-      year = 2011
+      window.year = 2000
 
       // load javascripts here
-      showHeatMap(attacks, world_countries, group, kw, country, year)
+      showHeatMap(attacks, world_countries, group, kw, country, window.year)
       showLineGraph(kw, country)
-      showDonut(group, country, year, 0)
+      showDonut(group, country, window.year, 0)
 
           d3.selectAll('.dropdown-item')
               .on("click", function () {
@@ -33,16 +33,11 @@ window.onload = function() {
                 newDataCountry = newData[1]
                 newData = newData[0]
 
-                newDataDonut = getData(data, section, year)
+                newDataDonut = getData(data, section, window.year)
 
-                //debugger
-                // updateDonut(newDataDonut, section, year);
+                window.currentCountry = section
 
-                showDonut(group, section, year, 1)
-
-
-                //debugger
-                // updateGraph2(origData, newData, newDataCountry, section);
+                showDonut(group, section, window.year, 1)
 
                 showLineGraph(kw, section)
 

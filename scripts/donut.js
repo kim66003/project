@@ -109,7 +109,7 @@ function showDonut (data, country, year, bool) {
     .attr("class", "country-text")
     .text(country)
     .attr("text-anchor", "middle")
-    .attr("dy", "2em");
+    .attr("dy", "-2em");
 
     g.append("text")
     .attr("text-anchor", "middle")
