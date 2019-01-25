@@ -145,6 +145,8 @@ svg.append("g")
         					scrollTop: scroll
         				}, 300);
 
+        $('#selected').text(window.currentCountry);
+
       });
 
     svg.append("path")

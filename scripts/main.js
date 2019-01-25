@@ -45,7 +45,7 @@ window.onload = function() {
                 jQuery('h1.page-header').html(section);
               });
 
-          d3.selectAll('#variables a')
+          d3.selectAll('#donutvars a')
               .on("click", function () {
                 section = this.getAttribute("value")
                 window.variable = section
