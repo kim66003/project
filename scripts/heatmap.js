@@ -81,16 +81,20 @@ var attacksById = {};
 var countries = []
 var countries2 = []
 var uniqueNames = []
-var uniqueNames2 = []
+window.uniqueNames2 = []
 events.forEach(function(d) { if (d.iyear == year) { attacksById[d.iyear + d.country_txt] = +d.count
 countries.push(d.country_txt)}});
 $.each(countries, function(i, el){
   if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
 });
-events.forEach(function(d) { if (d.count >= 250) { countries2.push(d.country_txt) } });
+
+events.forEach(function(d) {
+    countries2.push(d.country_txt)
+  });
 $.each(countries2, function(i, el){
   if($.inArray(el, uniqueNames2) === -1) uniqueNames2.push(el);
 });
+console.log(window.uniqueNames2)
 
 data.features.forEach(function(d) {
   if (uniqueNames.includes(d.properties.name)) {d.attacks = attacksById[year + d.properties.name]}
