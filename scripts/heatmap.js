@@ -32,7 +32,7 @@ var path = d3.geoPath().projection(projection);
 svg.call(tip);
 
 
-  function showHeatMap (data, dataMap, donutData, lineData, country, year) {
+  function showHeatMap (data, dataMap, lineData, country, year) {
 
     window.currentCountry = country
 
@@ -40,8 +40,8 @@ svg.call(tip);
     events = multiData[0]
     max = multiData[1]
     color = multiData[2]
-    drawMap(dataMap, events, color, donutData, lineData, country, year)
-    drawSlider(data, dataMap, donutData, lineData, country)
+    drawMap(dataMap, events, color, lineData, country, year)
+    drawSlider(data, dataMap, lineData, country)
     drawLegend(color, max)
 
 }
@@ -73,7 +73,7 @@ return [events, max, color]
 
 }
 
-function drawMap(data, events, color, donutData, lineData, country, year) {
+function drawMap(data, events, color, lineData, country, year) {
 d3.selectAll(".countries").remove()
 // d3.select("svg").remove()
 
@@ -87,17 +87,14 @@ countries.push(d.country_txt)}});
 $.each(countries, function(i, el){
   if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
 });
-events.forEach(function(d) { countries2.push(d.country_txt) });
+events.forEach(function(d) { if (d.count >= 250) { countries2.push(d.country_txt) } });
 $.each(countries2, function(i, el){
   if($.inArray(el, uniqueNames2) === -1) uniqueNames2.push(el);
 });
-// console.log(uniqueNames2)
 
 data.features.forEach(function(d) {
   if (uniqueNames.includes(d.properties.name)) {d.attacks = attacksById[year + d.properties.name]}
   else {d.attacks = 0} });
-
-  console.log(data.features)
 
 svg.append("g")
     .attr("class", "countries")
@@ -133,18 +130,23 @@ svg.append("g")
           .style("stroke-width",0.3);
       })
       .on("mousedown", function(d) {
-        showDonut(donutData, d.properties.name, year, 1)
+        showDonut(window.variable, d.properties.name, year, 1)
         showLineGraph(lineData, d.properties.name)
         window.currentCountry = d.properties.name
+        document.getElementById('currentCountry').textContent = window.currentCountry;
+
+        var scroll = $(window).scrollTop();
+        				scroll= scroll+ 700;
+        				$('html, body').animate({
+        					scrollTop: scroll
+        				}, 300);
+
       });
 
     svg.append("path")
     .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
     .attr("class", "names")
     .attr("d", path);
-
-    console.log(window.currentCountry)
-
 }
 
 function drawLegend(color, max) {
@@ -243,11 +245,11 @@ legend.append("rect")
     //   .call(yAxis)
 }
 
-function drawSlider(data, dataMap, donutData, lineData, country) {
+function drawSlider(data, dataMap, lineData, country) {
 
 // Time
-var dataTime = d3.range(0, 18).map(function(d) {
-  return new Date(2000 + d, 10, 4);
+var dataTime = d3.range(0, 28).map(function(d) {
+  return new Date(1990 + d, 10, 4);
 });
 
 var sliderTime = d3
@@ -255,7 +257,7 @@ var sliderTime = d3
   .min(d3.min(dataTime))
   .max(d3.max(dataTime))
   .step(1000 * 60 * 60 * 24 * 365)
-  .width(800)
+  .width(900)
   .tickFormat(d3.timeFormat('%Y'))
   .tickValues(dataTime)
   .default(new Date(2000, 10, 4))
@@ -266,17 +268,15 @@ var sliderTime = d3
     events = multiData[0]
     max = multiData[1]
     color = multiData[2]
-    // d3.select("svg").remove()
-    drawMap(dataMap, events, color, donutData, lineData, country, window.year)
-    showDonut(donutData, window.currentCountry, window.year, 1)
-    // drawLegend(color, max)
-
+    drawMap(dataMap, events, color, lineData, country, window.year)
+    showDonut(window.variable, window.currentCountry, window.year, 1)
+    document.getElementById('currentYear').textContent = window.year;
   });
 
 var gTime = d3
   .select('div#slider-time')
   .append('svg')
-  .attr('width', 900)
+  .attr('width', 1000)
   .attr('height', 100)
   .append('g')
   .attr('transform', 'translate(30,30)');

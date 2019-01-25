@@ -32,6 +32,8 @@ Optional:
 * Provide link to original newsreport under these *descriptions*
 * Bar chart/histogram
 
+![alt text](https://github.com/kim66003/project/blob/master/doc/readme/worldmap.png)
+
 #### Prerequisites:
 Data source(s):
 * [Global Terrorism Database](https://www.kaggle.com/START-UMD/gtd "Global Terrorism Database | Kaggle")

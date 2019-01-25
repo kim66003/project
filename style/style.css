@@ -12,7 +12,7 @@ h2 {
 }
 
 .jumbotron {
- background-image: url('../img/lakecanada.jpg');
+ background-image: url('../doc/webimg/lakecanada.jpg');
  background-size: cover;
  background-repeat: no-repeat;
  background-position: 0% 30%;
@@ -170,4 +170,44 @@ svg {
   border-radius:4px;
   border:1px solid #AAAAAA;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#vars {
+  position: relative;
+  background-color: #483f91;
+  color: white;
+  text-align: right;
+  cursor: pointer;
+  border-radius:4px;
+  border:1px solid #AAAAAA;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width: 180px;
+}
+
+.navbar-center {
+    margin: 0 0 0 10px;
+}
+
+#navbar-country {
+    color: white;
+    font-size: 18px;
+    text-shadow: 1px 1px #9df21f;
+}
+
+#navbar-var {
+  color: white;
+  font-size: 18px;
+  text-shadow: 1px 1px pink;
+}
+
+#navbar-year {
+  color: white;
+  font-size: 18px;
+  text-shadow: 1px 1px skyblue;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 500px;
+    overflow-x: hidden;
 }

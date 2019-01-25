@@ -5,3 +5,11 @@ window.onload = function onload() {
   					scrollTop: scroll
   				}, 2500);
 }
+
+$('#countries a').click(function(){
+    $('#selected').text($(this).text());
+  });
+
+$('#variables a').click(function(){
+    $('#selected2').text($(this).text());
+  });
