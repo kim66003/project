@@ -1,13 +1,13 @@
-function showLineGraph (data, data2, country) {
+function showLineGraph (data, country) {
   d3.select("#linegraph").remove();
 
   data = Object.values(data)
-  data2 = Object.values(data2)
+  // data2 = Object.values(data2)
   kw = makeDict(data, country)
   kwcountry = kw[1]
   kw = kw[0]
-  successData = makeDict2(data2)
-  console.log(successData)
+  // successData = makeDict2(data2)
+  // console.log(successData)
 
   var margin = {top: 30, right: 20, bottom: 50, left: 60},
       width = 700 - margin.left - margin.right,
@@ -438,5 +438,5 @@ function makeDict2(data) {
     type: "fail",
     values: xyList2
   })
-  return [successDict, successList, successList2];
+  return successDict;
 }

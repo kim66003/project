@@ -25,26 +25,10 @@ window.onload = function() {
       window.year = 2000
       window.variable = group
 
-      successList = []
-      successs = []
-      successDict = []
-      successValues = Object.values(success)
-      successValues.forEach(function(d) { if (d.country_txt == window.currentCountry) { successList.push(d); }})
-      successList.forEach(function(d) {
-          country2 = d.country_txt
-          successs.push({date: d.iyear, success: d.frequency})
-      });
-        successDict.push({
-        country: country2,
-        type: "success",
-        values: successs
-      });
-      console.log(successDict)
-
 
       // load javascripts here
       showHeatMap(attacks, world_countries, kw, window.currentCountry, window.year)
-      showLineGraph(kw, success, window.currentCountry)
+      showLineGraph(kw, window.currentCountry)
       showDonut(window.variable, window.currentCountry, window.year, 0)
 
           d3.selectAll('#countries a')
