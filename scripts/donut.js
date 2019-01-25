@@ -89,7 +89,9 @@ function drawDonut (data, events, country) {
 
   var arc = d3.arc()
               .innerRadius(window.radius - window.thickness)
-              .outerRadius(window.radius);
+              .outerRadius(window.radius)
+              .cornerRadius(3)
+              .padAngle(0.015);
 
   var pie = d3.pie()
               .value(function(d) { if (d.country_txt == country) {

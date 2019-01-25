@@ -21,7 +21,7 @@ window.onload = function() {
       var weapons = response[6]
       var success = response[7]
 
-      window.currentCountry = "Iraq"
+      window.currentCountry = "Yemen"
       window.year = 2000
       window.variable = group
 
