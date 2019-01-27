@@ -1,15 +1,16 @@
 function showLineGraph (data, attacks, country) {
   d3.select("#linegraph").remove();
-
   data = Object.values(data)
-  // data2 = Object.values(data2)
-  kw = makeDict(data, country)
+  attacks = Object.values(attacks)
+  kw = makeDict(data, attacks, country)
+  attacksCountry = kw[2]
   kwcountry = kw[1]
   kw = kw[0]
-  // successData = makeDict2(data2)
-  // console.log(successData)
+  // attacksDict = makeDict2(attacks, country)
+  // attacksCountry = attacksDict[1]
+  // attacksDict = attacksDict[0]
 
-  var margin = {top: 30, right: 20, bottom: 50, left: 60},
+  var margin = {top: 60, right: 20, bottom: 50, left: 60},
       width = 700 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
   var duration = 500;
@@ -50,21 +51,20 @@ function showLineGraph (data, attacks, country) {
               .append("g")
               .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var color = ["#583aa5", "#a57e3a", "#87a53a", "#a53a87"];
+  var color = ["#583aa5", "#a57e3a", "#a53a87", "#ba0e0e", "#87a53a"];
 
-  tooltipText = ["Fatalities", "Non-fatal injuries"]
+  tooltipText = ["Fatalities", "Non-fatal injuries", "Terrorist Incidents"]
 
   /* Add line into SVG */
   var line = d3.line()
   .curve(d3.curveMonotoneX)
     .x(d => xScale(d.date))
-    .y(d => yScale(d.nkw));
+    .y(d => yScale(d.value));
 
   let lines = svg.append('g')
     .attr('class', 'lineholder');
 
-
-  function drawLineGraph2 (origData, data, kwcountry, country) {
+  function drawLineGraph2 (data, kwcountry, attacksCountry, country) {
 
         // update graph on change
         // d3.selectAll('.dropdown-item')
@@ -82,10 +82,11 @@ function showLineGraph (data, attacks, country) {
 
       // define domain x- and yscale
       xScale
-      .domain(d3.extent(kwcountry, function(d) { return d.iyear; }));
+      .domain(d3.extent(attacksCountry, function(d) { return d.iyear; }));
 
       yScale
       .clamp(true)
+      // .domain([0, max])
       .domain([0, d3.max(kwcountry, function(d) { return Math.max(d.sum_nkill, d.sum_nwound); })])
       .nice();
 
@@ -148,9 +149,9 @@ function showLineGraph (data, attacks, country) {
               .style("cursor", "pointer")
               .append("text")
               .attr("class", "text")
-              .text(`${d.nkw}`)
+              .text(`${d.value}`)
               .attr("x", d => xScale(d.date) + 5)
-              .attr("y", d => yScale(d.nkw) - 10);
+              .attr("y", d => yScale(d.value) - 10);
           })
         .on("mouseout", function(d) {
             d3.select(this)
@@ -161,7 +162,7 @@ function showLineGraph (data, attacks, country) {
           })
         .append("circle")
         .attr("cx", d => xScale(d.date))
-        .attr("cy", d => yScale(d.nkw))
+        .attr("cy", d => yScale(d.value))
         .attr("r", circleRadius)
         .style('opacity', circleOpacity)
         .on("mouseover", function(d) {
@@ -178,7 +179,6 @@ function showLineGraph (data, attacks, country) {
             })
             .on("mousedown", function(d, i) {
               window.year = d.date
-              console.log(d.date)
               showDonut(window.variable, window.currentCountry, window.year, 1)
               document.getElementById('currentYear').textContent = window.year;
             });
@@ -209,14 +209,171 @@ function showLineGraph (data, attacks, country) {
           .attr('transform', 'rotate(-90)')
           .attr('text-anchor', 'middle')
           .text("Number of kills and wounded")
-      var lineAbv = getAbv(window.currentCountry)
-          // add title
+
+      // add title
       svg.append("g")
       .append('text')
       .attr('class', 'title')
-      .attr('x', margin.left)
+      .attr('x', width / 2)
+      .attr('y', -30)
+      .style("text-anchor", "middle")
+      .text("Number of fatalities and non-fatal injuries from terrorist attacks ")
+
+      svg.append("g")
+      .append('text')
+      .attr('class', 'title')
+      .attr('x', width / 2)
       .attr('y', -10)
-      .text("Number of fatalities and non-fatal injuries from terrorist attacks in " + lineAbv)
+      .style("text-anchor", "middle")
+      .text("in " + country)
+  }
+
+  function drawLineGraph3 (data, dataCountry, country) {
+    // define domain x- and yscale
+    xScale
+    .domain(d3.extent(dataCountry, function(d) { return d.iyear; }));
+
+    yScale
+    .clamp(true)
+    .domain([0, d3.max(dataCountry, function(d) { return Math.max(d.count); })])
+    .nice();
+
+    // draw lines
+    lines.selectAll('.line-group')
+      .data(data)
+      .enter()
+      .append('g')
+      .attr('class', 'line-group')
+      .on("mouseover", function(d) {
+          svg.append("text")
+            .attr("class", "title-text")
+            .style("fill", "#ba0e0e")
+            .text("Terrorist incidents")
+            .attr("text-anchor", "middle")
+            .attr("x", (width) / 2)
+            .attr("y", 5);
+        })
+      .on("mouseout", function(d) {
+          svg.select(".title-text").remove();
+        })
+      .append('path')
+      .attr('class', 'line')
+      .attr('d', d => line(d.values))
+      .style('stroke', "#ba0e0e")
+      .style('opacity', lineOpacity)
+      .on("mouseover", function(d) {
+          d3.selectAll('.line')
+              .style('opacity', otherLinesOpacityHover);
+          d3.selectAll('.circle')
+              .style('opacity', circleOpacityOnLineHover);
+          d3.select(this)
+            .style('opacity', lineOpacityHover)
+            .style("stroke-width", lineStrokeHover)
+            .style("cursor", "pointer");
+        })
+      .on("mouseout", function(d) {
+          d3.selectAll(".line")
+              .style('opacity', lineOpacity);
+          d3.selectAll('.circle')
+              .style('opacity', circleOpacity);
+          d3.select(this)
+            .style("stroke-width", lineStroke)
+            .style("cursor", "none");
+        });
+
+
+    // add circles to each line
+    lines.selectAll("circle-group")
+      .data(data).enter()
+      .append("g")
+      .attr("class", "test-group")
+      .style("fill", "#ba0e0e")
+      .selectAll("circle")
+      .data(d => d.values).enter()
+      .append("g")
+      .attr("class", "circle")
+      .on("mouseover", function(d) {
+          d3.select(this)
+            .style("cursor", "pointer")
+            .append("text")
+            .attr("class", "text")
+            .text(`${d.value}`)
+            .attr("x", d => xScale(d.date) + 5)
+            .attr("y", d => yScale(d.value) - 10);
+        })
+      .on("mouseout", function(d) {
+          d3.select(this)
+            .style("cursor", "none")
+            .transition()
+            .duration(duration)
+            .selectAll(".text").remove();
+        })
+      .append("circle")
+      .attr("cx", d => xScale(d.date))
+      .attr("cy", d => yScale(d.value))
+      .attr("r", circleRadius)
+      .style('opacity', circleOpacity)
+      .on("mouseover", function(d) {
+            d3.select(this)
+              .transition()
+              .duration(duration)
+              .attr("r", circleRadiusHover);
+          })
+        .on("mouseout", function(d) {
+            d3.select(this)
+              .transition()
+              .duration(duration)
+              .attr("r", circleRadius);
+          })
+          .on("mousedown", function(d, i) {
+            window.year = d.date
+            showDonut(window.variable, window.currentCountry, window.year, 1)
+            document.getElementById('currentYear').textContent = window.year;
+          });
+
+    svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", `translate(0, ${height})`)
+      .call(xAxis);
+
+    svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+
+      // add axis labels
+        svg.append("g").append('text')
+        .attr('class', 'axis-label')
+        .attr('y', height + 40)
+        .attr('x', width / 2 - 20)
+        .attr('fill', 'black')
+        .text("Year");
+
+        svg.append("g")
+        .append('text')
+        .attr('class', 'axis-label')
+        .attr('y', - 50)
+        .attr('x', - height / 2)
+        .attr('fill', 'black')
+        .attr('transform', 'rotate(-90)')
+        .attr('text-anchor', 'middle')
+        .text("Number of kills and wounded")
+
+    // add title
+    svg.append("g")
+    .append('text')
+    .attr('class', 'title')
+    .attr('x', width / 2)
+    .attr('y', -30)
+    .style("text-anchor", "middle")
+    .text("Number of fatalities and non-fatal injuries from terrorist attacks ")
+
+    svg.append("g")
+    .append('text')
+    .attr('class', 'title')
+    .attr('x', width / 2)
+    .attr('y', -10)
+    .style("text-anchor", "middle")
+    .text("in " + country)
 
   }
 
@@ -311,14 +468,13 @@ function showLineGraph (data, attacks, country) {
 
         d3.selectAll(".circle")
         .on("mouseover", function(d) {
-          console.log("hoi")
             d3.select(this)
               .style("cursor", "pointer")
               .append("text")
               .attr("class", "text")
-              .text(`${d.nkw}`)
+              .text(`${d.value}`)
               .attr("x", d => xScale(d.date) + 5)
-              .attr("y", d => yScale(d.nkw) - 10);
+              .attr("y", d => yScale(d.value) - 10);
           })
         .on("mouseout", function(d) {
             d3.select(this)
@@ -337,7 +493,7 @@ function showLineGraph (data, attacks, country) {
         .append("circle")
         .attr('class', "circle")
         .attr("cx", d => xScale(d.date))
-        .attr("cy", d => yScale(d.nkw))
+        .attr("cy", d => yScale(d.value))
         .attr("r", circleRadius)
         .style('opacity', circleOpacity)
         .on("mouseover", function(d) {
@@ -381,12 +537,13 @@ function showLineGraph (data, attacks, country) {
       .text("Number of fatalities and non-fatal injuries from terrorist attacks in " + country)
 
   }
-  drawLineGraph2(data, kw, kwcountry, country)
+  drawLineGraph2(kw, kwcountry, attacksCountry, country)
+  // drawLineGraph3(attacksDict, attacksCountry, country)
 
  }
 
 
-function makeDict (data, country) {
+function makeDict (data, data2, country) {
   var dict = []
   var kills = []
   var wounded = []
@@ -395,8 +552,8 @@ function makeDict (data, country) {
   data.forEach(function(d) { if (d.country_txt == country) { kwcountry.push(d); }})
   kwcountry.forEach(function(d) {
       country2 = d.country_txt
-      kills.push({date: d.iyear, nkw: d.sum_nkill})
-      wounded.push({date: d.iyear, nkw: d.sum_nwound})
+      kills.push({date: d.iyear, value: d.sum_nkill})
+      wounded.push({date: d.iyear, value: d.sum_nwound})
   });
     dict.push({
     country: country2,
@@ -408,35 +565,38 @@ function makeDict (data, country) {
     type: "wounded",
     values: wounded
   });
-  return [dict, kwcountry];
+  var attacksList = []
+  var valuesList = []
+  data2.forEach(function(d){
+    if (d.country_txt == country) { attacksList.push(d); }
+  })
+  attacksList.forEach(function(d) {
+      country2 = d.country_txt
+      valuesList.push({date: d.iyear, value: d.count})
+  });
+  dict.push({
+    country: country2,
+    type: "attacks",
+    values: valuesList
+  })
+  return [dict, kwcountry, attacksList];
   }
 
-function makeDict2(data) {
-  successList = []
-  successList2 = []
-  xyList = []
-  xyList2 = []
-  successDict = []
-  data.forEach(function(d) {
-    if (d.country_txt == window.currentCountry && d.success == 1) { successList.push(d); }
-    else if (d.country_txt == window.currentCountry && d.success == 0) { successList2.push(d); } });
-  successList.forEach(function(d) {
-      country2 = d.country_txt
-      xyList.push({date: d.iyear, success: d.frequency})
-  });
-  successList2.forEach(function(d) {
-      country3 = d.country_txt
-      xyList2.push({date: d.iyear, success: d.frequency})
-  })
-    successDict.push({
-    country: country2,
-    type: "success",
-    values: xyList
-  });
-  successDict.push({
-    country: country3,
-    type: "fail",
-    values: xyList2
-  })
-  return successDict;
-}
+// function makeDict2(data, country) {
+//   var dict = []
+//   var attacksList = []
+//   var valuesList = []
+//   data.forEach(function(d){
+//     if (d.country_txt == country) { attacksList.push(d); }
+//   })
+//   attacksList.forEach(function(d) {
+//       country2 = d.country_txt
+//       valuesList.push({date: d.iyear, value: d.count})
+//   });
+//   dict.push({
+//     country: country2,
+//     type: "attacks",
+//     values: valuesList
+//   })
+//   return [dict, attacksList];
+// }

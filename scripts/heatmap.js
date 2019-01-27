@@ -40,7 +40,7 @@ svg.call(tip);
     events = multiData[0]
     max = multiData[1]
     color = multiData[2]
-    drawMap(dataMap, events, color, lineData, country, year)
+    drawMap(data, dataMap, events, color, lineData, country, year)
     drawSlider(data, dataMap, lineData, country)
     drawLegend(color, max)
 
@@ -73,7 +73,7 @@ return [events, max, color]
 
 }
 
-function drawMap(data, events, color, lineData, country, year) {
+function drawMap(attackData, data, events, color, lineData, country, year) {
 d3.selectAll(".countries").remove()
 // d3.select("svg").remove()
 
@@ -135,7 +135,7 @@ svg.append("g")
       .on("mousedown", function(d) {
         window.currentCountry = d.properties.name
         showDonut(window.variable, d.properties.name, year, 1)
-        showLineGraph(lineData, data, d.properties.name)
+        showLineGraph(lineData, attackData, d.properties.name)
         document.getElementById('currentCountry').textContent = window.currentCountry;
 
         var scroll = $(window).scrollTop();
@@ -273,7 +273,7 @@ var sliderTime = d3
     events = multiData[0]
     max = multiData[1]
     color = multiData[2]
-    drawMap(dataMap, events, color, lineData, country, window.year)
+    drawMap(data, dataMap, events, color, lineData, country, window.year)
     showDonut(window.variable, window.currentCountry, window.year, 1)
     document.getElementById('currentYear').textContent = window.year;
   });
@@ -288,5 +288,7 @@ var gTime = d3
 
 gTime.call(sliderTime);
 
-d3.select('p#value-time').text(d3.timeFormat('%Y')(sliderTime.value()));
+d3.select('p#value-time')
+.text(d3.timeFormat('%Y')(sliderTime.value()))
+.attr('text-anchor', 'middle');
 }

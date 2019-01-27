@@ -67,7 +67,7 @@ window.onload = function() {
                   showDonut(weapons, window.currentCountry, window.year, 1)
                 }
 
-                  });
+              });
 
   }).catch(function(e){
       throw(e);
