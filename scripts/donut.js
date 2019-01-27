@@ -145,9 +145,10 @@ function drawDonut (data, events, country) {
   })
 .each(function(d, i) { this._current = i; });
 
+var countryName = [];
+
 window.countryID.forEach(function(d){
   var count = 0;
-  var countryName;
   if (country == "United Kingdom") {
     console.log(country)
   }
@@ -169,6 +170,8 @@ window.countryID.forEach(function(d){
     };
   };
 });
+console.log(countryName)
+
 
 window.g_D.append("text")
 .attr("class", "country-text")
