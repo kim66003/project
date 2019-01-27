@@ -4,13 +4,13 @@ function showDonut (data, country, year, bool) {
     d3.select("#donutchart").remove();
   }
 
-  // d3.selectAll('#countries a')
+  // d3.selectAll("#countries a")
   //     .on("click", function () {
   //       section = this.getAttribute("value")
   //
   //       window.currentCountry = section
   //       console.log(window.currentCountry)
-  //       document.getElementById('currentCountry').textContent = window.currentCountry;
+  //       document.getElementById("currentCountry").textContent = window.currentCountry;
   //
   //
   //       // showDonut(group, section, window.year, 1)
@@ -33,11 +33,11 @@ function showDonut (data, country, year, bool) {
       window.svg2 = d3.select("#donut")
                    .append("svg")
                    // .attr("id", function() { if (/\s/.test(country)) {
-                  //       return country.replace(/\s/g,''); } else { return country; }})
+                  //       return country.replace(/\s/g,""); } else { return country; }})
                    .attr("id", "donutchart")
                    .attr("class", "pie")
                    .attr("viewBox", [0, 0, (window.width_D + window.margin_D.right + window.margin_D.left),
-                                 (window.height_D + window.margin_D.top + window.margin_D.bottom)].join(' '));
+                                 (window.height_D + window.margin_D.top + window.margin_D.bottom)].join(" "));
 
        window.g_D = window.svg2.append("g")
                .attr("transform", "translate(" + (window.width_D/2) + "," + (window.height_D/2) + ")");
@@ -50,7 +50,7 @@ function showDonut (data, country, year, bool) {
 
 function drawDonut (data, events, country) {
 
-  if (typeof events === 'string') {
+  if (typeof events === "string") {
     window.g_D.append("text")
     .attr("class", "country-text")
     .text(events)
@@ -145,11 +145,36 @@ function drawDonut (data, events, country) {
   })
 .each(function(d, i) { this._current = i; });
 
+window.countryID.forEach(function(d){
+  var count = 0;
+  var countryName;
+  if (country == "United Kingdom") {
+    console.log(country)
+  }
+  if (d.name.includes(country)) {
+    console.log(d.name)
+  }
+  if (d.name == country) {
+    console.log(d.id)
+    for (i in country) {
+      if (country[i] == " ") {
+          count += 1;
+        } else {
+          countryName.push(country[i])
+        }
+      if (count >= 2) {
+        console.log(count)
+        console.log(country)
+      };
+    };
+  };
+});
+
 window.g_D.append("text")
 .attr("class", "country-text")
 .text(country)
 .attr("text-anchor", "middle")
-.attr("dy", "-2em");
+.attr("dy", "-1.5em");
 
 window.g_D.append("text")
 .attr("text-anchor", "middle")
@@ -159,7 +184,7 @@ window.g_D.append("text")
 }
 
 function updateDonut(events, country) {
-  if (typeof events === 'string') {
+  if (typeof events === "string") {
     window.g_D.append("text")
     .attr("class", "country-text")
     .text(events)
@@ -270,11 +295,11 @@ function updateTest (data, events, country) {
                 return (d.percentage); }})
               .sort(null);
 
-              var u = window.g_D.selectAll('path')
+              var u = window.g_D.selectAll("path")
             .data(pie(events));
 
           u.enter()
-            .append('g')
+            .append("g")
             .append("path")
             .attrTween("d", function(d) { arcTween(d)})
             .attr("fill", (d, i) => color_D(i))

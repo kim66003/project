@@ -8,8 +8,9 @@ window.onload = function() {
   var input6 = "../data/json/targettypes.json"
   var input7 = "../data/json/weapontypes.json"
   var input8 = "../data/json/success.json"
+  var input9 = "../data/poep/world_attacks.tsv"
 
-  var requests = [d3.json(input), d3.json(input2), d3.json(input3), d3.json(input4), d3.json(input5), d3.json(input6), d3.json(input7), d3.json(input8)]
+  var requests = [d3.json(input), d3.json(input2), d3.json(input3), d3.json(input4), d3.json(input5), d3.json(input6), d3.json(input7), d3.json(input8), d3.tsv(input9)]
 
   Promise.all(requests).then(function(response) {
       var attacks = response[0]
@@ -20,6 +21,7 @@ window.onload = function() {
       var targets = response[5]
       var weapons = response[6]
       var success = response[7]
+      window.countryID = response[8]
 
       window.currentCountry = "Afghanistan"
       window.year = 2000
@@ -28,7 +30,7 @@ window.onload = function() {
 
       // load javascripts here
       showHeatMap(attacks, world_countries, kw, window.currentCountry, window.year)
-      showLineGraph(kw, window.currentCountry)
+      showLineGraph(kw, attacks, window.currentCountry)
       showDonut(window.variable, window.currentCountry, window.year, 0)
 
           d3.selectAll('#countries a')
@@ -40,7 +42,7 @@ window.onload = function() {
 
                 showDonut(group, section, window.year, 1)
 
-                showLineGraph(kw, section)
+                showLineGraph(kw, attacks, section)
 
                 jQuery('h1.page-header').html(section);
               });

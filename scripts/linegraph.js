@@ -1,4 +1,4 @@
-function showLineGraph (data, country) {
+function showLineGraph (data, attacks, country) {
   d3.select("#linegraph").remove();
 
   data = Object.values(data)

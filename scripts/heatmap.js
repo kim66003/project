@@ -94,7 +94,6 @@ events.forEach(function(d) {
 $.each(countries2, function(i, el){
   if($.inArray(el, uniqueNames2) === -1) uniqueNames2.push(el);
 });
-console.log(window.uniqueNames2)
 
 data.features.forEach(function(d) {
   if (uniqueNames.includes(d.properties.name)) {d.attacks = attacksById[year + d.properties.name]}
@@ -134,9 +133,9 @@ svg.append("g")
           .style("stroke-width",0.3);
       })
       .on("mousedown", function(d) {
-        showDonut(window.variable, d.properties.name, year, 1)
-        showLineGraph(lineData, d.properties.name)
         window.currentCountry = d.properties.name
+        showDonut(window.variable, d.properties.name, year, 1)
+        showLineGraph(lineData, data, d.properties.name)
         document.getElementById('currentCountry').textContent = window.currentCountry;
 
         var scroll = $(window).scrollTop();
