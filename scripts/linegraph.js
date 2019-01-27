@@ -209,14 +209,14 @@ function showLineGraph (data, attacks, country) {
           .attr('transform', 'rotate(-90)')
           .attr('text-anchor', 'middle')
           .text("Number of kills and wounded")
-
+      var lineAbv = getAbv(window.currentCountry)
           // add title
       svg.append("g")
       .append('text')
       .attr('class', 'title')
       .attr('x', margin.left)
       .attr('y', -10)
-      .text("Number of fatalities and non-fatal injuries from terrorist attacks in " + country)
+      .text("Number of fatalities and non-fatal injuries from terrorist attacks in " + lineAbv)
 
   }
 

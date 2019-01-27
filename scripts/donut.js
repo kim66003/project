@@ -4,6 +4,7 @@ function showDonut (data, country, year, bool) {
     d3.select("#donutchart").remove();
   }
 
+
   // d3.selectAll("#countries a")
   //     .on("click", function () {
   //       section = this.getAttribute("value")
@@ -50,6 +51,8 @@ function showDonut (data, country, year, bool) {
 
 function drawDonut (data, events, country) {
 
+  var countryAbv = getAbv(window.currentCountry)
+
   if (typeof events === "string") {
     window.g_D.append("text")
     .attr("class", "country-text")
@@ -59,7 +62,7 @@ function drawDonut (data, events, country) {
 
     window.g_D.append("text")
     .attr("class", "country-text")
-    .text(" for " + window.currentCountry)
+    .text(" for " + countryAbv)
     .attr("text-anchor", "middle")
     .attr("dy", "2em");
 
@@ -145,37 +148,9 @@ function drawDonut (data, events, country) {
   })
 .each(function(d, i) { this._current = i; });
 
-var countryName = [];
-
-window.countryID.forEach(function(d){
-  var count = 0;
-  if (country == "United Kingdom") {
-    console.log(country)
-  }
-  if (d.name.includes(country)) {
-    console.log(d.name)
-  }
-  if (d.name == country) {
-    console.log(d.id)
-    for (i in country) {
-      if (country[i] == " ") {
-          count += 1;
-        } else {
-          countryName.push(country[i])
-        }
-      if (count >= 2) {
-        console.log(count)
-        console.log(country)
-      };
-    };
-  };
-});
-console.log(countryName)
-
-
 window.g_D.append("text")
 .attr("class", "country-text")
-.text(country)
+.text(countryAbv)
 .attr("text-anchor", "middle")
 .attr("dy", "-1.5em");
 
@@ -357,6 +332,23 @@ function getData (data, country, year) {
     return "No data available"
   }
   return events;
+}
+
+function getAbv(country) {
+  var count = 0;
+  var answer = null;
+  window.countryID.forEach(function(d){
+      if (d.name.includes(country)){
+        for (i in country){
+          if (country[i] == " ") {
+              count += 1; }
+          if (count == 2 || count > 2) {
+            answer = d.id;
+            break; }
+        }}});
+  if (count < 2){
+   answer = country; }
+  return answer;
 }
 
 function arcTween(newAngle) {
