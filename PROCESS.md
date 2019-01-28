@@ -160,3 +160,7 @@ So I finally got my data the way I wanted it as you can see in the picture above
 #### Visualisations page:
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_25-01-2019_betaversion.png)
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_25-01-2019_betaversion2.png)
+
+### <u> Jan 27, 2019:</u>
+
+### <u> Jan 28, 2019:</u>
