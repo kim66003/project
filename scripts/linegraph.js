@@ -3,12 +3,9 @@ function showLineGraph (data, attacks, dataMap, country) {
   data2 = Object.values(data)
   attacks = Object.values(attacks)
   kw = makeDict(data2, attacks, country)
-  attacksCountry = kw[2]
-  kwcountry = kw[1]
-  kw = kw[0]
-  // attacksDict = makeDict2(attacks, country)
-  // attacksCountry = attacksDict[1]
-  // attacksDict = attacksDict[0]
+    attacksCountry = kw[2]
+    kwcountry = kw[1]
+    kw = kw[0]
 
   var margin = {top: 50, right: 20, bottom: 60, left: 50},
       width = 700 - margin.left - margin.right,
@@ -65,7 +62,7 @@ function showLineGraph (data, attacks, dataMap, country) {
     .attr('class', 'lineholder');
 
   function drawLineGraph2 (data, kwcountry, attacksCountry, country) {
-
+  console.log(kwcountry)
       // define domain x- and yscale
       xScale
       .domain(d3.extent(attacksCountry, function(d) { return d.iyear; }));
@@ -211,7 +208,7 @@ function showLineGraph (data, attacks, dataMap, country) {
       .attr('x', width / 2)
       .attr('y', -30)
       .style('text-anchor', 'middle')
-      .text('Number of fatalities and non-fatal injuries from terrorist attacks ')
+      .text('Incidence, fatality and injury from terrorist attacks ')
 
       svg.append('g')
       .append('text')
@@ -437,8 +434,18 @@ function showLineGraph (data, attacks, dataMap, country) {
       .text('Number of fatalities and non-fatal injuries from terrorist attacks in ' + country)
 
   }
-    drawLineGraph2(kw, kwcountry, attacksCountry, country)
-    drawLegend()
+    if (kwcountry.length != 0) {
+      drawLineGraph2(kw, kwcountry, attacksCountry, country)
+      drawLegend()
+    } else {
+      svg.append('g')
+      .append('text')
+      .attr('class', 'no-data')
+      .attr('x', width / 2)
+      .attr('y', height / 2)
+      .text('No data available for ' + window.currentCountry)
+    }
+
   }
 
 
@@ -481,22 +488,3 @@ function makeDict (data, data2, country) {
   })
   return [dict, kwcountry, attacksList];
   }
-
-// function makeDict2(data, country) {
-//   var dict = []
-//   var attacksList = []
-//   var valuesList = []
-//   data.forEach(function(d){
-//     if (d.country_txt == country) { attacksList.push(d); }
-//   })
-//   attacksList.forEach(function(d) {
-//       country2 = d.country_txt
-//       valuesList.push({date: d.iyear, value: d.count})
-//   });
-//   dict.push({
-//     country: country2,
-//     type: 'attacks',
-//     values: valuesList
-//   })
-//   return [dict, attacksList];
-// }

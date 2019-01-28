@@ -1,27 +1,8 @@
 function showDonut (data, country, year, bool) {
 
   if (bool === 1) {
-    d3.select("#donutchart").remove();
+    d3.select('#donutchart').remove();
   }
-
-
-  // d3.selectAll("#countries a")
-  //     .on("click", function () {
-  //       section = this.getAttribute("value")
-  //
-  //       window.currentCountry = section
-  //       console.log(window.currentCountry)
-  //       document.getElementById("currentCountry").textContent = window.currentCountry;
-  //
-  //
-  //       // showDonut(group, section, window.year, 1)
-  //
-  //       // showLineGraph(kw, section)
-  //       events = getData(data, window.currentCountry, window.year)
-  //       // updateDonut(events, window.currentCountry, window.year)
-  //       updateTest(data, events, window.currentCountry)
-  //
-  //     });
 
       window.margin_D = {top: 5, right: 5, bottom: 5, left: 5},
           window.width_D = 500 - margin_D.left - margin_D.right,
@@ -31,19 +12,17 @@ function showDonut (data, country, year, bool) {
       window.radius = Math.min(width_D, height_D) / 2;
       window.color_D = d3.scaleOrdinal(d3.schemeSet3);
 
-      window.svg2 = d3.select("#donut")
-                   .append("svg")
-                   // .attr("id", function() { if (/\s/.test(country)) {
-                  //       return country.replace(/\s/g,""); } else { return country; }})
-                   .attr("id", "donutchart")
-                   .attr("class", "pie")
-                   .attr("viewBox", [0, 0, (window.width_D + window.margin_D.right + window.margin_D.left),
-                                 (window.height_D + window.margin_D.top + window.margin_D.bottom)].join(" "));
+      window.svg2 = d3.select('#donut')
+                   .append('svg')
+                   .attr('id', 'donutchart')
+                   .attr('class', 'pie')
+                   .attr('viewBox', [0, 0, (window.width_D + window.margin_D.right + window.margin_D.left),
+                                 (window.height_D + window.margin_D.top + window.margin_D.bottom)].join(' '));
 
-       window.g_D = window.svg2.append("g")
-               .attr("transform", "translate(" + (window.width_D/2) + "," + (window.height_D/2) + ")");
+       window.g_D = window.svg2.append('g')
+               .attr('transform', 'translate(' + (window.width_D/2) + ',' + (window.height_D/2) + ')');
 
-      window.text = "";
+      window.text = '';
 
     events = getData(data, country, year)
     drawDonut(data, events, country)
@@ -53,18 +32,18 @@ function drawDonut (data, events, country) {
 
   var countryAbv = getAbv(window.currentCountry)
 
-  if (typeof events === "string") {
-    window.g_D.append("text")
-    .attr("class", "country-text")
+  if (typeof events === 'string') {
+    window.g_D.append('text')
+    .attr('class', 'no-data')
     .text(events)
-    .attr("text-anchor", "middle")
-    .attr("dy", "1em");
+    .attr('text-anchor', 'middle')
+    .attr('dy', '1em');
 
-    window.g_D.append("text")
-    .attr("class", "country-text")
-    .text(" for " + countryAbv)
-    .attr("text-anchor", "middle")
-    .attr("dy", "2em");
+    window.g_D.append('text')
+    .attr('class', 'no-data')
+    .text(' for ' + countryAbv)
+    .attr('text-anchor', 'middle')
+    .attr('dy', '2em');
 
     return;
   }
@@ -72,13 +51,13 @@ function drawDonut (data, events, country) {
 
     donutDict = []
     events.forEach(function(d){
-      if (keys.includes("attacktype1_txt")) {
+      if (keys.includes('attacktype1_txt')) {
         var arcName = d.attacktype1_txt
-      } else if (keys.includes("gname")) {
+      } else if (keys.includes('gname')) {
         var arcName = d.gname
-      } else if (keys.includes("targtype1_txt")) {
+      } else if (keys.includes('targtype1_txt')) {
         var arcName = d.targtype1_txt
-      } else if (keys.includes("weaptype1_txt")) {
+      } else if (keys.includes('weaptype1_txt')) {
         var arcName = d.weaptype1_txt
       }
       donutDict.push({
@@ -101,73 +80,73 @@ function drawDonut (data, events, country) {
                 return (d.percentage); }})
               .sort(null);
 
-  var path = window.g_D.selectAll("path")
+  var path = window.g_D.selectAll('path')
               .data(pie(donutDict))
               .enter()
-              .append("g")
-              .on("mouseover", function(d) {
+              .append('g')
+              .on('mouseover', function(d) {
 
     let g = d3.select(this)
-      .style("cursor", "pointer")
-      .style("fill", "pink")
-      .append("g")
-      .attr("class", "text-group");
+      .style('cursor', 'pointer')
+      .style('fill', 'pink')
+      .append('g')
+      .attr('class', 'text-group');
 
-    g.append("text")
-      .attr("class", "name-text")
+    g.append('text')
+      .attr('class', 'name-text')
       .text(`${d.data.varname}`)
-      .attr("text-anchor", "middle")
-      .attr("dy", "-1.2em");
+      .attr('text-anchor', 'middle')
+      .attr('dy', '-1.2em');
 
-    g.append("text")
-      .attr("class", "value-text")
+    g.append('text')
+      .attr('class', 'value-text')
       .text(`${(d.data.percentage * 100).toFixed(2)}%`)
-      .attr("text-anchor", "middle")
-      .attr("dy", ".6em");
+      .attr('text-anchor', 'middle')
+      .attr('dy', '.6em');
 
   })
-.on("mouseout", function(d) {
+.on('mouseout', function(d) {
   d3.select(this)
-    .style("cursor", "none")
-    .style("fill", window.color_D(this._current))
-    .select(".text-group").remove();
+    .style('cursor', 'none')
+    .style('fill', window.color_D(this._current))
+    .select('.text-group').remove();
 
   })
-.append("path")
-.attr("d", arc)
-.attr("fill", (d, i) => window.color_D(i))
-.on("mouseover", function(d) {
+.append('path')
+.attr('d', arc)
+.attr('fill', (d, i) => window.color_D(i))
+.on('mouseover', function(d) {
     d3.select(this)
-      .style("cursor", "pointer")
-      .style("opacity", 0.5);
+      .style('cursor', 'pointer')
+      .style('opacity', 0.5);
   })
-.on("mouseout", function(d) {
+.on('mouseout', function(d) {
     d3.select(this)
-      .style("cursor", "none")
-      .style("opacity", 1.0);
+      .style('cursor', 'none')
+      .style('opacity', 1.0);
   })
 .each(function(d, i) { this._current = i; });
 
-window.g_D.append("text")
-.attr("class", "country-text")
+window.g_D.append('text')
+.attr('class', 'country-text')
 .text(countryAbv)
-.attr("text-anchor", "middle")
-.attr("dy", "-1.5em");
+.attr('text-anchor', 'middle')
+.attr('dy', '-1.5em');
 
-window.g_D.append("text")
-.attr("text-anchor", "middle")
-.attr("dy", ".35em")
+window.g_D.append('text')
+.attr('text-anchor', 'middle')
+.attr('dy', '.35em')
 .text(window.text);
 
 }
 
 function updateDonut(events, country) {
-  if (typeof events === "string") {
-    window.g_D.append("text")
-    .attr("class", "country-text")
+  if (typeof events === 'string') {
+    window.g_D.append('text')
+    .attr('class', 'country-text')
     .text(events)
-    .attr("text-anchor", "middle")
-    .attr("dy", "1em");
+    .attr('text-anchor', 'middle')
+    .attr('dy', '1em');
   }
 
   var arc = d3.arc()
@@ -179,62 +158,62 @@ function updateDonut(events, country) {
                 return (d.percentage); }})
               .sort(null);
 
-  var path = window.g_D.selectAll("path")
+  var path = window.g_D.selectAll('path')
               .data(pie(events))
               .enter()
-              .append("g")
-              .on("mouseover", function(d) {
+              .append('g')
+              .on('mouseover', function(d) {
 
     let g = d3.select(this)
-      .style("cursor", "pointer")
-      .style("fill", "pink")
-      .append("g")
-      .attr("class", "text-group");
+      .style('cursor', 'pointer')
+      .style('fill', 'pink')
+      .append('g')
+      .attr('class', 'text-group');
 
-    g.append("text")
-      .attr("class", "name-text")
-      .text(`${d.data.gname}`+" group")
-      .attr("text-anchor", "middle")
-      .attr("dy", "-1.2em");
+    g.append('text')
+      .attr('class', 'name-text')
+      .text(`${d.data.gname}`+' group')
+      .attr('text-anchor', 'middle')
+      .attr('dy', '-1.2em');
 
-    g.append("text")
-      .attr("class", "value-text")
+    g.append('text')
+      .attr('class', 'value-text')
       .text(`${(d.data.percentage * 100).toFixed(2)}%`)
-      .attr("text-anchor", "middle")
-      .attr("dy", ".6em");
+      .attr('text-anchor', 'middle')
+      .attr('dy', '.6em');
 
   })
-.on("mouseout", function(d) {
+.on('mouseout', function(d) {
   d3.select(this)
-    .style("cursor", "none")
-    .style("fill", window.color_D(this._current))
-    .select(".text-group").remove();
+    .style('cursor', 'none')
+    .style('fill', window.color_D(this._current))
+    .select('.text-group').remove();
 
   })
-.append("path")
-.attr("d", arc)
-.attr("fill", (d, i) => window.color_D(i))
-.on("mouseover", function(d) {
+.append('path')
+.attr('d', arc)
+.attr('fill', (d, i) => window.color_D(i))
+.on('mouseover', function(d) {
     d3.select(this)
-      .style("cursor", "pointer")
-      .style("opacity", 0.5);
+      .style('cursor', 'pointer')
+      .style('opacity', 0.5);
   })
-.on("mouseout", function(d) {
+.on('mouseout', function(d) {
     d3.select(this)
-      .style("cursor", "none")
-      .style("opacity", 1.0);
+      .style('cursor', 'none')
+      .style('opacity', 1.0);
   })
 .each(function(d, i) { this._current = i; });
 
-window.g_D.append("text")
-.attr("class", "country-text")
+window.g_D.append('text')
+.attr('class', 'country-text')
 .text(country)
-.attr("text-anchor", "middle")
-.attr("dy", "-2em");
+.attr('text-anchor', 'middle')
+.attr('dy', '-2em');
 
-window.g_D.append("text")
-.attr("text-anchor", "middle")
-.attr("dy", ".35em")
+window.g_D.append('text')
+.attr('text-anchor', 'middle')
+.attr('dy', '.35em')
 .text(window.text);
 
 }
@@ -249,23 +228,23 @@ function updateTest (data, events, country) {
               .startAngle(0);
 
   // Add the background arc, from 0 to 100% (tau).
-  var background = g.append("path")
+  var background = g.append('path')
       .datum({endAngle: tau})
-      .style("fill", "#ddd")
-      .attr("d", arc);
+      .style('fill', '#ddd')
+      .attr('d', arc);
 
       // Add the foreground arc in orange, currently showing 12.7%.
-      var foreground = g.append("path")
+      var foreground = g.append('path')
           .datum({endAngle: 0.127 * tau})
-          .style("fill", "orange")
-          .attr("d", arc);
+          .style('fill', 'orange')
+          .attr('d', arc);
 
           // Every so often, start a transition to a new random angle. The attrTween
           // definition is encapsulated in a separate function (a closure) below.
           // d3.interval(function() {
           //   foreground.transition()
           //       .duration(750)
-          //       .attrTween("d", arcTween(Math.random() * tau));
+          //       .attrTween('d', arcTween(Math.random() * tau));
           // }, 1500);
 
   var pie = d3.pie()
@@ -273,40 +252,40 @@ function updateTest (data, events, country) {
                 return (d.percentage); }})
               .sort(null);
 
-              var u = window.g_D.selectAll("path")
+              var u = window.g_D.selectAll('path')
             .data(pie(events));
 
           u.enter()
-            .append("g")
-            .append("path")
-            .attrTween("d", function(d) { arcTween(d)})
-            .attr("fill", (d, i) => color_D(i))
-            .on("mouseover", function(d) {
+            .append('g')
+            .append('path')
+            .attrTween('d', function(d) { arcTween(d)})
+            .attr('fill', (d, i) => color_D(i))
+            .on('mouseover', function(d) {
 
   let g = d3.select(this)
-    .style("cursor", "pointer")
-    .style("fill", "pink")
-    .append("g")
-    .attr("class", "text-group");
+    .style('cursor', 'pointer')
+    .style('fill', 'pink')
+    .append('g')
+    .attr('class', 'text-group');
 
-  g.append("text")
-    .attr("class", "name-text")
-    .text(`${d.data.gname}`+" group")
-    .attr("text-anchor", "middle")
-    .attr("dy", "-1.2em");
+  g.append('text')
+    .attr('class', 'name-text')
+    .text(`${d.data.gname}`+' group')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '-1.2em');
 
-  g.append("text")
-    .attr("class", "value-text")
+  g.append('text')
+    .attr('class', 'value-text')
     .text(`${(d.data.percentage * 100).toFixed(2)}%`)
-    .attr("text-anchor", "middle")
-    .attr("dy", ".6em");
+    .attr('text-anchor', 'middle')
+    .attr('dy', '.6em');
 
 })
-.on("mouseout", function(d) {
+.on('mouseout', function(d) {
 d3.select(this)
-  .style("cursor", "none")
-  .style("fill", color_D(this._current))
-  .select(".text-group").remove();
+  .style('cursor', 'none')
+  .style('fill', color_D(this._current))
+  .select('.text-group').remove();
 
 })
             .merge(u)
@@ -329,7 +308,7 @@ function getData (data, country, year) {
 
   events.sort(function(a, b) { return a.percentage - b.percentage})
   if (events.length === 0) {
-    return "No data available"
+    return 'No data available'
   }
   return events;
 }
@@ -340,7 +319,7 @@ function getAbv(country) {
   window.countryID.forEach(function(d){
       if (d.name.includes(country)){
         for (i in country){
-          if (country[i] == " ") {
+          if (country[i] == ' ') {
               count += 1; }
           if (count == 2 || count > 2) {
             answer = d.id;

@@ -7,7 +7,7 @@ body {
   padding-top: 3.5rem;
 }
 
-h2 {
+h4 {
   text-align: center;
 }
 
@@ -31,7 +31,7 @@ h2 {
 }
 
 .pie text {
-  font-family: "Verdana";
+  font-family: 'Verdana';
   fill: #888;
 }
 
@@ -58,7 +58,7 @@ h2 {
     .d3-tip {
     line-height: 1.5;
     font-weight: 400;
-    font-family:"avenir next", Arial, sans-serif;
+    font-family:'avenir next', Arial, sans-serif;
     padding: 6px;
     background: rgba(0, 0, 0, 0.6);
     color: #FFA500;
@@ -81,7 +81,7 @@ h2 {
 
     /* Northward tooltips */
     .d3-tip.n:after {
-      content: "\25BC";
+      content: '\25BC';
       margin: -1px 0 0 0;
       top: 100%;
       left: 0;
@@ -90,7 +90,7 @@ h2 {
 
     /* Eastward tooltips */
     .d3-tip.e:after {
-      content: "\25C0";
+      content: '\25C0';
       margin: -4px 0 0 0;
       top: 50%;
       left: -8px;
@@ -98,7 +98,7 @@ h2 {
 
     /* Southward tooltips */
     .d3-tip.s:after {
-      content: "\25B2";
+      content: '\25B2';
       margin: 0 0 1px 0;
       top: -8px;
       left: 0;
@@ -107,7 +107,7 @@ h2 {
 
     /* Westward tooltips */
     .d3-tip.w:after {
-      content: "\25B6";
+      content: '\25B6';
       margin: -4px 0 0 -1px;
       top: 50%;
       left: 100%;
@@ -212,4 +212,11 @@ svg {
     height: auto;
     max-height: 500px;
     overflow-x: hidden;
+}
+
+.no-data {
+  text-anchor: middle;
+  font-size: 2em;
+  fill: #707070;
+
 }

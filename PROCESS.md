@@ -145,13 +145,13 @@ So I finally got my data the way I wanted it as you can see in the picture above
 ### <u> Jan 25, 2019:</u>
 - Changed display text in dropdown menus
 - Added a dropdown menu (not functional yet)
-- Added a check box in linegraph container (not functional yet)
+- Added a check box in linegraph container of top 5 countries (not functional yet)
 - Page now also automatically scrolls down when country is chosen in worldmap
 - Added navbar text to show current country, category and year
 - Donutchart now also updates (year) when line circles are clicked on
 - Dropdowns display which country (also when map is clicked on) and category is currently chosen
 - Decided to make a big change. At first I used years 2000-2017 because I was limited by githubs uploading limit of 100mb per file. But because I divided my data into smaller .json files, I didn't have this problem anymore (only for the original dataset). So I decided to expand period to 1990-2017.
-- 1993 doesn't have any data for some reason, so the worldmap is white for this year. On [Our world in data](https://ourworldindata.org/terrorism "Terrorism - Our World in Data") this is ommitted by not displaying 1993 at all on the worldmap. <b>So this is not a bug!!</b>
+- 1993 doesn't have any data for some reason (none at all in the original dataset), so the worldmap is white for this year. <b>So this is not a bug!!</b>
 - Wrote a small python script to write some html code to txt file for all countries (192 countries!!!) in dropdown menu (was too lazy to type it all out in html) like so:
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/lazy_txt_25-01-2019.png)
 - I processed a lot of data to show in my donut chart, I wanted to show 3 other categories (so 4 in total). I chose 'attack types', 'target types' and 'weapon types' to add to 'group names' which I already had. The second dropdown menu allows the user to choose between these 4 categories.
@@ -162,5 +162,18 @@ So I finally got my data the way I wanted it as you can see in the picture above
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_25-01-2019_betaversion2.png)
 
 ### <u> Jan 27, 2019:</u>
+- Added line of 'terrorist incidents' (same data as in worldmap) to linegraph
+- Removed dropdown 'line category' menu (not necessary because 3rd line is always shown)
+- Countries with a long name (more than 2 spaces) like 'Democratic Republic of Congo' were too big to display within donut chart. I wrote a function that displays the country ID for these cases ('COD') instead of the whole name.
+#### Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_27-01-2019.png)
+
 
 ### <u> Jan 28, 2019:</u>
+- Removed check box for top 5 countries because not sure I have enough time for that
+- Added legend to linegraph with hover function
+- Changed line graph title
+- Found out that line circles are not connect to timeslider.. If I can't fix it in time, I will remove onclick function from line circles. Code of timeslider is imported and quite difficult to understand without comments..
+- Made mouseover text bigger and opacity lighter for linegraph
+#### Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_28-01-2019.png)
