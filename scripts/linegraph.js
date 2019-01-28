@@ -121,6 +121,7 @@ function showLineGraph (data, attacks, dataMap, country) {
               .style('cursor', 'none');
           });
 
+
       // add circles to each line
       lines.selectAll('circle-group')
         .data(data).enter()

@@ -1,12 +1,12 @@
 def make_html(country_list):
-	with open('country_list_html.txt', 'a') as country_list_html:
+	filepath = 'D:/Documents/Minor Programmeren/project/data/country_list_html.txt'
+	with open(filepath, 'a') as country_list_html:
 		for country in country_list:
 			line = '<a class="dropdown-item" value="'+country+'" href="#line">'+country+'</a>\n'
 			country_list_html.write(line)
 
-make_html()
-
 make_html(all_countries)
+
 
 countries = {0: "Afghanistan",
 1: "Albania",

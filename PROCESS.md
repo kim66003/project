@@ -131,5 +131,32 @@ So I finally got my data the way I wanted it as you can see in the picture above
 - Legend is not color gradient anymore because this made the worldmap of the earlier years very light yellow because the max value of 2016 was very high (over 3k) so I made different cutoff values with set colors.
 - Donut now updated by dropdown too as well as linegraph
 - Page automatically scrolls down when country is chosen in dropdown
+- Dropdown now from bootstrap instead of html
 #### Visualisations page:
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_23-01-2019.png)
+
+### <u> Jan 24, 2019:</u>
+- (Today was Hackathon)
+- Time slider updates donutchart now too
+- Moved countrytext to upperside of donutchart
+- Tried to get some more data for donutchart with pandas
+- Visualisation page doesn't look different to previous one
+
+### <u> Jan 25, 2019:</u>
+- Changed display text in dropdown menus
+- Added a dropdown menu (not functional yet)
+- Added a check box in linegraph container (not functional yet)
+- Page now also automatically scrolls down when country is chosen in worldmap
+- Added navbar text to show current country, category and year
+- Donutchart now also updates (year) when line circles are clicked on
+- Dropdowns display which country (also when map is clicked on) and category is currently chosen
+- Decided to make a big change. At first I used years 2000-2017 because I was limited by githubs uploading limit of 100mb per file. But because I divided my data into smaller .json files, I didn't have this problem anymore (only for the original dataset). So I decided to expand period to 1990-2017.
+- 1993 doesn't have any data for some reason, so the worldmap is white for this year. On [Our world in data](https://ourworldindata.org/terrorism "Terrorism - Our World in Data") this is ommitted by not displaying 1993 at all on the worldmap. <b>So this is not a bug!!</b>
+- Wrote a small python script to write some html code to txt file for all countries (192 countries!!!) in dropdown menu (was too lazy to type it all out in html) like so:
+![alt text](https://github.com/kim66003/project/blob/master/doc/process/lazy_txt_25-01-2019.png)
+- I processed a lot of data to show in my donut chart, I wanted to show 3 other categories (so 4 in total). I chose 'attack types', 'target types' and 'weapon types' to add to 'group names' which I already had. The second dropdown menu allows the user to choose between these 4 categories.
+- Made country dropdown menu scrollable because there are so many countries
+- I rearranged some folders and files to make my github more organised
+#### Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_25-01-2019_betaversion.png)
+![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_25-01-2019_betaversion2.png)
