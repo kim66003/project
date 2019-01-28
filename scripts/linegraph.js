@@ -165,11 +165,11 @@ function showLineGraph (data, attacks, dataMap, country) {
                 .attr('r', circleRadius);
             })
             .on('mousedown', function(d, i) {
-              // window.year = d.date
-              // showDonut(window.variable, window.currentCountry, window.year, 1)
+              window.year = d.date
+              showDonut(window.variable, window.currentCountry, window.year, 1)
               // drawSlider(attacks, dataMap, data, window.currentCountry, window.year)
               // showHeatMap(attacks, dataMap, data, window.currentCountry, window.year)
-              // document.getElementById('currentYear').textContent = window.year;
+              document.getElementById('currentYear').textContent = window.year;
               console.log(d.date)
             });
 

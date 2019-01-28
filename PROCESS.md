@@ -71,6 +71,7 @@ So I finally got my data the way I wanted it as you can see in the picture above
 - I processed my data for my linegraph and converted it to killsandwound.json
 - I made a main.js where I call functions from my other .js files so there is only one windows.onload
 - I made a line graph
+- Made a legend for worldmap
 #### Visualisations page:
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_15-01-2019.png)
 
@@ -117,3 +118,18 @@ So I finally got my data the way I wanted it as you can see in the picture above
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_21-01-2019_with_update.png)
 
 ### <u>Jan 22, 2019:</u>
+- I decided not to use the update function because it didn't work properly. It appended unnecessary line-groups and once the linegraph was updated, the tooltip didn't work anymore. So I made the choice to not use the update function to prevent the visualisations from becoming buggy.
+- Added a timeslider but not functional yet
+- Load all my data in main.js instead of seperately in every .js file
+- Didn't update donut with dropdown (countries) yet
+#### Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_22-01-2019.png)
+
+### <u> Jan 23, 2019:</u>
+- Time slider updates worldmap but doesn't update donutchart yet
+- Fixed legend so colors make more sense through the years. Before, the legend updated with every year (new maximum value). Now the legend stays the same throughout the years and so you notice more easily that the amount of terrorist attacks have increased.
+- Legend is not color gradient anymore because this made the worldmap of the earlier years very light yellow because the max value of 2016 was very high (over 3k) so I made different cutoff values with set colors.
+- Donut now updated by dropdown too as well as linegraph
+- Page automatically scrolls down when country is chosen in dropdown
+#### Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_23-01-2019.png)
