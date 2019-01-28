@@ -115,3 +115,5 @@ So I finally got my data the way I wanted it as you can see in the picture above
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_21-01-2019_no_update.png)
 #### Visualisations page with new script:
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_21-01-2019_with_update.png)
+
+### <u>Jan 22, 2019:</u>

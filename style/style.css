@@ -124,13 +124,11 @@ text{
 #kills {
   fill: none;
   stroke: purple;
-  stroke-width: 3px;
 }
 
 #wounded {
   fill: none;
   stroke: orange;
-  stroke-width: 3px;
 }
 
 .tooltip-text {
@@ -158,7 +156,11 @@ svg {
 }
 
 .title-text {
-  font-size: 16px;
+  font-size: 26px;
+}
+
+.axis-label {
+  font-size: 13px;
 }
 
 #inds {

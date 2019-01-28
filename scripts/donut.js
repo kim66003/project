@@ -24,8 +24,8 @@ function showDonut (data, country, year, bool) {
   //     });
 
       window.margin_D = {top: 5, right: 5, bottom: 5, left: 5},
-          window.width_D = 400 - margin_D.left - margin_D.right,
-          window.height_D = 400 - margin_D.top - margin_D.bottom;
+          window.width_D = 500 - margin_D.left - margin_D.right,
+          window.height_D = 500 - margin_D.top - margin_D.bottom;
       window.thickness = 50;
       window.duration_D = 750;
       window.radius = Math.min(width_D, height_D) / 2;

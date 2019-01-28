@@ -135,7 +135,7 @@ svg.append("g")
       .on("mousedown", function(d) {
         window.currentCountry = d.properties.name
         showDonut(window.variable, d.properties.name, year, 1)
-        showLineGraph(lineData, attackData, d.properties.name)
+        showLineGraph(lineData, attackData, data, d.properties.name)
         document.getElementById('currentCountry').textContent = window.currentCountry;
 
         var scroll = $(window).scrollTop();
@@ -251,6 +251,7 @@ legend.append("rect")
 }
 
 function drawSlider(data, dataMap, lineData, country) {
+  // d3.select('#timeslider').remove()
 
 // Time
 var dataTime = d3.range(0, 28).map(function(d) {
@@ -267,7 +268,7 @@ var sliderTime = d3
   .tickValues(dataTime)
   .default(new Date(2000, 10, 4))
   .on('onchange', val => {
-    d3.select('p#value-time').text(d3.timeFormat('%Y')(val));
+    // d3.select('p#value-time').text(d3.timeFormat('%Y')(val));
     window.year = d3.timeFormat('%Y')(val)
     multiData = getData2(data, window.year)
     events = multiData[0]
@@ -284,11 +285,12 @@ var gTime = d3
   .attr('width', 1000)
   .attr('height', 100)
   .append('g')
-  .attr('transform', 'translate(30,30)');
+  .attr('transform', 'translate(30,30)')
+  .attr('id', 'timeslider');
 
 gTime.call(sliderTime);
 
-d3.select('p#value-time')
-.text(d3.timeFormat('%Y')(sliderTime.value()))
-.attr('text-anchor', 'middle');
+// d3.select('p#value-time')
+// .text(d3.timeFormat('%Y')(sliderTime.value()))
+// .attr('text-anchor', 'middle');
 }
