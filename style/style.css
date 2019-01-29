@@ -7,145 +7,24 @@ body {
   padding-top: 3.5rem;
 }
 
-h4 {
-  text-align: center;
-}
-
+/* Story page */
 .jumbotron {
  background-image: url('../doc/webimg/lakecanada.jpg');
  background-size: cover;
  background-repeat: no-repeat;
  background-position: 0% 30%;
 }
-
+/* Title on story page */
 .display-3 {
   color: #ffffff;
 }
-
+/* Text on story page header  */
 #header-text {
   color: #ffffff;
 }
 
-.pie {
-  margin: 20px;
-}
 
-.pie text {
-  font-family: 'Verdana';
-  fill: #888;
-}
 
-.pie .name-text{
-  font-size: 1em;
-}
-
-.pie .value-text{
-  font-size: 3em;
-}
-
-.pie .country-text{
-  font-size: 2em;
-  fill: #707070;
-}
-
-.names {
-  fill: none;
-  stroke: #fff;
-  stroke-linejoin: round;
-  }
-
-    /* Tooltip CSS */
-    .d3-tip {
-    line-height: 1.5;
-    font-weight: 400;
-    font-family:'avenir next', Arial, sans-serif;
-    padding: 6px;
-    background: rgba(0, 0, 0, 0.6);
-    color: #FFA500;
-    border-radius: 1px;
-    pointer-events: none;
-    }
-
-    /* Creates a small triangle extender for the tooltip */
-    .d3-tip:after {
-      box-sizing: border-box;
-      display: inline;
-      font-size: 8px;
-      width: 100%;
-      line-height: 1.5;
-      color: rgba(0, 0, 0, 0.6);
-      position: absolute;
-      pointer-events: none;
-
-    }
-
-    /* Northward tooltips */
-    .d3-tip.n:after {
-      content: '\25BC';
-      margin: -1px 0 0 0;
-      top: 100%;
-      left: 0;
-      text-align: center;
-    }
-
-    /* Eastward tooltips */
-    .d3-tip.e:after {
-      content: '\25C0';
-      margin: -4px 0 0 0;
-      top: 50%;
-      left: -8px;
-    }
-
-    /* Southward tooltips */
-    .d3-tip.s:after {
-      content: '\25B2';
-      margin: 0 0 1px 0;
-      top: -8px;
-      left: 0;
-      text-align: center;
-    }
-
-    /* Westward tooltips */
-    .d3-tip.w:after {
-      content: '\25B6';
-      margin: -4px 0 0 -1px;
-      top: 50%;
-      left: 100%;
-    }
-
-text{
-  pointer-events:none;
-}
-
-.details{
-  color:white;
-}
-
-#kills {
-  fill: none;
-  stroke: purple;
-}
-
-#wounded {
-  fill: none;
-  stroke: orange;
-}
-
-.tooltip-text {
-  fill: #044e56;
-  font-family: sans-serif;
-  font-size: 1em;
-}
-
-.tooltip {z-index:1;}
-
-svg {
-    font-family: Sans-Serif, Arial;
-}
-.line {
-  stroke-width: 2;
-  fill: none;
-}
 
 .axis path {
   stroke: black;
@@ -155,8 +34,10 @@ svg {
   font-size: 12px;
 }
 
-.title-text {
+.tooltip-text {
   font-size: 26px;
+  opacity: 0.5;
+  text-anchor: middle;
 }
 
 .axis-label {

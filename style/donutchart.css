@@ -1,0 +1,21 @@
+.pie {
+  margin: 20px;
+}
+
+.pie text {
+  font-family: 'Verdana';
+  fill: #888;
+}
+
+.pie .name-text{
+  font-size: 1em;
+}
+
+.pie .value-text{
+  font-size: 3em;
+}
+
+.pie .country-text{
+  font-size: 2em;
+  fill: #707070;
+}

@@ -29,8 +29,7 @@ window.onload = function() {
 
       // load javascripts here
       showHeatMap(attacks, world_countries, kw, window.currentCountry, window.year)
-      // showLineGraph(kw, attacks, world_countries, window.currentCountry)
-      showAxis()
+      showLineGraph(kw, attacks, world_countries, window.currentCountry)
       showDonut(window.variable, window.currentCountry, window.year, 0)
 
           d3.selectAll('#countries a')

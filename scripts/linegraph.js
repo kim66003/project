@@ -80,16 +80,14 @@ function showLineGraph (data, attacks, dataMap, country) {
         .attr('class', 'line-group')
         .on('mouseover', function(d, i) {
             svg.append('text')
-              .attr('class', 'title-text')
+              .attr('class', 'tooltip-text')
               .style('fill', color[i])
-              .style('opacity', 0.5)
               .text(tooltipText[i])
-              .attr('text-anchor', 'middle')
               .attr('x', width / 2)
               .attr('y', 15);
           })
         .on('mouseout', function(d) {
-            svg.select('.title-text').remove();
+            svg.select('.tooltip-text').remove();
           })
         .append('path')
         .attr('class', 'line')
@@ -206,7 +204,6 @@ function showLineGraph (data, attacks, dataMap, country) {
       .attr('class', 'title')
       .attr('x', width / 2)
       .attr('y', -30)
-      .style('text-anchor', 'middle')
       .text('Incidence, fatality and injury from terrorist attacks ')
 
       svg.append('g')
@@ -214,7 +211,6 @@ function showLineGraph (data, attacks, dataMap, country) {
       .attr('class', 'title')
       .attr('x', width / 2)
       .attr('y', -10)
-      .style('text-anchor', 'middle')
       .text('in ' + country)
   }
 
@@ -237,6 +233,12 @@ function showLineGraph (data, attacks, dataMap, country) {
          .attr('height', 18)
          .style('fill', function(d, i) { return color[i] })
          .on('mouseover', function(d, i){
+           svg.append('text')
+             .attr('class', 'tooltip-text')
+             .style('fill', color[i])
+             .text(tooltipText[i])
+             .attr('x', width / 2)
+             .attr('y', 15);
               d3.selectAll('.line')
         					.style('opacity', otherLinesOpacityHover);
               d3.selectAll('.circle')
@@ -251,6 +253,7 @@ function showLineGraph (data, attacks, dataMap, country) {
               .style('cursor', 'pointer');
          })
          .on('mouseout', function(d) {
+           svg.select('.tooltip-text').remove();
              d3.selectAll('.line')
        					.style('opacity', lineOpacity);
              d3.selectAll('.circle')
@@ -313,10 +316,9 @@ function showLineGraph (data, attacks, dataMap, country) {
       .style('opacity', lineOpacity)
       .on('mouseover', function(d, i) {
         svg.append('text')
-          .attr('class', 'title-text')
+          .attr('class', 'tooltip-text')
           .style('fill', color[i])
           .text(tooltipText[i])
-          .attr('text-anchor', 'middle')
           .attr('x', (width) / 2)
           .attr('y', 5);
           d3.selectAll('.line')
@@ -329,7 +331,7 @@ function showLineGraph (data, attacks, dataMap, country) {
             .style('cursor', 'pointer');
         })
       .on('mouseout', function(d) {
-        svg.select('.title-text').remove();
+        svg.select('.tooltip-text').remove();
           d3.selectAll('.line')
               .style('opacity', lineOpacity);
           d3.selectAll('.circle')
