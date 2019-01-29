@@ -1,13 +1,21 @@
+# Name: Kimberley Boersma
+# Student no: 11003464
+# Python file to write some html lines to txt file
+
 def make_html(country_list):
+	# Writes html lines to txt file for every country in list
+	# So I don't have to manually type it in html :-)
+
 	filepath = 'D:/Documents/Minor Programmeren/project/data/country_list_html.txt'
 	with open(filepath, 'a') as country_list_html:
 		for country in country_list:
 			line = '<a class="dropdown-item" value="'+country+'" href="#line">'+country+'</a>\n'
 			country_list_html.write(line)
 
+# Execute with ctrl + enter
 make_html(all_countries)
 
-
+# List of countries acquired from data
 countries = {0: "Afghanistan",
 1: "Albania",
 2: "Algeria",
@@ -201,6 +209,5 @@ countries = {0: "Afghanistan",
 191: "Iceland",
 192: "South Sudan"}
 
+# Convert to list and sort alphabetically
 all_countries = list(sorted(countries.values()))
-
-print(all_countries)

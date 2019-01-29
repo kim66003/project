@@ -12,10 +12,9 @@ window.onload = function() {
   var input5 = "../data/json/attacktypes.json"
   var input6 = "../data/json/targettypes.json"
   var input7 = "../data/json/weapontypes.json"
-  var input8 = "../data/json/success.json"
-  var input9 = "../data/world_attacks.tsv"
+  var input8 = "../data/world_attacks.tsv"
 
-  var requests = [d3.json(input), d3.json(input2), d3.json(input3), d3.json(input4), d3.json(input5), d3.json(input6), d3.json(input7), d3.json(input8), d3.tsv(input9)]
+  var requests = [d3.json(input), d3.json(input2), d3.json(input3), d3.json(input4), d3.json(input5), d3.json(input6), d3.json(input7), d3.tsv(input8)]
 
   // Load requests first
   Promise.all(requests).then(function(response) {
@@ -27,8 +26,7 @@ window.onload = function() {
       var attacktype = response[4]
       var targets = response[5]
       var weapons = response[6]
-      var success = response[7]
-      window.countryID = response[8]
+      window.countryID = response[7]
 
       // Set country, year and variable to load initial page
       window.currentCountry = "Iraq"

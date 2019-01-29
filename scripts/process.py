@@ -1,3 +1,7 @@
+# Name: Kimberley Boersma
+# Student no: 11003464
+# Python file to process data and write to jsonfiles
+
 import csv
 import json
 import numpy as np
