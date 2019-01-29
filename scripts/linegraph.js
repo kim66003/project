@@ -1,4 +1,5 @@
 function showLineGraph (data, attacks, dataMap, country) {
+  mainData = data
   d3.select('#linegraph').remove();
   data2 = Object.values(data)
   attacks = Object.values(attacks)
@@ -61,7 +62,7 @@ function showLineGraph (data, attacks, dataMap, country) {
   let lines = svg.append('g')
     .attr('class', 'lineholder');
 
-  function drawLineGraph2 (data, kwcountry, attacksCountry, country) {
+  function drawLineGraph (data, kwcountry, attacksCountry, country) {
       // define domain x- and yscale
       xScale
       .domain(d3.extent(attacksCountry, function(d) { return d.iyear; }));
@@ -163,7 +164,7 @@ function showLineGraph (data, attacks, dataMap, country) {
               d3.select('#timeslider').remove()
               window.year = d.date
               showDonut(window.variable, window.currentCountry, window.year, 1)
-              drawSlider(attacks, dataMap, data, window.currentCountry, d.date)
+              drawSlider(attacks, dataMap, mainData, window.currentCountry, window.year)
               // showHeatMap(attacks, dataMap, data, window.currentCountry, window.year)
               document.getElementById('currentYear').textContent = window.year;
             });
@@ -273,7 +274,7 @@ function showLineGraph (data, attacks, dataMap, country) {
   }
 
   if (kwcountry.length != 0) {
-    drawLineGraph2(kw, kwcountry, attacksCountry, country)
+    drawLineGraph(kw, kwcountry, attacksCountry, country)
     drawLegend()
   } else {
     svg.append('g')
