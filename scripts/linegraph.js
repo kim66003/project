@@ -62,7 +62,6 @@ function showLineGraph (data, attacks, dataMap, country) {
     .attr('class', 'lineholder');
 
   function drawLineGraph2 (data, kwcountry, attacksCountry, country) {
-  console.log(kwcountry)
       // define domain x- and yscale
       xScale
       .domain(d3.extent(attacksCountry, function(d) { return d.iyear; }));

@@ -23,13 +23,14 @@ window.onload = function() {
       var success = response[7]
       window.countryID = response[8]
 
-      window.currentCountry = "Afghanistan"
+      window.currentCountry = "Iraq"
       window.year = 2000
       window.variable = group
 
       // load javascripts here
       showHeatMap(attacks, world_countries, kw, window.currentCountry, window.year)
-      showLineGraph(kw, attacks, world_countries, window.currentCountry)
+      // showLineGraph(kw, attacks, world_countries, window.currentCountry)
+      showAxis()
       showDonut(window.variable, window.currentCountry, window.year, 0)
 
           d3.selectAll('#countries a')
@@ -38,13 +39,13 @@ window.onload = function() {
 
                 window.currentCountry = section
                 document.getElementById('currentCountry').textContent = window.currentCountry;
-                window.line = true
 
                 showDonut(group, section, window.year, 1)
-
+                //
                 showLineGraph(kw, attacks, world_countries, section)
-
+                //
                 jQuery('h1.page-header').html(section);
+
               });
 
           d3.selectAll('#donutvars a')
