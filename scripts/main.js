@@ -13,7 +13,7 @@ window.onload = function() {
   var input6 = "../data/json/targettypes.json"
   var input7 = "../data/json/weapontypes.json"
   var input8 = "../data/json/success.json"
-  var input9 = "../data/poep/world_attacks.tsv"
+  var input9 = "../data/world_attacks.tsv"
 
   var requests = [d3.json(input), d3.json(input2), d3.json(input3), d3.json(input4), d3.json(input5), d3.json(input6), d3.json(input7), d3.json(input8), d3.tsv(input9)]
 

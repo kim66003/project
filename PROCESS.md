@@ -177,3 +177,7 @@ So I finally got my data the way I wanted it as you can see in the picture above
 - Made mouseover text bigger and opacity lighter for linegraph
 #### Visualisations page:
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_28-01-2019.png)
+
+### <u> Jan 29, 2019:</u>
+
+### <u> Jan 30, 2019:</u>
