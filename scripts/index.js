@@ -3,5 +3,5 @@ window.onload = function onload() {
   				scroll= scroll+ 100;
   				$('html, body').animate({
   					scrollTop: scroll
-  				}, 2500);
+  				}, 800);
 }

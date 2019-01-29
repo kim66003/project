@@ -10,14 +10,15 @@ HTML file to show project webpage -->
       <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
   <link rel='stylesheet' href='../style/style.css'>
   <link rel='stylesheet' href='../style/linegraph.css'>
-  <link rel='stylesheet' href='../style/heatmap.css'>
   <link rel='stylesheet' href='../style/donutchart.css'>
+  <link rel='stylesheet' href='../style/heatmap.css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
   <script src='https://d3js.org/d3.v5.js' charset='utf-8'></script>
       <script type='text/javascript' src=../d3/d3.legend.js></script>
       <script src='//d3js.org/d3-scale-chromatic.v0.3.min.js'></script>
       <script src='https://d3js.org/topojson.v1.min.js'></script>
       <script src='../d3/d3-tip.js'></script>
+      <script type='text/javascript' src='../d3/d3-simple-slider.js'></script>
       <link rel='shortcut icon' type='image/png' href='../doc/favicons/cartooncat.png'>
       <title>Visualisations</title>
     </head>
@@ -36,7 +37,7 @@ HTML file to show project webpage -->
       <a class='nav-link' href='info.html'>Info</a>
       </li>
       <li class='nav-item dropdown'>
-            <a class='nav-link dropdown-toggle' id='inds' href='#' data-toggle='dropdown'><span id='selected'>Country</span></a>
+            <a class='nav-link dropdown-toggle' id='cat-drop' href='#' data-toggle='dropdown'><span id='selected'>Country</span></a>
             <div class='dropdown-menu scrollable-menu' id='countries'>
               <a class='dropdown-item' value='Afghanistan' href='#line'>Afghanistan</a>
               <a class='dropdown-item' value='Albania' href='#line'>Albania</a>
@@ -183,7 +184,7 @@ HTML file to show project webpage -->
             </div>
           </li>
         <li class='nav-item dropdown'>
-          <a class='nav-link dropdown-toggle' id='inds' href='#' data-toggle='dropdown'><span id='selected2'>Donut category</span></a>
+          <a class='nav-link dropdown-toggle' id='cat-drop' href='#' data-toggle='dropdown'><span id='selected2'>Donut category</span></a>
           <div class='dropdown-menu' id='donutvars'>
             <a class='dropdown-item' value='Group name' href='#line'>Group name</a>
             <a class='dropdown-item' value='Attack type' href='#line'>Attack type</a>
@@ -223,7 +224,7 @@ HTML file to show project webpage -->
       <div class='col-sm' style='background-color: #a9a0fd;'>
       <h4> Number of terrorist incidents </h4>
       <div class='col-sm' id='heatmap'></div>
-      <div class='row align-items-center' id='timeslider'>
+      <div class='row align-items-center' id='div-slider'>
       <div class='col-sm-2'><p id='value-time'></p></div>
       <div class='col-sm'><div id='slider-time'></div></div>
     </div>
@@ -239,7 +240,6 @@ HTML file to show project webpage -->
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
-    <script type='text/javascript' src='../d3/d3-simple-slider.js'></script>
     <script type='text/javascript' src='../scripts/donut.js'></script>
     <script type='text/javascript' src='../scripts/linegraph.js'></script>
     <script type='text/javascript' src='../scripts/heatmap.js'></script>

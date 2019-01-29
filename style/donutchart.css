@@ -1,3 +1,7 @@
+/* CSS file to style donutchart
+   Name: Kimberley Boersma
+   Student no.: 11003464 */
+
 .pie {
   margin: 20px;
 }
@@ -16,6 +20,12 @@
 }
 
 .pie .country-text{
+  font-size: 2em;
+  fill: #707070;
+}
+
+.no-data {
+  text-anchor: middle;
   font-size: 2em;
   fill: #707070;
 }

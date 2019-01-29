@@ -18,8 +18,6 @@ var svg = d3.select("#heatmap")
             .append("svg")
             .attr("viewBox", [0, 0, (width + margin.right + margin.left),
                       (height + margin.top + margin.bottom)].join(' '))
-            // .attr("width", width)
-            // .attr("height", height)
             .append("g")
             .attr("class", "map");
 
@@ -41,7 +39,7 @@ svg.call(tip);
     max = multiData[1]
     color = multiData[2]
     drawMap(data, dataMap, events, color, lineData, country, year)
-    drawSlider(data, dataMap, lineData, country)
+    drawSlider(data, dataMap, lineData, country, 2000)
     drawLegend(color, max)
 
 }
@@ -50,19 +48,12 @@ function getData2(data, year) {
 counts = []
 events = Object.values(data)
 
-// events.forEach(function(d) { if (d.iyear == year) { counts.push(d.count) }})
-// var max = Math.max.apply(null, counts)
-// max = Math.round(max/100)*100
-
 events.forEach(function(d) { counts.push(d.count) })
 var min = 0;
 var max = Math.max.apply(null, counts)
 max = Math.round(max/1000)*1000
 max = 5000
 
-// var color = d3.scaleLinear()
-//               .domain([min, max])
-//               .range([d3.rgb("#fdd3a0"), d3.rgb("#800000")]);
 
 var color = d3.scaleThreshold()
               .domain([0,1,10,25,50,100,250,500,1000,2500,5000])
@@ -75,7 +66,6 @@ return [events, max, color]
 
 function drawMap(attackData, data, events, color, lineData, country, year) {
 d3.selectAll(".countries").remove()
-// d3.select("svg").remove()
 
 var attacksById = {};
 var countries = []
@@ -106,9 +96,7 @@ svg.append("g")
   .enter().append("path")
     .attr("d", path)
     .style("fill", function(d) {
-      // if (d.attacks === 0) { return "#fff3e5" } else {
         return color(d.attacks)
-      // };
     })
     .style("stroke", "white")
     .style("stroke-width", 1.5)
@@ -155,41 +143,9 @@ svg.append("g")
 }
 
 function drawLegend(color, max) {
-// d3.selectAll("defs").remove()
-// d3.select(".yAxis").remove()
-// d3.selectAll("#linear-gradient").remove()
-// d3.selectAll("rect").remove()
-//Append a defs (for definition) element to your SVG
-// var defs = svg.append("defs");
-//
-// //Append a linearGradient element to the defs and give it a unique id
-// var linearGradient = defs.append("linearGradient")
-//     .attr("id", "linear-gradient");
-//
-// //Vertical gradient
-// linearGradient
-//     .attr("x1", "0%")
-//     .attr("y1", "100%")
-//     .attr("x2", "0%")
-//     .attr("y2", "0%");
-//
-//     //Append multiple color stops by using D3's data/enter step
-// linearGradient.selectAll("stop")
-//     .data( color.range() )
-//     .enter().append("stop")
-//     .attr("offset", function(d,i) { return i/(color.range().length - 1); })
-//     .attr("stop-color", function(d) { return d; });
 
   width = 20;
   height = 550;
-
-  //Draw the rectangle and fill with gradient
-  // svg.append("rect")
-  //     .attr("width", width)
-  //     .attr("height", height)
-  //     .attr("transform", "translate(120, 20)")
-  //     .style("fill", "url(#linear-gradient)")
-  //     .attr("opacity", 0.8);
 
       var color = d3.scaleThreshold()
                     .domain([0,5,10,25,50,100,250,500,1000,2500,5000])
@@ -225,33 +181,9 @@ legend.append("rect")
       .attr("class", "yAxis")
       .attr("transform", "translate(120, 20)")
       .call(yAxis)
-//
-// // draw legend text
-// legend.append("text")
-//     .attr("x", width - 24)
-//     .attr("y", 9)
-//     .attr("dy", ".35em")
-//     .style("text-anchor", "end")
-//     .text(function(d) { return d;})
-
-      // yscale for axis
-    // var yScale = d3.scaleLinear()
-    //         .range([0, height])
-    //         .domain([max, 0]);
-    // // yaxis scaled
-    // var yAxis = d3.axisLeft()
-    //         .scale(yScale)
-    //         .ticks(9);
-    //
-    // // add axis
-    // svg.append("g")
-    //   .attr("class", "yAxis")
-    //   .attr("transform", "translate(120, 20)")
-    //   .call(yAxis)
 }
 
-function drawSlider(data, dataMap, lineData, country) {
-  // d3.select('#timeslider').remove()
+function drawSlider(data, dataMap, lineData, country, sliderYear) {
 
 // Time
 var dataTime = d3.range(0, 28).map(function(d) {
@@ -266,7 +198,7 @@ var sliderTime = d3
   .width(900)
   .tickFormat(d3.timeFormat('%Y'))
   .tickValues(dataTime)
-  .default(new Date(2000, 10, 4))
+  .default(new Date(sliderYear, 10, 4))
   .on('onchange', val => {
     // d3.select('p#value-time').text(d3.timeFormat('%Y')(val));
     window.year = d3.timeFormat('%Y')(val)
@@ -282,11 +214,11 @@ var sliderTime = d3
 var gTime = d3
   .select('div#slider-time')
   .append('svg')
+  .attr('id', 'timeslider')
   .attr('width', 1000)
   .attr('height', 100)
   .append('g')
-  .attr('transform', 'translate(30,30)')
-  .attr('id', 'timeslider');
+  .attr('transform', 'translate(30,30)');
 
 gTime.call(sliderTime);
 
