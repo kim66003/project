@@ -235,51 +235,54 @@ function drawLegend(max) {
 }
 
 function drawSlider(data, dataMap, lineData, country, sliderYear) {
-// Draws time slider for period 1990-2017
-// Source: https://bl.ocks.org/johnwalley/e1d256b81e51da68f7feb632a53c3518
+  // Draws time slider for period 1990-2017
+  // Source: https://bl.ocks.org/johnwalley/e1d256b81e51da68f7feb632a53c3518
 
+  var width = 1000;
+  var height = 100;
+  var sliderWidth = width - 100;
 
-// Define time
-var dataTime = d3.range(0, 28)
-                 .map(function(d) {
-                   return new Date(1990 + d, 10, 4);
-                 });
+  // Define time
+  var dataTime = d3.range(0, 28)
+                   .map(function(d) {
+                     return new Date(1990 + d, 10, 4);
+                   });
 
-// Define slider
-var sliderTime = d3.sliderBottom()
-                   .min(d3.min(dataTime))
-                   .max(d3.max(dataTime))
-                   .step(1000 * 60 * 60 * 24 * 365)
-                   .width(900)
-                   .tickFormat(d3.timeFormat('%Y'))
-                   .tickValues(dataTime)
-                   // Set default year
-                   .default(new Date(sliderYear, 10, 4))
-                   .on('onchange', val => {
-                      // Update current year
-                      window.year = d3.timeFormat('%Y')(val)
-                      // Get data for worldmap
-                      multiData = getData2(data, window.year)
-                      events = multiData[0]
-                      max = multiData[1]
-                      color = multiData[2]
-                      drawMap(data, dataMap, events, color, lineData, country, window.year)
-                      showDonut(window.variable, window.currentCountry, window.year, 1)
-                      document.getElementById('currentYear').textContent = window.year;
-                    });
+  // Define slider
+  var sliderTime = d3.sliderBottom()
+                     .min(d3.min(dataTime))
+                     .max(d3.max(dataTime))
+                     .step(1000 * 60 * 60 * 24 * 365)
+                     .width(sliderWidth)
+                     .tickFormat(d3.timeFormat('%Y'))
+                     .tickValues(dataTime)
+                     // Set default year
+                     .default(new Date(sliderYear, 10, 4))
+                     // Update worldmap and donut when year is changed
+                     .on('onchange', val => {
+                        // Update current year
+                        window.year = d3.timeFormat('%Y')(val)
+                        // Get data for worldmap
+                        multiData = getData2(data, window.year)
+                        events = multiData[0]
+                        max = multiData[1]
+                        color = multiData[2]
+                        // Draw worldmap and donut
+                        drawMap(data, dataMap, events, color, lineData, country, window.year)
+                        showDonut(window.variable, window.currentCountry, window.year, 1)
+                        // Update current year in navbar text
+                        document.getElementById('currentYear').textContent = window.year;
+                      });
 
-var gTime = d3
-  .select('div#slider-time')
-  .append('svg')
-  .attr('id', 'timeslider')
-  .attr('width', 1000)
-  .attr('height', 100)
-  .append('g')
-  .attr('transform', 'translate(30,30)');
+  // Append timeslider
+  var gTime = d3.select('div#slider-time')
+                .append('svg')
+                .attr('id', 'timeslider')
+                .attr('width', 1000)
+                .attr('height', 100)
+                .append('g')
+                .attr('transform', 'translate(30,30)');
 
-gTime.call(sliderTime);
-
-// d3.select('p#value-time')
-// .text(d3.timeFormat('%Y')(sliderTime.value()))
-// .attr('text-anchor', 'middle');
+  // Draw timeslider
+  gTime.call(sliderTime);
 }
