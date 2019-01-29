@@ -2,6 +2,8 @@
    Name: Kimberley Boersma
    Student no.: 11003464 */
 
+// Source: https://codepen.io/zakariachowdhury/pen/JEmjwq
+
 function showLineGraph (mainData, attacks, dataMap, country) {
   // This function contains the variables needed in drawLineGraph()
   // and in drawLegend() and executes these functions at the end

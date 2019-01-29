@@ -44,19 +44,19 @@ var path = d3.geoPath().projection(projection);
 svg.call(tip);
 
 
-  function showHeatMap (data, dataMap, lineData, country, year) {
-    // Function that executes functions to draw worldmap, legend and timeslider
+function showHeatMap (data, dataMap, lineData, country, year) {
+  // Function that executes functions to draw worldmap, legend and timeslider
 
-    // Get data ready to draw heatmap
-    var multiData = getData2(data, year)
-    var events = multiData[0]
-    var max = multiData[1]
-    var color = multiData[2]
+  // Get data ready to draw heatmap
+  var multiData = getData2(data, year)
+  var events = multiData[0]
+  var max = multiData[1]
+  var color = multiData[2]
 
-    // Execute functions to draw map, slider and legend
-    drawMap(data, dataMap, events, color, lineData, country, year)
-    drawSlider(data, dataMap, lineData, country, window.year)
-    drawLegend(max)
+  // Execute functions to draw map, slider and legend
+  drawMap(data, dataMap, events, color, lineData, country, year)
+  drawSlider(data, dataMap, lineData, country, window.year)
+  drawLegend(max)
 }
 
 function getData2(data, year) {

@@ -32,7 +32,7 @@ Optional:
 * Provide link to original newsreport under these *descriptions*
 * Bar chart/histogram
 
-![alt text](https://github.com/kim66003/project/blob/master/doc/readme/worldmap.png)
+![alt text](https://github.com/kim66003/project/blob/master/doc/proposal/worldmap.png)
 
 #### Prerequisites:
 Data source(s):

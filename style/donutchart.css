@@ -2,28 +2,37 @@
    Name: Kimberley Boersma
    Student no.: 11003464 */
 
+/* Donut style */
 .pie {
   margin: 20px;
 }
 
+/* Donut text */
 .pie text {
   font-family: 'Verdana';
   fill: #888;
 }
 
+/* Category name */
 .pie .name-text{
   font-size: 1em;
+  text-anchor: middle;
 }
 
+/* Percentage text */
 .pie .value-text{
   font-size: 3em;
+  text-anchor: middle;
 }
 
+/* Country name */
 .pie .country-text{
   font-size: 2em;
   fill: #707070;
+  text-anchor: middle;
 }
 
+/* No data text */
 .no-data {
   text-anchor: middle;
   font-size: 2em;
