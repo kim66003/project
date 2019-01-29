@@ -2,6 +2,8 @@
    Name: Kimberley Boersma
    Student no.: 11003464 */
 
+// Source of worldmap: http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
+
 // Format values shown in tooltip
 var format = d3.format(",");
 
@@ -46,23 +48,23 @@ svg.call(tip);
     // Function that executes functions to draw worldmap, legend and timeslider
 
     // Get data ready to draw heatmap
-    multiData = getData2(data, year)
-    events = multiData[0]
-    max = multiData[1]
-    color = multiData[2]
+    var multiData = getData2(data, year)
+    var events = multiData[0]
+    var max = multiData[1]
+    var color = multiData[2]
 
     // Execute functions to draw map, slider and legend
     drawMap(data, dataMap, events, color, lineData, country, year)
     drawSlider(data, dataMap, lineData, country, window.year)
-    drawLegend(color, max)
+    drawLegend(max)
 }
 
 function getData2(data, year) {
   // Returns list of #attacks values, rounded max value of #attacks and colorscale
 
 // Make list of data values
-counts = []
-events = Object.values(data)
+var counts = []
+var events = Object.values(data)
 
 // Determine max and round
 events.forEach(function(d) {
@@ -73,7 +75,7 @@ max = Math.round(max / 1000) * 1000 + 1000
 
 // Define color
 var color = d3.scaleThreshold()
-              .domain([0,1,10,25,50,100,250,500,1000,2500,max])
+              .domain([0, 1, 10, 25, 50, 100, 250, 500, 1000, 2500, max])
               .range(["#eeeeee", "#fff7ec", "#fee8c8", "#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#990000", "#7f0000"])
 
 return [events, max, color]
@@ -87,17 +89,21 @@ function formatData (events, year, dataMap) {
   var countries = [];
   var uniqueNames = [];
 
+  // Make dictionary for attacks with unique ID
   events.forEach(function(d) {
      if (d.iyear == year) {
         attacksById[d.iyear + d.country_txt] = +d.count;
+        // Make list of countries
         countries.push(d.country_txt);
     };
   });
 
+  // Remove duplicates in countries list
   $.each(countries, function(i, el){
     if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
   });
 
+  // Change worldmap data from source to match own data (previously contained population per country)
   dataMap.features.forEach(function(d) {
     if (uniqueNames.includes(d.properties.name)) {
       d.attacks = attacksById[year + d.properties.name];
@@ -112,38 +118,41 @@ function formatData (events, year, dataMap) {
 function drawMap(attackData, data, events, color, lineData, country, year) {
   // Draws worldmap with colors according to number of attacks
 
-  // Remove countries when map is drawn again
+  // Remove old countries when map is drawn again
   d3.selectAll(".countries").remove()
 
-  multiData2 = formatData(events, year, data)
-  attacksById = multiData2[0]
-  data = multiData2[1]
+  // Get data in right format
+  var multiData2 = formatData(events, year, data)
+  var attacksById = multiData2[0]
+  var data = multiData2[1]
 
-
+  // Draw countries on map
   svg.append("g")
-      .attr("class", "countries")
-    .selectAll("path")
-      .data(data.features)
-    .enter().append("path")
-      .attr("d", path)
-      .style("fill", function(d) {
+     .attr("class", "countries")
+     .selectAll("path")
+     .data(data.features)
+     .enter().append("path")
+     .attr("d", path)
+     // Give country color according to colorscale
+     .style("fill", function(d) {
           return color(d.attacks)
       })
-      .style("stroke", "white")
-      .style("stroke-width", 1.5)
-      .style("opacity",0.8)
-      // tooltips
-        .style("stroke","white")
-        .style("stroke-width", 0.3)
-        .on("mouseover",function(d){
+     .style("stroke", "white")
+     .style("stroke-width", 1.5)
+     .style("opacity",0.8)
+     // Mouseover functions
+     .style("stroke","white")
+     .style("stroke-width", 0.3)
+     .on("mouseover",function(d){
+          // Show tooltip
           tip.show(d);
-
+          // Highlight country
           d3.select(this)
             .style("opacity", 1)
             .style("stroke","white")
             .style("stroke-width",3);
         })
-        .on("mouseout", function(d){
+     .on("mouseout", function(d){
           tip.hide(d)
 
           d3.select(this)
@@ -151,96 +160,113 @@ function drawMap(attackData, data, events, color, lineData, country, year) {
             .style("stroke","white")
             .style("stroke-width",0.3);
         })
-        .on("mousedown", function(d) {
+      // Update donut and linegraph onclick
+     .on("mousedown", function(d) {
+          // Update current country
           window.currentCountry = d.properties.name
+          // Update donut and linegraph
           showDonut(window.variable, d.properties.name, year, 1)
           showLineGraph(lineData, attackData, data, d.properties.name)
+          // Update country in navbar
           document.getElementById('currentCountry').textContent = window.currentCountry;
-
+          // Scroll page down when country is clicked
           var scroll = $(window).scrollTop();
           				scroll= scroll+ 700;
           				$('html, body').animate({
           					scrollTop: scroll
           				}, 300);
-
+          // Display current country in dropdown
           $('#selected').text(window.currentCountry);
 
         });
-
-      svg.append("path")
+   // Give names to countries
+   svg.append("path")
       .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
       .attr("class", "names")
       .attr("d", path);
 }
 
-function drawLegend(color, max) {
+function drawLegend(max) {
+// Draw legend for worldmap
 
-  width = 20;
-  height = 550;
+  // Set width and height
+  var width = 20;
+  var height = 550;
+  var rectHeight = height / 11
 
-      var color = d3.scaleThreshold()
-                    .domain([0,5,10,25,50,100,250,500,1000,2500,5000])
-                    .range(["#7f0000", "#7f0000", "#990000", "#b30000", "#d7301f", "#ef6548", "#fc8d59", "#fdbb84", "#fdd49e", "#fee8c8", "#fff7ec", "#eeeeee"])
+  // Define legend color
+  var color = d3.scaleThreshold()
+                .domain([0, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, max])
+                .range(["#7f0000", "#7f0000", "#990000", "#b30000", "#d7301f", "#ef6548", "#fc8d59", "#fdbb84", "#fdd49e", "#fee8c8", "#fff7ec", "#eeeeee"])
 
-      var legend = svg.selectAll(".legend")
-                      .data(color.domain())
-                      .enter()
-                      .append("g")
-                      .attr("class", "legend")
-                      .attr("transform", function(d, i) { return "translate(120," + ((i * (height / 11)) + 20) + ")"; });
+  // Append legend to svg
+  var legend = svg.selectAll(".legend")
+                  .data(color.domain())
+                  .enter()
+                  .append("g")
+                  .attr("class", "legend")
+                  .attr("transform", function(d, i) { return "translate(120," + ((i * (rectHeight)) + 20) + ")"; });
 
-// draw legend colored rectangles
-legend.append("rect")
-    .attr("x", 0)
-    .attr("width", width)
-    .attr("height", (height / 11))
-    .style("fill", color);
+  // Draw legend colored rectangles
+  legend.append("rect")
+        .attr("x", 0)
+        .attr("width", width)
+        .attr("height", rectHeight)
+        .style("fill", color);
 
-    height2 = height / 11
+  // Set y scale
+  var yScale = d3.scaleLinear()
+          // Set range manually because scale is not linear
+          .range([0, rectHeight, (rectHeight * 2), (rectHeight * 3), (rectHeight * 4), (rectHeight * 5), (rectHeight * 6), (rectHeight * 7), (rectHeight * 8), (rectHeight * 9), (rectHeight * 10), height])
+          .domain([max, 2500, 1000, 500, 250, 100, 50, 25, 10, 5, 1, 0]);
 
-    var yScale = d3.scaleLinear()
-            .range([0, height2, (height2 * 2), (height2 * 3), (height2 * 4), (height2 * 5), (height2 * 6), (height2 * 7), (height2 * 8), (height2 * 9), (height2 * 10), height])
-            .domain([5000,2500,1000,500, 250, 100,50,25,10,5, 1,0]);
-    // yaxis scaled
-    var yAxis = d3.axisLeft()
-            .scale(yScale)
-            .ticks(11)
-            .tickValues([0,1, 5,10,25,50,100,250,500,1000,2500,5000]);
+  // Scale y axis
+  var yAxis = d3.axisLeft()
+          .scale(yScale)
+          // Set ticks and tick values for these specific values
+          .ticks(11)
+          .tickValues([0, 1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, max]);
 
-    // add axis
-    svg.append("g")
-      .attr("class", "yAxis")
-      .attr("transform", "translate(120, 20)")
-      .call(yAxis)
+  // Draw axis next to legend
+  svg.append("g")
+     .attr("class", "y axis")
+     .attr("transform", "translate(120, 20)")
+     .call(yAxis)
 }
 
 function drawSlider(data, dataMap, lineData, country, sliderYear) {
+// Draws time slider for period 1990-2017
+// Source: https://bl.ocks.org/johnwalley/e1d256b81e51da68f7feb632a53c3518
 
-// Time
-var dataTime = d3.range(0, 28).map(function(d) {
-  return new Date(1990 + d, 10, 4);
-});
 
-var sliderTime = d3
-  .sliderBottom()
-  .min(d3.min(dataTime))
-  .max(d3.max(dataTime))
-  .step(1000 * 60 * 60 * 24 * 365)
-  .width(900)
-  .tickFormat(d3.timeFormat('%Y'))
-  .tickValues(dataTime)
-  .default(new Date(sliderYear, 10, 4))
-  .on('onchange', val => {
-    // d3.select('p#value-time').text(d3.timeFormat('%Y')(val));
-    window.year = d3.timeFormat('%Y')(val)
-    multiData = getData2(data, window.year)
-    events = multiData[0]
-    max = multiData[1]
-    color = multiData[2]
-    drawMap(data, dataMap, events, color, lineData, country, window.year)
-    showDonut(window.variable, window.currentCountry, window.year, 1)
-    document.getElementById('currentYear').textContent = window.year;
-  });
+// Define time
+var dataTime = d3.range(0, 28)
+                 .map(function(d) {
+                   return new Date(1990 + d, 10, 4);
+                 });
+
+// Define slider
+var sliderTime = d3.sliderBottom()
+                   .min(d3.min(dataTime))
+                   .max(d3.max(dataTime))
+                   .step(1000 * 60 * 60 * 24 * 365)
+                   .width(900)
+                   .tickFormat(d3.timeFormat('%Y'))
+                   .tickValues(dataTime)
+                   // Set default year
+                   .default(new Date(sliderYear, 10, 4))
+                   .on('onchange', val => {
+                      // Update current year
+                      window.year = d3.timeFormat('%Y')(val)
+                      // Get data for worldmap
+                      multiData = getData2(data, window.year)
+                      events = multiData[0]
+                      max = multiData[1]
+                      color = multiData[2]
+                      drawMap(data, dataMap, events, color, lineData, country, window.year)
+                      showDonut(window.variable, window.currentCountry, window.year, 1)
+                      document.getElementById('currentYear').textContent = window.year;
+                    });
 
 var gTime = d3
   .select('div#slider-time')
