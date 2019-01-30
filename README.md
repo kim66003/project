@@ -10,7 +10,7 @@ This website contains a homepage, storypage, visualisations page and info page. 
 It's purpose is to visualize the trend in terrorism over the years and how different aspects of these attacks changed like which terrorist group carried out most attacks or what weapon type was used most.
 
 ## Homepage
-On the homepage there is a slider with some images about terrorism and of places where terrorism has taken place (Syria).
+On the homepage there is a slideshow (bootstrap carousel) with some images about terrorism and of places where terrorism has taken place (Syria).
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/index_30-01-2019.png)
 
 ## Story page
@@ -26,7 +26,7 @@ This page contains 3 linked views: a worldmap, multiple linegraph and a donutcha
 - Can be updated by a timeslider to change the year
 - Can be updated by clicking on circles in linegraph
 - Has tooltip with more info on each country
-- Has onclick function
+- Has onclick function that updates linegraph and donutchart
 - Text next to map explains how page works
 
 <b>Multiple linegraph</b>
@@ -44,7 +44,19 @@ This page contains 3 linked views: a worldmap, multiple linegraph and a donutcha
 - Can be updated by choosing another category in dropdown
 
 ## Info page
+This page has information about the dataset used and some contact information.
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/info_30-01-2019.png)
+Dataset used:
+[Kaggle Source](https://www.kaggle.com/START-UMD/gtd "Kaggle | Global Terrorism Database")
+
+External components:
+The /d3 folder contains d3 v5 code and some components from d3.
+- [D3](https://d3js.org/d3.v5.min.js) Copyright 2019 Mike Bostock
+- [Slider](https://bl.ocks.org/johnwalley/e1d256b81e51da68f7feb632a53c3518)  Copyright 2017-2018 John Walley
+- [D3-tip](https://github.com/Caged/d3-tip/tree/master/examples) Copyright (c) 2013 Justin Palmer
+- [D3-legend](http://bl.ocks.org/ZJONSSON/3918369) (C) 2012 ziggy.jonsson.nyc@gmail.com
+The /data folder contains Codebook.pdf which is from:
+- [GTD](https://www.start.umd.edu/gtd/downloads/Codebook.pdf) ©UNIVERSITY OF MARYLAND 
 
 ### Copyrights
 Copyright &copy; 2019 Kimberley Boersma
