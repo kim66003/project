@@ -5,8 +5,13 @@
 /* Worldmap title */
 h4 {
   text-align: center;
-  font-family: sans-serif;
+  font-family: 'Verdana';
 }
+
+/* Info text heatmap */
+/* #heatmap-info {
+  padding-top: 100px;
+} */
 
 /* Countries style */
 .names {

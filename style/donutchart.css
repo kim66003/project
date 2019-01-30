@@ -38,3 +38,9 @@
   font-size: 2em;
   fill: #707070;
 }
+
+.pie .donut-title {
+  text-anchor: middle;
+  font-size: 20px;
+  fill: black;
+}

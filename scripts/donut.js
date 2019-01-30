@@ -4,13 +4,12 @@
 
 // Source: https://codepen.io/zakariachowdhury/pen/EZeGJy
 
-function showDonut (data, country, year, bool) {
+function showDonut (data, country, year) {
 // Calls functions to draw donutchart
 
-  // Removes donutchart svg when function is called after first time
-  if (bool === 1) {
+  // Removes donutchart svg before (new) svg is created
     d3.select('#donutchart').remove();
-  }
+
     // Get data for donutchart
     events = getData(data, country, year)
     // Draw donut chart
@@ -21,7 +20,7 @@ function drawDonut (data, events, country) {
   // Draws donut
 
   // Define margins, width and height
-  var margin = {top: 30, right: 5, bottom: 10, left: 5},
+  var margin = {top: 30, right: 5, bottom: 5, left: 5},
        width = 500 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
   // Define donut variables
@@ -41,7 +40,7 @@ function drawDonut (data, events, country) {
 
   // Append g to svg
   var g = svg.append('g')
-           .attr('transform', 'translate(' + (width/2) + ',' + (height/2 + margin.top + margin.bottom) + ')');
+           .attr('transform', 'translate(' + (width / 2) + ',' + ((height / 2) + margin.top) + ')');
 
   // Get abbreviation for country with long name, otherwise returns standard name
   var countryAbv = getAbv(window.currentCountry)
@@ -56,7 +55,7 @@ function drawDonut (data, events, country) {
 
     g.append('text')
     .attr('class', 'no-data')
-    .text(' for ' + countryAbv)
+    .text('for ' + countryAbv)
     .attr('text-anchor', 'middle')
     .attr('dy', '2em');
 
@@ -65,6 +64,8 @@ function drawDonut (data, events, country) {
 
   // Get donut data in right format
   var donutDict = makeDonutDict(events)
+  var title = donutDict[1]
+  donutDict = donutDict[0]
 
   // Define arc
   var arc = d3.arc()
@@ -133,14 +134,13 @@ function drawDonut (data, events, country) {
    .text(countryAbv)
    .attr('dy', '-1.5em');
 
-   // Add title for specific country
-   // TO DOOOOO
+   // Add donut title for specific category
    svg.append('g')
       .append('text')
-      .attr('class', 'title')
+      .attr('class', 'donut-title')
       .attr('x', width / 2)
-      .attr('y', 20)
-      .text('Percentage of terrorist groups for ' + country)
+      .attr('y', margin.top / 2)
+      .text(title)
 
 }
 
@@ -151,18 +151,23 @@ function makeDonutDict (events) {
   var keys = Object.keys(events[0]);
 
   var donutDict = [];
+  var titleText = null;
 
   // Determine the type of data
   // and save this in variable
   events.forEach(function(d){
     if (keys.includes('attacktype1_txt')) {
       var arcName = d.attacktype1_txt;
+      titleText = 'Method of attack used in terrorist attacks'
     } else if (keys.includes('gname')) {
       var arcName = d.gname;
+      titleText = 'Terrorist groups behind terrorist attacks'
     } else if (keys.includes('targtype1_txt')) {
       var arcName = d.targtype1_txt;
+      titleText = 'Target/victim type object to terrorist attacks'
     } else if (keys.includes('weaptype1_txt')) {
       var arcName = d.weaptype1_txt;
+      titleText = 'Weapon types used in terrorist attacks'
     }
 
   // Push every datapoint to donutdict
@@ -175,7 +180,7 @@ function makeDonutDict (events) {
     percentage: d.percentage
   });
 });
-  return donutDict;
+  return [donutDict, titleText];
 }
 
 function getData (data, country, year) {
@@ -197,7 +202,7 @@ function getData (data, country, year) {
   });
   // If no data is available, return string
   if (events.length === 0) {
-    return 'No data available'
+    return 'No data available '
   } // Else return data
   return events;
 }

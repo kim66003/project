@@ -17,10 +17,10 @@ var tip = d3.tip()
             })
 
 // Set margins, width and height
-var margin = {top: 0, right: 0, bottom: 0, left: 0},
-     width = 1300 - margin.left - margin.right,
+var margin = {top: 0, right: 0, bottom: 0, left: -100},
+     width = 1000 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
-var legendMargin = 120;
+var legendMargin = 50;
 
 // Define path
 var path = d3.geoPath();
@@ -167,7 +167,7 @@ function drawMap(attackData, data, events, color, lineData, country, year) {
           // Update current country
           window.currentCountry = d.properties.name
           // Update donut and linegraph
-          showDonut(window.variable, d.properties.name, year, 1)
+          showDonut(window.variable, d.properties.name, year)
           showLineGraph(lineData, attackData, data, d.properties.name)
           // Update country in navbar
           document.getElementById('currentCountry').textContent = window.currentCountry;
@@ -232,14 +232,14 @@ function drawLegend(max) {
   // Draw axis next to legend
   svg.append("g")
      .attr("class", "y axis")
-     .attr("transform", "translate(120, 20)")
+     .attr("transform", "translate(" + legendMargin + "," +  "20)")
      .call(yAxis)
 
   // Add text to legend
   svg.append('g')
      .append('text')
      .attr('class', 'legend-text-map')
-     .attr('y', 75)
+     .attr('y', legendMargin - 30)
      .attr('x', - height / 2)
      .attr('transform', 'rotate(-90)')
      .text('More terrorist attacks →')
@@ -254,7 +254,7 @@ function drawSlider(data, dataMap, lineData, country, sliderYear) {
   var margin = {top: 5, right: 20, bottom: 5, left: 20},
        width = 1000 - margin.left - margin.right,
       height = 100 - margin.top - margin.bottom;
-  var sliderWidth = width - 200;
+  var sliderWidth = width - 150;
 
   // Define time
   var dataTime = d3.range(0, 28)

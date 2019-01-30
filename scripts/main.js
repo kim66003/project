@@ -33,10 +33,8 @@ window.onload = function() {
       window.year = 2000
       window.variable = group
 
-      // Draw worldmap, linegraph and donut
+      // Draw worldmap
       showHeatMap(attacks, world_countries, kw, window.currentCountry, window.year)
-      showLineGraph(kw, attacks, world_countries, window.currentCountry)
-      showDonut(window.variable, window.currentCountry, window.year, 0)
 
       // Update visualisations onclick dropdowns
       countryDrop(group, kw, attacks, world_countries)

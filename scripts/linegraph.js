@@ -20,7 +20,7 @@ function showLineGraph (mainData, attacks, dataMap, country) {
   kw = kw[0]
 
   // Set margins, width and height and duration
-  var margin = {top: 50, right: 40, bottom: 60, left: 50},
+  var margin = {top: 50, right: 40, bottom: 60, left: 60},
       width = 700 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
   var duration = 500;
@@ -219,7 +219,7 @@ function showLineGraph (mainData, attacks, dataMap, country) {
       .attr('y', - 40)
       .attr('x', - height / 2)
       .attr('transform', 'rotate(-90)')
-      .text('Number of (non)fatalities')
+      .text('Number of (non)fatalities / terrorist attacks')
 
       // Add title for specific country
       svg.append('g')
@@ -332,7 +332,7 @@ function showLineGraph (mainData, attacks, dataMap, country) {
     .attr('class', 'no-data')
     .attr('x', width / 2)
     .attr('y', height / 2)
-    .text('No data available for ' + window.currentCountry)
+    .text('No terrorist attacks in ' + window.currentCountry)
   }
 }
 
