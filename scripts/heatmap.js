@@ -173,7 +173,7 @@ function drawMap(attackData, data, events, color, lineData, country, year) {
           document.getElementById('currentCountry').textContent = window.currentCountry;
           // Scroll page down when country is clicked
           var scroll = $(window).scrollTop();
-          				scroll= scroll+ 700;
+          				scroll= scroll+ 800;
           				$('html, body').animate({
           					scrollTop: scroll
           				}, 300);

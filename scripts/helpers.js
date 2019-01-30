@@ -30,7 +30,7 @@ function countryDrop(group, kw, attacks, world_countries) {
 
         // Scroll page down when dropdown is clicked
         var scroll = $(window).scrollTop();
-                scroll= scroll+ 700;
+                scroll= scroll+ 800;
                 $('html, body').animate({
                   scrollTop: scroll
                 }, 300);
@@ -50,7 +50,7 @@ function catDrop(group, attacktype, targets, weapons, kw, attacks, world_countri
         document.getElementById('currentVar').textContent = window.variable;
         // Update current country
         document.getElementById('currentCountry').textContent = window.currentCountry;
-        
+
         // Draw linegraph first ime
         if (window.start === true) {
           // Update linegraph
@@ -80,7 +80,7 @@ function catDrop(group, attacktype, targets, weapons, kw, attacks, world_countri
 
         // Scroll page down when dropdown is clicked
         var scroll = $(window).scrollTop();
-                scroll= scroll+ 700;
+                scroll= scroll+ 800;
                 $('html, body').animate({
                   scrollTop: scroll
                 }, 300);
