@@ -62,6 +62,10 @@ The /d3 folder contains d3 v5 code and some components from d3.
 <br> The /data folder contains world_countries.json and world_attacks.tsv which is from:
 -   [World Map v4](http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f)  Micah Stubbs
 
+Plugins for python:
+- Pandas
+- Numpy
+
 ### Copyrights
 Copyright &copy; 2019 Kimberley Boersma
 
@@ -93,7 +97,17 @@ These d3 components are downloaded in my /d3 folder as mentioned under 'External
 - [Multiple linegraph](https://codepen.io/zakariachowdhury/pen/JEmjwq) ©2019 CodePen
 
 ### Images
-
+- All favicons are from: [Iconfinder](https://www.iconfinder.com/search/?q=cat)
+- [Ancient Aleppo](https://www.heraldnet.com/news/unesco-30-percent-of-aleppos-ancient-city-destroyed/)
+- [Citadel Aleppo](https://sputniknews.com/middleeast/201706211054855058-aleppo-citadel-carnival/)
+- [Desert](http://wallpapers.ae/sahara-desert-sunset-picture.html/sahara-desert-sunset-picture)
+- [GTD logo](http://www.habilian.ir/en/201602292492/documents/mko-on-the-global-terrorism-database-sp-103888886.html)
+- [Lake canada](https://airfreshener.club/quotes/canoe-desktop-backgrounds.html)
+- [Sharokh Heidari](https://www.cartoonmovement.com/collection/96) VJ Movement © 2010
+- [Eiffel tower](https://www.pinterest.ca/pin/471541023465133829/)
+- [Proposal linegraph](https://www.economist.com/graphic-detail/2015/11/18/the-plague-of-global-terrorism)
+- [Proposal barchart](http://www.newsmov.biz/afghanistan-religion-pie-chart.html)
+- [Proposal linegraph2](https://www.cs.unm.edu/~aaron/blog/archives/political_wonk/index.htm)
 
 ### Other
 -   [Topojson](https://github.com/topojson/topojson-client)  Copyright 2016 Mike Bostock
