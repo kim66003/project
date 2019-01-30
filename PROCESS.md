@@ -193,3 +193,6 @@ So I finally got my data the way I wanted it as you can see in the picture above
 - Added footers
 - Played with scaling worldmap and timeslider
 - Now I'm gonna write the readme!
+
+#### Visualisations page:
+![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_30-01-2019.png)
