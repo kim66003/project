@@ -55,8 +55,8 @@ The /d3 folder contains d3 v5 code and some components from d3.
 - [Slider](https://bl.ocks.org/johnwalley/e1d256b81e51da68f7feb632a53c3518)  Copyright 2017-2018 John Walley
 - [D3-tip](https://github.com/Caged/d3-tip/tree/master/examples) Copyright (c) 2013 Justin Palmer
 - [D3-legend](http://bl.ocks.org/ZJONSSON/3918369) (C) 2012 ziggy.jonsson.nyc@gmail.com
-The /data folder contains Codebook.pdf which is from:
-- [GTD](https://www.start.umd.edu/gtd/downloads/Codebook.pdf) ©UNIVERSITY OF MARYLAND 
+<br>The /data folder contains Codebook.pdf which is from:
+- [GTD](https://www.start.umd.edu/gtd/downloads/Codebook.pdf) ©UNIVERSITY OF MARYLAND
 
 ### Copyrights
 Copyright &copy; 2019 Kimberley Boersma
