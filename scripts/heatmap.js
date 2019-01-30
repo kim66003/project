@@ -20,6 +20,7 @@ var tip = d3.tip()
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
      width = 1300 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
+var legendMargin = 120;
 
 // Define path
 var path = d3.geoPath();
@@ -30,7 +31,8 @@ var svg = d3.select("#heatmap")
             .attr("viewBox", [0, 0, (width + margin.right + margin.left),
                       (height + margin.top + margin.bottom)].join(' '))
             .append("g")
-            .attr("class", "map");
+            .attr("class", "map")
+            .attr('transform', 'translate(0,0)');
 
 // Scale worldmap
 var projection = d3.geoMercator()
@@ -205,7 +207,7 @@ function drawLegend(max) {
                   .enter()
                   .append("g")
                   .attr("class", "legend")
-                  .attr("transform", function(d, i) { return "translate(120," + ((i * (rectHeight)) + 20) + ")"; });
+                  .attr("transform", function(d, i) { return "translate(" + legendMargin + ',' + ((i * (rectHeight)) + 20) + ")"; });
 
   // Draw legend colored rectangles
   legend.append("rect")
@@ -232,15 +234,27 @@ function drawLegend(max) {
      .attr("class", "y axis")
      .attr("transform", "translate(120, 20)")
      .call(yAxis)
+
+  // Add text to legend
+  svg.append('g')
+     .append('text')
+     .attr('class', 'legend-text-map')
+     .attr('y', 75)
+     .attr('x', - height / 2)
+     .attr('transform', 'rotate(-90)')
+     .text('More terrorist attacks →')
+
 }
 
 function drawSlider(data, dataMap, lineData, country, sliderYear) {
   // Draws time slider for period 1990-2017
   // Source: https://bl.ocks.org/johnwalley/e1d256b81e51da68f7feb632a53c3518
 
-  var width = 1000;
-  var height = 100;
-  var sliderWidth = width - 100;
+  // Set margins, width and height
+  var margin = {top: 5, right: 20, bottom: 5, left: 20},
+       width = 1000 - margin.left - margin.right,
+      height = 100 - margin.top - margin.bottom;
+  var sliderWidth = width - 200;
 
   // Define time
   var dataTime = d3.range(0, 28)
@@ -275,13 +289,14 @@ function drawSlider(data, dataMap, lineData, country, sliderYear) {
                       });
 
   // Append timeslider
-  var gTime = d3.select('div#slider-time')
+  var gTime = d3.select('#slider-time')
                 .append('svg')
                 .attr('id', 'timeslider')
-                .attr('width', 1000)
-                .attr('height', 100)
+                .attr('width', width)
+                .attr('height', height)
                 .append('g')
-                .attr('transform', 'translate(30,30)');
+                // Put timeslider 50px to the right of legend
+                .attr('transform', 'translate(' + (legendMargin + 50) + ',30)');
 
   // Draw timeslider
   gTime.call(sliderTime);

@@ -21,7 +21,7 @@ function drawDonut (data, events, country) {
   // Draws donut
 
   // Define margins, width and height
-  var margin = {top: 5, right: 5, bottom: 5, left: 5},
+  var margin = {top: 30, right: 5, bottom: 30, left: 5},
        width = 500 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
   // Define donut variables
@@ -132,6 +132,15 @@ function drawDonut (data, events, country) {
    .attr('class', 'country-text')
    .text(countryAbv)
    .attr('dy', '-1.5em');
+
+   // Add title for specific country
+   // TO DOOOOO
+   svg.append('g')
+      .append('text')
+      .attr('class', 'title')
+      .attr('x', width / 2)
+      .attr('y', 10)
+      .text('Percentage of terrorist groups for ' + country)
 
 }
 

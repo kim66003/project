@@ -206,7 +206,8 @@ function showLineGraph (mainData, attacks, dataMap, country) {
         .call(yAxis);
 
       // Add axis labels
-      svg.append('g').append('text')
+      svg.append('g')
+      .append('text')
       .attr('class', 'axis-label')
       .attr('y', height + 30)
       .attr('x', width / 2)
