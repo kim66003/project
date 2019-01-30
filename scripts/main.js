@@ -5,14 +5,14 @@
 window.onload = function() {
 
   // Import files
-  var input = '../data/json/country.json'
-  var input2 = '../data/json/world_countries.json'
-  var input3 = '../data/json/group.json'
-  var input4 = '../data/json/killsandwound.json'
-  var input5 = '../data/json/attacktypes.json'
-  var input6 = '../data/json/targettypes.json'
-  var input7 = '../data/json/weapontypes.json'
-  var input8 = '../data/world_attacks.tsv'
+  var input = "../data/json/country.json"
+  var input2 = "../data/json/world_countries.json"
+  var input3 = "../data/json/group.json"
+  var input4 = "../data/json/killsandwound.json"
+  var input5 = "../data/json/attacktypes.json"
+  var input6 = "../data/json/targettypes.json"
+  var input7 = "../data/json/weapontypes.json"
+  var input8 = "../data/world_attacks.tsv"
 
   var requests = [d3.json(input), d3.json(input2), d3.json(input3), d3.json(input4), d3.json(input5), d3.json(input6), d3.json(input7), d3.tsv(input8)]
 
@@ -29,16 +29,19 @@ window.onload = function() {
       window.countryID = response[7]
 
       // Set country, year and variable to load initial page
-      window.currentCountry = 'Iraq'
-      window.year = 2000
-      window.variable = group
+      window.currentCountry = "Iraq";
+      window.year = 2000;
+      window.variable = group;
+      window.start = true;
 
       // Draw worldmap
       showHeatMap(attacks, world_countries, kw, window.currentCountry, window.year)
+      // showLineGraph(kw, attacks, world_countries, window.currentCountry)
+      // showDonut(window.variable, window.currentCountry, window.year)
 
       // Update visualisations onclick dropdowns
       countryDrop(group, kw, attacks, world_countries)
-      catDrop(group, attacktype, targets, weapons)
+      catDrop(group, attacktype, targets, weapons, kw, attacks, world_countries)
 
   }).catch(function(e){
       throw(e);

@@ -37,7 +37,7 @@ function countryDrop(group, kw, attacks, world_countries) {
       });
 }
 
-function catDrop(group, attacktype, targets, weapons){
+function catDrop(group, attacktype, targets, weapons, kw, attacks, world_countries){
   // Updates donutchart when another category is chosen in dropdown menu
 
   d3.selectAll('#donutvars a')
@@ -48,7 +48,14 @@ function catDrop(group, attacktype, targets, weapons){
         window.variable = section;
         // Update category in navbar
         document.getElementById('currentVar').textContent = window.variable;
-
+        // Update current country
+        document.getElementById('currentCountry').textContent = window.currentCountry;
+        if (window.start === true) {
+          // Update linegraph
+          showLineGraph(kw, attacks, world_countries, window.currentCountry)
+        }
+        // Set start value to false after first time clicking donut dropdown
+        window.start = false;
         // Update donut with right data based on dropdown value
         if (section == "Group name") {
           // Update donut with terrorist groups
