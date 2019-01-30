@@ -95,6 +95,7 @@ These d3 components are downloaded in my /d3 folder as mentioned under 'External
 -   [Cards](https://www.w3schools.com/bootstrap4/bootstrap_cards.asp)  Copyright 1999-2019 by Refsnes Data.
 -   [Carousel](https://www.w3schools.com/bootstrap4/bootstrap_carousel.asp)  Copyright 1999-2019 by Refsnes Data.
 -   [Bootstrap footer](https://mdbootstrap.com/docs/jquery/navigation/footer/#purplepanel)  © 2019 Copyright: MDBootstrap.com
+-   [Bootstrap jumbotron](https://getbootstrap.com/docs/4.0/components/jumbotron/) Copyright 2011-2018 The Bootstrap Authors
 
 ### Codepen
 - [Donut chart](https://codepen.io/zakariachowdhury/pen/EZeGJy) ©2019 CodePen
