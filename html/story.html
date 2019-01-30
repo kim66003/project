@@ -3,72 +3,87 @@ Student number: 11003464
 HTML file to story page -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
     <head>
       <!-- Load stylesheets and favicon -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-      <link rel="stylesheet" href="../style/style.css">
-      <link rel="shortcut icon" type="image/png" href="../doc/favicons/chesire.png">
+      <meta charset='utf-8'>
+      <meta name='viewport' content='width=device-width, initial-scale=1'>
+      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+      <link rel='stylesheet' href='../style/style.css'>
+      <link rel='shortcut icon' type='image/png' href='../doc/favicons/chesire.png'>
       <title>Background story</title>
     </head>
     <body>
       <!-- Bootstrap navbar with links to story, visualisations and info page -->
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: #483f91;">
-          <a class="navbar-brand" href="../index.html">Global Terrorism</a>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" href="story.html">Story</a>
+      <div class='container-fluid'>
+        <nav class='navbar navbar-expand-sm navbar-dark fixed-top' style='background-color: #483f91;'>
+          <a class='navbar-brand' href='../index.html'>Global Terrorism</a>
+          <ul class='navbar-nav'>
+            <li class='nav-item'>
+              <a class='nav-link active' href='story.html'>Story</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="visualisations.html">Visualisations</a>
+            <li class='nav-item'>
+              <a class='nav-link' href='visualisations.html'>Visualisations</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="info.html">Info</a>
+            <li class='nav-item'>
+              <a class='nav-link' href='info.html'>Info</a>
             </li>
           </ul>
           <!-- Navbar text -->
-          <ul class="navbar-nav ml-auto">
-            <li class="navbar-text">
+          <ul class='navbar-nav ml-auto'>
+            <li class='navbar-text'>
               Whale Copyright ©
             </li>
           </ul>
         </nav>
       </div>
 
-      <main role="main">
+      <main role='main'>
 
       <!-- Main jumbotron for background story on data -->
-      <div class="jumbotron">
-        <div id="jumbo" class="container">
-          <h1 class="display-3">Global Terrorism</h1>
-          <p id="header-text">Terrorism is usually understood as the use or threat of violence to further a political cause. There is no universally agreed definition of terrorism making it a difficult object to quantify. For clarity, the Data Quality & Definitions section below carefully outlines the definition used in constructing the dataset presented here and compares it with the legal definition in the UK. While acts of terrorism across the globe have increased markedly in recent decades, in most parts of the world it continues to be a relatively rare event and is instead focused in particular countries or regions of instability.</p>
+      <div class='jumbotron'>
+        <div id='jumbo' class='container'>
+          <h1 class='display-3'>Global Terrorism</h1>
+          <p id='header-text'>
+            Definition of terrorism: <br>
+            'The threatened or actual use of illegal force and violence by a non-state actor to attain a political, economic, religious, or social goal through fear, coercion, or intimidation.'
+            </p>
         </div>
       </div>
 
-      <div class="container">
+      <div class='container'>
         <!-- Row of columns -->
-        <div class="row">
-          <!-- History on terrorism column -->
-          <div class="col-md-4">
-            <h2>Historical terrorism</h2>
-            <p>Terrorism is not a 21st century phenomenon and has its roots in early resistance and political movements. The Sicarii were an early Jewish terrorist organisation founded in the first century AD with the goal of overthrowing the Romans in the Middle East. Judas of Galilee, leader of the Zealots and a key influence on the Sicarii, believed that the Jews should be ruled by God alone and that armed resistance was necessary.
-
-Unlike the Zealots, the Sicarii targeted other Jews they believed to be collaborators or traitors to the cause. The tactics employed by the Sicarii were detailed by the historian Josephus around 50AD: "they would mingle with the crowd, carrying short daggers concealed under their clothing, with which they stabbed their enemies. Then when they fell, the murderers would join in the cries of indignation and, through this plausible behavior, avoided discovery."1
-
-There are many other key examples of terrorism throughout history before the modern terrorism of the 20th century. Guy Fawkes' failed attempt at reinstating a Catholic monarch is an example of an early terrorist plot motivated by religion. Meanwhile, The Reign of Terror during the French Revolution is an example of state terrorism.</p>
-          </div>
+        <div class='row'>
           <!-- Modern terrorism column -->
-          <div class="col-md-4">
-            <h2>Modern terrorism after the second world war</h2>
-            <p>The use of terrorism to further a political cause has accelerated in recent years. Modern terrorism largely came into being after the Second World War with the rise of nationalist movements in the old empires of the European powers. These early anti-colonial movements recognised the ability of terrorism to both generate publicity for the cause and influence global policy. Bruce Hoffman, director of the Centre of Security Studies at Georgetown University writes that, "The ability of these groups to mobilize sympathy and support outside the narrow confines of their actual “theaters of operation” thus taught a powerful lesson to similarly aggrieved peoples elsewhere, who now saw in terrorism an effective means of transforming hitherto local conflicts into international issues."2 This development paved the way for international terrorism in the 1960s.</p>
+          <div class='col-md-4'>
+            <h2>Problem</h2>
+            <p>
+              Terrorism has been in the news a lot the last couple of years and this might give people the impression that the risk of a terrorist attack occuring in their country has grown.
+              Despite the intense media focus on terrorist activity around the world, the numbers of people actually killed by terrorist attacks has remained low. Terrorism only killed 13,000 in 2010, a relatively low number when compared with other types of violent death, namely armed conflict and interpersonal violence.<sup><a href='https://oxfamblogs.org/fp2p/what-if-we-allocated-aid-based-on-how-much-damage-something-does-and-whether-we-know-how-to-fix-it/'>1</a></sup>
+              While acts of terrorism across the globe have increased markedly in recent decades, in most parts of the world it continues to be a relatively rare event and is instead focused in particular countries or regions of instability.
+              Ignorance on this subject could lead to unnecessary bias.
+            </p>
+          </div>
+
+          <div class='col-md-4'>
+            <h2>Solution</h2>
+            <p>
+              The goal of this website is to provide more insight in the trend of terrorist incidents in the period of 1990 till 2017.
+              Furthermore it hopefully provides in-depth information about terrorist attacks for different countries. This is done by
+              visualizing data about terrorist groups, attacktypes, targettypes and weapontypes that are behind terrorist attacks for every country per year.
+              This website is aimed at people who don't know a lot about (the trend in) global terrorism and want to learn more about it.
+              It hopes to take away any bias (if any) people had as a result of the intense media focus on terrorist attacks.
+            </p>
           </div>
           <!-- Effects terrorism column -->
-          <div class="col-md-4">
+          <div class='col-md-4'>
             <h2>Does terrorism work?</h2>
-            <p>Measuring the effectiveness of terrorism requires us to have both a well defined set of objectives for a given terrorist organisation as well as a definite way to determine success and failure. Consider the example of 9/11 and whether Al-Qaeda achieved its objectives: If the objective was to destroy America, then it clearly failed. Yet if goal was to intimidate America and publicise the cause, it may be considered a success.</p>
+            <p>
+              Measuring the effectiveness of terrorism requires us to have both a well defined set of objectives for a given terrorist organisation as well as a definite way to determine success and failure.
+              Consider the example of 9/11 and whether Al-Qaeda achieved its objectives: If the objective was to destroy America, then it clearly failed.
+              Yet if the goal was to intimidate America and publicise the cause, it may be considered a success.
+              <sup><a href='https://ourworldindata.org/terrorism#historical-terrorism'>2</a></sup>
+          </p>
           </div>
         </div>
 
@@ -78,15 +93,15 @@ There are many other key examples of terrorism throughout history before the mod
 
     </main>
 
-    <footer class="container">
-      <p>&copy; Programmeerproject 2018-2019</p>
+    <footer class='container'>
+      <p>&copy; Kimberley Boersma 2018-2019</p>
     </footer>
 
     </body>
 
     <!-- Load jquery, popper and bootstrap -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
 
 </html>

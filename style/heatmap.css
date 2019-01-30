@@ -9,9 +9,9 @@ h4 {
 }
 
 /* Info text heatmap */
-/* #heatmap-info {
-  padding-top: 100px;
-} */
+#heatmap-info {
+  padding-top: 30px;
+}
 
 /* Countries style */
 .names {

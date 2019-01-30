@@ -38,10 +38,9 @@ HTML file to info page -->
         </nav>
 
         <main role="main">
-        <div class="jumbotron">
+        <div class="jumbotron" id="infojumbo">
           <div id="jumbo" class="container">
-            <h1 class="display-3">Information</h1>
-            <p id="header-text">Terrorism is usually understood as the use or threat of violence to further a political cause. There is no universally agreed definition of terrorism making it a difficult object to quantify. For clarity, the Data Quality & Definitions section below carefully outlines the definition used in constructing the dataset presented here and compares it with the legal definition in the UK. While acts of terrorism across the globe have increased markedly in recent decades, in most parts of the world it continues to be a relatively rare event and is instead focused in particular countries or regions of instability.</p>
+            <h1 class="display-3">An eye for an eye makes the whole world blind</h1>
           </div>
         </div>
 
@@ -50,21 +49,123 @@ HTML file to info page -->
           <div class="row">
             <!-- History on terrorism column -->
             <div class="col-md">
-              <h2>Historical terrorism</h2>
-              <p>Terrorism is not a 21st century phenomenon and has its roots in early resistance and political movements. The Sicarii were an early Jewish terrorist organisation founded in the first century AD with the goal of overthrowing the Romans in the Middle East. Judas of Galilee, leader of the Zealots and a key influence on the Sicarii, believed that the Jews should be ruled by God alone and that armed resistance was necessary.
-
-  Unlike the Zealots, the Sicarii targeted other Jews they believed to be collaborators or traitors to the cause. The tactics employed by the Sicarii were detailed by the historian Josephus around 50AD: "they would mingle with the crowd, carrying short daggers concealed under their clothing, with which they stabbed their enemies. Then when they fell, the murderers would join in the cries of indignation and, through this plausible behavior, avoided discovery."1
-
-  There are many other key examples of terrorism throughout history before the modern terrorism of the 20th century. Guy Fawkes' failed attempt at reinstating a Catholic monarch is an example of an early terrorist plot motivated by religion. Meanwhile, The Reign of Terror during the French Revolution is an example of state terrorism.</p>
+              <h2>Data source</h2>
+              <img src="../doc/webimg/gtdlogo.png" alt="GTD logo" id="logo">
+              <p>I got the data from Kaggle (linked below), but the data was originally from <a href="https://www.start.umd.edu/gtd/">Global Terrorism Database</a>.
+                This is an open source database including information on terrorist events around the world from 1970 through 2017 (with annual updates planned in the future).
+                For this webpage, I used the data from 1990 through 2017.
+                Unlike many other event databases, the GTD includes systematic data on domestic as well as international terrorist incidents that have occurred during this time period and now includes more than 180,000 cases.
+                For each GTD incident, information is available on the date and location of the incident, the weapons used and nature of the target, the number of casualties, and--when identifiable--the group or individual responsible.
+                This database is acquired and currently still maintained by the University of Maryland.
+                <br>
+                To find more information about the variables used in the dataset, see <a href="../data/Codebook.pdf">Codebook</a>
+              </p>
             </div>
           </div>
           <hr>
         </div>
       </main>
 
-        <footer class="container">
-          <p>&copy; Programmeerproject 2018-2019</p>
-        </footer>
+      <!-- Footer -->
+<footer class="page-footer font-small">
+
+    <div style="background-color: #6351ce;">
+      <div class="container">
+
+        <!-- Grid row-->
+        <div class="row py-4 d-flex align-items-center">
+
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+            <h6 class="mb-0">Get connected with me</h6>
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row-->
+
+      </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5">
+
+      <!-- Grid row -->
+      <div class="row mt-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+          <!-- Content -->
+          <h6 class="text-uppercase font-weight-bold">About me</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>My name is Kimberley Boersma and I study at VU university, Amsterdam.
+             I'm a third year student Health Sciences doing a minor in Programming at the UvA.
+             This website is the result of my acquired programming/webdesigning skills.
+             </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <a href="https://github.com/kim66003/project">My Github</a>
+          </p>
+          <p>
+            <a href="http://www.mprog.nl/">Minor Programmeren</a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/kimberley-boersma-4353b715b/">LinkedIn page</a>
+          </p>
+          <p>
+            <a href="https://www.kaggle.com/START-UMD/gtd">Data source</a>
+          </p>
+          <p>
+            <a href="https://www.start.umd.edu/gtd/">Global Terrorism Database</a>
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold">Contact</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <i class="fas fa-home mr-3"></i> De Boelelaan 1105, 1081 HV Amsterdam</p>
+          <p>
+            <i class="fas fa-envelope mr-3"></i> k.l.m.boersma@student.vu.nl</p>
+          <p>
+            <i class="fas fa-phone mr-3"></i> +31 20 598 9898</p>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <!-- <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+    </div> -->
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+        <!-- <footer class="container">
+          <p>&copy; Kimberley Boersma 2018-2019</p>
+        </footer> -->
 
     </body>
     <!-- Load jquery, popper and bootstrap -->
