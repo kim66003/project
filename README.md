@@ -10,13 +10,38 @@ This website contains a homepage, storypage, visualisations page and info page. 
 It's purpose is to visualize the trend in terrorism over the years and how different aspects of these attacks changed like which terrorist group carried out most attacks or what weapon type was used most.
 
 ## Homepage
+On the homepage there is a slider with some images about terrorism and of places where terrorism has taken place (Syria).
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/index_30-01-2019.png)
 
 ## Story page
+The story page gives some information about terrorism and the reason behind making this website.
+It states the problem that a lot of people lack knowledge about terrorism and that this website
+provides more information on this subject in the form of visualisations.
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/story_30-01-2019.png)
 
 ## Visualisations page
+This page contains 3 linked views: a worldmap, multiple linegraph and a donutchart.
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_30-01-2019.png)
+<b>Worldmap</b>:
+- Can be updated by a timeslider to change the year
+- Can be updated by clicking on circles in linegraph
+- Has tooltip with more info on each country
+- Has onclick function
+- Text next to map explains how page works
+
+<b>Multiple linegraph</b>
+- Can be updated by clicking on country in worldmap
+- Can be updated by choosing country in dropdown menu
+- Lines have mouseover function
+- Circles on lines have onclick function, this updates worldmap and donutchart for selected year
+- Legend has mouseover function
+
+<b>Donutchart</b>
+- Has mouseover function
+- Can be updated by timeslider
+- Can be updated by clicking on circles in linegraph
+- Can be updated by clicking on country in worldmap or dropdown
+- Can be updated by choosing another category in dropdown
 
 ## Info page
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/info_30-01-2019.png)
