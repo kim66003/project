@@ -179,5 +179,17 @@ So I finally got my data the way I wanted it as you can see in the picture above
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/visualisations_28-01-2019.png)
 
 ### <u> Jan 29, 2019:</u>
+- I fixed my timeslider to update when line circle is clicked (see above)
+- Gave donut a title
+- Changed front page starting image
+- Commented my code
+- I cleaned up my code and tried to optimalize it (this took very long sigh)
 
 ### <u> Jan 30, 2019:</u>
+- Wrote some text next to worldmap
+- Linegraph and donutchart now don't appear on first page load. Only when country/category is chosen they appear.
+- Cleaned code some more
+- Worked on story and info page
+- Added footers
+- Played with scaling worldmap and timeslider
+- Now I'm gonna write the readme!
