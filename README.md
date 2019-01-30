@@ -1,6 +1,7 @@
 
 # Global Terrorism
 <i>By Kimberley Boersma
+<br>
 Github: kim66003</i>
 
 <b>Link to project:</b>
@@ -117,3 +118,11 @@ These d3 components are downloaded in my /d3 folder as mentioned under 'External
 ### Other
 -   [Topojson](https://github.com/topojson/topojson-client)  Copyright 2016 Mike Bostock
 -   [Stack Overflow](https://stackoverflow.com/)
+
+Disclaimer:
+I did not upload the original dataset to my /data folder because it was too big to upload (155MB),
+however I processed all the data into smaller .json files which I use for my website. If you wish to test my process.py
+script, plug in this dataset so it has the path: "../data/globalterrorismdb_0718dist.csv" with this exact title.
+The dataset is a .zip file so you will have to unzip it first and then place the file with name "globalterrorismdb_0718dist.csv"
+in the "data" folder. Then instal numpy and pandas and python 3.7. Then open this path in your console: ../project/scripts and run
+the command "python process.py"
