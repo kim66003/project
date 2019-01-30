@@ -7,7 +7,7 @@ import json
 import numpy as np
 import pandas as pd
 
-INPUT_FILE = "../data/globalterrorism.csv"
+INPUT_FILE = "../data/globalterrorismdb_0718dist.csv"
 
 def process_data(filename):
     # Process data into several dataframes and write to json files
