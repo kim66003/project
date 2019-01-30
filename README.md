@@ -55,6 +55,7 @@ The /d3 folder contains d3 v5 code and some components from d3.
 - [Slider](https://bl.ocks.org/johnwalley/e1d256b81e51da68f7feb632a53c3518)  Copyright 2017-2018 John Walley
 - [D3-tip](https://github.com/Caged/d3-tip/tree/master/examples) Copyright (c) 2013 Justin Palmer
 - [D3-legend](http://bl.ocks.org/ZJONSSON/3918369) (C) 2012 ziggy.jonsson.nyc@gmail.com
+
 <br>The /data folder contains Codebook.pdf which is from:
 - [GTD](https://www.start.umd.edu/gtd/downloads/Codebook.pdf) ©UNIVERSITY OF MARYLAND
 
@@ -68,6 +69,11 @@ Copyright &copy; 2019 Kimberley Boersma
 -   [Slider](https://bl.ocks.org/johnwalley/e1d256b81e51da68f7feb632a53c3518)  Copyright 2017-2018 John Walley
 ### D3
 -   [D3](https://d3js.org/d3.v5.min.js) Copyright 2019 Mike Bostock
+-   [D3 Scale Chromatic](https://d3js.org/d3-scale-chromatic/) Copyright 2016 Mike Bostock
+These d3 components are downloaded in my /d3 folder as mentioned under 'External Components':
+-   [Slider](https://bl.ocks.org/johnwalley/e1d256b81e51da68f7feb632a53c3518)  Copyright 2017-2018 John Walley
+-   [D3-tip](https://github.com/Caged/d3-tip/tree/master/examples) Copyright (c) 2013 Justin Palmer
+-   [D3-legend](http://bl.ocks.org/ZJONSSON/3918369) (C) 2012 ziggy.jonsson.nyc@gmail.com
 
 ### Bootstrap
 -   [Bootstrap](https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js)  Copyright 2011-2018 The Bootstrap Authors
@@ -79,6 +85,9 @@ Copyright &copy; 2019 Kimberley Boersma
 -   [Carousel](https://www.w3schools.com/bootstrap4/bootstrap_carousel.asp)  Copyright 1999-2019 by Refsnes Data.
 -   [Bootstrap footer](https://mdbootstrap.com/docs/jquery/navigation/footer/#purplepanel)  © 2019 Copyright: MDBootstrap.com
 
+### Codepen
+- [Donut chart](https://codepen.io/zakariachowdhury/pen/EZeGJy) ©2019 CodePen
+- [Multiple linegraph](https://codepen.io/zakariachowdhury/pen/JEmjwq) ©2019 CodePen
 
 ### Images
 
