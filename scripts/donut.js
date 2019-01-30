@@ -21,7 +21,7 @@ function drawDonut (data, events, country) {
   // Draws donut
 
   // Define margins, width and height
-  var margin = {top: 30, right: 5, bottom: 30, left: 5},
+  var margin = {top: 30, right: 5, bottom: 10, left: 5},
        width = 500 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
   // Define donut variables
@@ -41,7 +41,7 @@ function drawDonut (data, events, country) {
 
   // Append g to svg
   var g = svg.append('g')
-           .attr('transform', 'translate(' + (width/2) + ',' + (height/2) + ')');
+           .attr('transform', 'translate(' + (width/2) + ',' + (height/2 + margin.top + margin.bottom) + ')');
 
   // Get abbreviation for country with long name, otherwise returns standard name
   var countryAbv = getAbv(window.currentCountry)
@@ -139,7 +139,7 @@ function drawDonut (data, events, country) {
       .append('text')
       .attr('class', 'title')
       .attr('x', width / 2)
-      .attr('y', 10)
+      .attr('y', 20)
       .text('Percentage of terrorist groups for ' + country)
 
 }
