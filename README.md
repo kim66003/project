@@ -44,12 +44,15 @@ This page contains 3 linked views: a worldmap, multiple linegraph and a donutcha
 - Can be updated by choosing another category in dropdown
 
 ## Info page
+
 This page has information about the dataset used and some contact information.
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/info_30-01-2019.png)
-Dataset used:
+#### Dataset used:
+
 [Kaggle Source](https://www.kaggle.com/START-UMD/gtd "Kaggle | Global Terrorism Database")
 
-External components:
+#### External components:
+
 The /d3 folder contains d3 v5 code and some components from d3.
 - [D3](https://d3js.org/d3.v5.min.js) Copyright 2019 Mike Bostock
 - [Slider](https://bl.ocks.org/johnwalley/e1d256b81e51da68f7feb632a53c3518)  Copyright 2017-2018 John Walley
