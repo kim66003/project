@@ -5,16 +5,16 @@
 // Source of worldmap: http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 
 // Format values shown in tooltip
-var format = d3.format(",");
+var format = d3.format(',');
 
 // Set tooltips for worldmap
 var tip = d3.tip()
-            .attr("class", "d3-tip")
+            .attr('class', 'd3-tip')
             .offset([0, 50])
             .html(function(d) {
               // Show county and number of attacks
               return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Terrorist attacks: </strong><span class='details'>" + format(d.attacks) +"</span>";
-            })
+            });
 
 // Set margins, width and height
 var margin = {top: 0, right: 0, bottom: 0, left: -100},
@@ -26,12 +26,12 @@ var legendMargin = 50;
 var path = d3.geoPath();
 
 // Append svg to heatmap column
-var svg = d3.select("#heatmap")
-            .append("svg")
-            .attr("viewBox", [0, 0, (width + margin.right + margin.left),
+var svg = d3.select('#heatmap')
+            .append('svg')
+            .attr('viewBox', [0, 0, (width + margin.right + margin.left),
                       (height + margin.top + margin.bottom)].join(' '))
-            .append("g")
-            .attr("class", "map")
+            .append('g')
+            .attr('class', 'map')
             .attr('transform', 'translate(0,0)');
 
 // Scale worldmap
@@ -78,7 +78,7 @@ max = Math.round(max / 1000) * 1000 + 1000
 // Define color
 var color = d3.scaleThreshold()
               .domain([0, 1, 10, 25, 50, 100, 250, 500, 1000, 2500, max])
-              .range(["#eeeeee", "#fff7ec", "#fee8c8", "#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#990000", "#7f0000"])
+              .range(['#eeeeee', '#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#990000', '#7f0000'])
 
 return [events, max, color]
 
@@ -121,7 +121,7 @@ function drawMap(attackData, data, events, color, lineData, country, year) {
   // Draws worldmap with colors according to number of attacks
 
   // Remove old countries when map is drawn again
-  d3.selectAll(".countries").remove()
+  d3.selectAll('.countries').remove()
 
   // Get data in right format
   var multiData2 = formatData(events, year, data)
@@ -129,41 +129,41 @@ function drawMap(attackData, data, events, color, lineData, country, year) {
   var data = multiData2[1]
 
   // Draw countries on map
-  svg.append("g")
-     .attr("class", "countries")
-     .selectAll("path")
+  svg.append('g')
+     .attr('class', 'countries')
+     .selectAll('path')
      .data(data.features)
-     .enter().append("path")
-     .attr("d", path)
+     .enter().append('path')
+     .attr('d', path)
      // Give country color according to colorscale
-     .style("fill", function(d) {
+     .style('fill', function(d) {
           return color(d.attacks)
       })
-     .style("stroke", "white")
-     .style("stroke-width", 1.5)
-     .style("opacity",0.8)
+     .style('stroke', 'white')
+     .style('stroke-width', 1.5)
+     .style('opacity',0.8)
      // Mouseover functions
-     .style("stroke","white")
-     .style("stroke-width", 0.3)
-     .on("mouseover",function(d){
+     .style('stroke','white')
+     .style('stroke-width', 0.3)
+     .on('mouseover',function(d){
           // Show tooltip
           tip.show(d);
           // Highlight country
           d3.select(this)
-            .style("opacity", 1)
-            .style("stroke","white")
-            .style("stroke-width",3);
+            .style('opacity', 1)
+            .style('stroke','white')
+            .style('stroke-width',3);
         })
-     .on("mouseout", function(d){
+     .on('mouseout', function(d){
           tip.hide(d)
 
           d3.select(this)
-            .style("opacity", 0.8)
-            .style("stroke","white")
-            .style("stroke-width",0.3);
+            .style('opacity', 0.8)
+            .style('stroke','white')
+            .style('stroke-width',0.3);
         })
       // Update donut and linegraph onclick
-     .on("mousedown", function(d) {
+     .on('mousedown', function(d) {
           // Update current country
           window.currentCountry = d.properties.name
           // Update donut and linegraph
@@ -182,10 +182,10 @@ function drawMap(attackData, data, events, color, lineData, country, year) {
 
         });
    // Give names to countries
-   svg.append("path")
+   svg.append('path')
       .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
-      .attr("class", "names")
-      .attr("d", path);
+      .attr('class', 'names')
+      .attr('d', path);
 }
 
 function drawLegend(max) {
@@ -199,22 +199,22 @@ function drawLegend(max) {
   // Define legend color
   var color = d3.scaleThreshold()
                 .domain([0, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, max])
-                .range(["#7f0000", "#7f0000", "#990000", "#b30000", "#d7301f", "#ef6548", "#fc8d59", "#fdbb84", "#fdd49e", "#fee8c8", "#fff7ec", "#eeeeee"])
+                .range(['#7f0000', '#7f0000', '#990000', '#b30000', '#d7301f', '#ef6548', '#fc8d59', '#fdbb84', '#fdd49e', '#fee8c8', '#fff7ec', '#eeeeee'])
 
   // Append legend to svg
-  var legend = svg.selectAll(".legend")
+  var legend = svg.selectAll('.legend')
                   .data(color.domain())
                   .enter()
-                  .append("g")
-                  .attr("class", "legend")
-                  .attr("transform", function(d, i) { return "translate(" + legendMargin + ',' + ((i * (rectHeight)) + 20) + ")"; });
+                  .append('g')
+                  .attr('class', 'legend')
+                  .attr('transform', function(d, i) { return 'translate(' + legendMargin + ',' + ((i * (rectHeight)) + 20) + ')'; });
 
   // Draw legend colored rectangles
-  legend.append("rect")
-        .attr("x", 0)
-        .attr("width", width)
-        .attr("height", rectHeight)
-        .style("fill", color);
+  legend.append('rect')
+        .attr('x', 0)
+        .attr('width', width)
+        .attr('height', rectHeight)
+        .style('fill', color);
 
   // Set y scale
   var yScale = d3.scaleLinear()
@@ -230,9 +230,9 @@ function drawLegend(max) {
           .tickValues([0, 1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, max]);
 
   // Draw axis next to legend
-  svg.append("g")
-     .attr("class", "y axis")
-     .attr("transform", "translate(" + legendMargin + "," +  "20)")
+  svg.append('g')
+     .attr('class', 'y axis')
+     .attr('transform', 'translate(' + legendMargin + ',' +  '20)')
      .call(yAxis)
 
   // Add text to legend
