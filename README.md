@@ -101,6 +101,7 @@ These d3 components are downloaded in my /d3 folder as mentioned under 'External
 
 ### Images
 - All favicons are from: [Iconfinder](https://www.iconfinder.com/search/?q=cat)
+<br>Website images are from:
 - [Ancient Aleppo](https://www.heraldnet.com/news/unesco-30-percent-of-aleppos-ancient-city-destroyed/)
 - [Citadel Aleppo](https://sputniknews.com/middleeast/201706211054855058-aleppo-citadel-carnival/)
 - [Desert](http://wallpapers.ae/sahara-desert-sunset-picture.html/sahara-desert-sunset-picture)
@@ -108,6 +109,7 @@ These d3 components are downloaded in my /d3 folder as mentioned under 'External
 - [Lake canada](https://airfreshener.club/quotes/canoe-desktop-backgrounds.html)
 - [Sharokh Heidari](https://www.cartoonmovement.com/collection/96) VJ Movement © 2010
 - [Eiffel tower](https://www.pinterest.ca/pin/471541023465133829/)
+<br>Proposal images:
 - [Proposal linegraph](https://www.economist.com/graphic-detail/2015/11/18/the-plague-of-global-terrorism)
 - [Proposal barchart](http://www.newsmov.biz/afghanistan-religion-pie-chart.html)
 - [Proposal linegraph2](https://www.cs.unm.edu/~aaron/blog/archives/political_wonk/index.htm)
