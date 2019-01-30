@@ -5,7 +5,7 @@
 // Scroll index page down onload
 window.onload = function onload() {
   var scroll = $(window).scrollTop();
-  				scroll= scroll+ 100;
+  				scroll= scroll+ 130;
   				$('html, body').animate({
   					scrollTop: scroll
   				}, 2500);

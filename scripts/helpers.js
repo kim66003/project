@@ -50,12 +50,15 @@ function catDrop(group, attacktype, targets, weapons, kw, attacks, world_countri
         document.getElementById('currentVar').textContent = window.variable;
         // Update current country
         document.getElementById('currentCountry').textContent = window.currentCountry;
+        
+        // Draw linegraph first ime
         if (window.start === true) {
           // Update linegraph
           showLineGraph(kw, attacks, world_countries, window.currentCountry)
         }
         // Set start value to false after first time clicking donut dropdown
         window.start = false;
+
         // Update donut with right data based on dropdown value
         if (section == "Group name") {
           // Update donut with terrorist groups

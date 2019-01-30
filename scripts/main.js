@@ -36,8 +36,6 @@ window.onload = function() {
 
       // Draw worldmap
       showHeatMap(attacks, world_countries, kw, window.currentCountry, window.year)
-      // showLineGraph(kw, attacks, world_countries, window.currentCountry)
-      // showDonut(window.variable, window.currentCountry, window.year)
 
       // Update visualisations onclick dropdowns
       countryDrop(group, kw, attacks, world_countries)

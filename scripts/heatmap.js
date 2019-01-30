@@ -296,7 +296,7 @@ function drawSlider(data, dataMap, lineData, country, sliderYear) {
                 .attr('height', height)
                 .append('g')
                 // Put timeslider 50px to the right of legend
-                .attr('transform', 'translate(' + (legendMargin + 50) + ',30)');
+                .attr('transform', 'translate(' + (legendMargin + 70) + ',30)');
 
   // Draw timeslider
   gTime.call(sliderTime);
