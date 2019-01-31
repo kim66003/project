@@ -8,7 +8,7 @@ Github: kim66003</i>
 [Global Terrorism Project](https://kim66003.github.io/project/ "Global Terrorism - Project")
 
 <Link to demo video: </b>
-[Demo video](https://www.youtube.com/watch?v=XTnFeQm8QwQ&t=8s "Demo video - Global Terrorism Project")
+[Demo video](https://www.youtube.com/watch?v=XTnFeQm8QwQ&t=8s/ "Demo video - Global Terrorism Project")
 
 ### Purpose
 This website contains a homepage, storypage, visualisations page and info page. The visualisations page has a worldmap (heatmap), linegraph (onclick) and donutchart (onclick) which shows information about terrorist attacks across the globe from 1990 through 2017.
