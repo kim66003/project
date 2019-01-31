@@ -34,7 +34,7 @@ Style folder: contains a style.css for the html pages and heatmap.css, donutchar
 
 
 
-![alt text](https://github.com/kim66003/project/blob/master/doc/process/repo_structure.png)
+![alt text](https://github.com/kim66003/project/blob/master/doc/process/repo_structure.PNG)
 
 
 
