@@ -27,7 +27,7 @@ Interesting variables to visualize in this dataset could be:
 - amount of terrorist attacks every day per country per year in a bar chart (so 365 bars)
 - amount of terrorist attacks between 2000 and 2017 of several countries (select in check box) in multiple line chart
 
-![Global Terrorism Diagram](https://github.com/kim66003/project/blob/master/doc/diagram.png)
+![Global Terrorism Diagram](https://github.com/kim66003/project/blob/master/doc/proposal/diagram.png)
 
 In this diagram you can see that I will start with a csv file, which will be filtered and convert to a json file using pandas in python 3.7. Then this json file will be loaded into a javascript file where the data will be used to create a world heat map to show which countries have the most terrorist attacks. These will have a darker colour. The world map will have a year slider (2000 - 2017) to show the correct data per year on the map. On the top right corner of the page, there will be a dropdown menu to select one country. This will change all three charts to show the data for that country and for the selected year (with slider).
 <br>When the user clicks on a country on the map or selects a country from the dropdown menu, a multiple line chart and donut chart will show up. The multiple line chart will show the trend in the number of kills and wounded from 2000 till 2017 for that country. I'm considering adding a dropdown menu here so more than one country can be selected to show the trend in kills and wounded to compare to each other (e.g. if France and Germany are selected, 4 lines will be shown).
