@@ -31,10 +31,12 @@ HTML pages:
 
 Style folder: contains a style.css for the html pages and heatmap.css, donutchart.css, linegraph.css to style the visualisations
 
-
-
-
+My folder structure:
 ![alt text](https://github.com/kim66003/project/blob/master/doc/process/repo_structure.PNG)
+
+Diagram to show file structure:
+![alt text](https://github.com/kim66003/project/blob/master/doc/process/finaldesign.PNG)
+
 
 
 
