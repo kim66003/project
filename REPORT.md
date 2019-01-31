@@ -62,6 +62,26 @@ Contains functions:
 ![alt text](https://github.com/kim66003/project/blob/master/doc/report/heatmap.png)
 
 <b>Linegraph.js</b>
+Contains functions:
+- showLinegraph() which calls: makeDict() to format data
+- makeDict()
+- drawLineGraph()
+- drawLegend()
+
+- Within the function showLineGraph, some variables are defined like margin, width, height, opacity, stroke, x- and yScale, x- and yAxis, svg is created, color is defined (as list), tooltiptext (list), line and lines are defined.
+- Then functions drawLineGraph() and drawLegend() are called when length of list of data is bigger than 0, if not, a text is drawn on svg saying there are no terrorist attacks for this country and this year.
+![alt text](https://github.com/kim66003/project/blob/master/doc/report/linegraph.png)
+
+<b>Donut.js</b>
+Contains functions:
+- showDonut() which calls getData() and drawDonut()
+- drawDonut()
+- makeDonutDict()
+- getData()
+- getAbv()
+![alt text](https://github.com/kim66003/project/blob/master/doc/report/donut.png)
+
+
 
 
 
