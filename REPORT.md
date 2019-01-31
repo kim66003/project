@@ -52,8 +52,16 @@ Calls functions from:
 - CountryDrop() calls functions from: linegraph.js
 - Both functions don't return anything, only call other functions
 ![alt text](https://github.com/kim66003/project/blob/master/doc/report/helpers.png)
+<b>Heatmap.js</b>
+Contains functions:
+- showHeatMap() which calls: getData2(), drawMap(), drawLegend(), drawSlider()
+- getData2() returns 3 variables: events, max, color
+- drawMap() draws heatmap and onclick function calls showLineGraph() and showDonut()
+- drawLegend() draws legend of heatmap and adds text and axis
+- drawSlider() makes timeslider and calls functions drawMap() and showDonut() to update for year
+![alt text](https://github.com/kim66003/project/blob/master/doc/report/heatmap.png)
 
-
+<b>Linegraph.js</b>
 
 
 
