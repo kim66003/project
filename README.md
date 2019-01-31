@@ -7,7 +7,7 @@ Github: kim66003</i>
 <b>Link to project:</b>
 [Global Terrorism Project](https://kim66003.github.io/project/ "Global Terrorism - Project")
 
-<Link to demo video: </b>
+<b>Link to demo video: </b>
 [Demo video](https://youtu.be/XTnFeQm8QwQ)
 
 ### Purpose
