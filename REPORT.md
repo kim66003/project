@@ -32,10 +32,32 @@ HTML pages:
 Style folder: contains a style.css for the html pages and heatmap.css, donutchart.css, linegraph.css to style the visualisations
 
 My folder structure:
-![alt text](https://github.com/kim66003/project/blob/master/doc/process/repo_structure.PNG)
+![alt text](https://github.com/kim66003/project/blob/master/doc/report/repo_structure.PNG)
 
 Diagram to show file structure:
-![alt text](https://github.com/kim66003/project/blob/master/doc/process/finaldesign.PNG)
+![alt text](https://github.com/kim66003/project/blob/master/doc/report/finaldesign.PNG)
+
+### Design in detail
+<b>Main.js:</b>
+Calls functions from:
+- Helpers.js (catDrop and countryDrop)
+- Heatmap.js (showHeatMap)
+![alt text](https://github.com/kim66003/project/blob/master/doc/report/main.png)
+<b>Index.js:</b>
+- Contains function that scrolls window down when index page is loaded
+- Changes text in country and category dropdown menus on selection
+<b>Helpers.js:</b>
+- Contains functions: catDrop() and countryDrop(), these are called when another value is selected in one of the dropdown menus
+- CatDrop() calls functions from: donut.js
+- CountryDrop() calls functions from: linegraph.js
+- Both functions don't return anything, only call other functions
+![alt text](https://github.com/kim66003/project/blob/master/doc/report/helpers.png)
+
+
+
+
+
+
 
 
 
