@@ -81,16 +81,10 @@ Contains functions:
 - getAbv()
 ![alt text](https://github.com/kim66003/project/blob/master/doc/report/donut.png)
 
-
-
-
-
-
-
-
-
-
-
 ### Challenges
+There were a lot of challenges through this project. Before I began the actual programming, I wanted to use a lot more data that was available than I eventually used. As I stated in my DESIGN document, I wanted to make a multiple linegraph with lines of different countries in one graph. I wasn't able to do this after all because I didn't have enough time. I also wasn't able to use the data on the succesrates of the terrorist attacks. I did actually parse this data from the dataset but I didn't have time to implement this into my code, because I would have to change a lot of things in my linegraph. I also wanted to make a barchart with the amount of attacks in one year so you could see which months/days had a lot of attacks but I wasn't able to do this.
+I actually did implement everything that I showed in my diagram of my design document because I was kind of playing it on the safe side when I was making that diagram. What I had in mind was a lot more than I have accomplished. This was due to the time constraint, but also because I had been struggling with using an update and transition for my linegraph and donutchart. This prevented me from being able to create extra visualisations.
+An important change that I made was changing the time period of my dataset from 2000-2017 to 1990-2017. At first I chose the previous time period because my dataset was so big and I wanted to make it as small as possible without using a ridiculously small time period (like 5 years). After that I found out that during processing and parsing my data, I didn't need to have such a big dataset to use in my .js files anyway, because I wanted a seperate .json file for every type of data (terroristgroups, amount of attacks, target types etc.) That's why I chose to make the time period of my data bigger so I could show some more data on my website.
+I also changed the colors of my heatmap because my heatmap was looking rather yellow because I had a few outliers and the rest of the world had very low values. So I changed the cutoff values for the colours, and didn't use a colour gradient for my legend anymore but just set colours.
 
 ### Defense
